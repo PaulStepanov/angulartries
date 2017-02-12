@@ -2,10 +2,16 @@
   {{title}}
   <div class="">
     <ul>
-      <li *ngFor="let item of items ">
-        {{item.name}}
+      <li *ngFor="let item of items;let i=index">
+        <div >item with name {{item.name}} and index {{i}} and </div>
+        <button (click)="click('lol kek cheburek')">click</button>
+
       </li>
+        <input placeholder="" name="input1" [(ngModel)]="title" >
+        <input placeholder="lol kek cheburek" name="input2" >
 
     </ul>
   </div>
 </h1>
+<router-outlet ></router-outlet>
+<app-about [description]="'lol'" (eventEmitter)="printOut($event)"></app-about>
