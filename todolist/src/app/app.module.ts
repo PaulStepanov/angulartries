@@ -10,13 +10,16 @@ import 'hammerjs';
 import {HeaderComponent} from "./components/header-component/app.header";
 import {AppTasksComponent} from "./components/task-component/tasks/app.tasks";
 import {TaskComponent} from "./components/task-component/tasks/task/app.task";
+import {AddTaskDialog} from "./components/header-component/taskdialog/taskDialog";
+import {TaskManagerService} from "./components/servicies/TaskManagerService";
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     AppTasksComponent,
-    TaskComponent
+    TaskComponent,
+    AddTaskDialog
   ],
   imports: [
     NgbModule.forRoot(),
@@ -27,7 +30,8 @@ import {TaskComponent} from "./components/task-component/tasks/task/app.task";
     MaterialModule.forRoot(),
     MdInputModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AddTaskDialog],
+  providers: [TaskManagerService]
 })
 export class AppModule { }

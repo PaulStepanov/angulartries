@@ -2,6 +2,8 @@
  * Created by pili on 2/13/17.
  */
 import {Component, OnInit} from '@angular/core';
+import {MdDialog} from '@angular/material';
+import {AddTaskDialog} from "./taskdialog/taskDialog";
 
 @Component({
   moduleId: module.id,
@@ -10,9 +12,12 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['app.header.css']
 })
 export class HeaderComponent implements OnInit {
-  constructor() {
+  constructor(public dialog: MdDialog) {
   }
 
+  openDialogAddTask(){
+    this.dialog.open(AddTaskDialog)
+  }
   ngOnInit() {
   }
 
