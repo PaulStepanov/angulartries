@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <!--TODO priority tag-->
+      <span class="priority"></span>
+      <span>{{task.title}}</span>
+    </div>
+    <div class="col-md-1">
+      <span class="date">{{task.date}}</span>
+    </div>
+    <div class="col-md-3 col-md-offset-1 buttons">
+      <!--buttons-->
+      <span class="postpone-button">
+        <span mdTooltip="Postpone">
+          <button><i class="fa fa-reply" aria-hidden="true"></i></button>
+        </span>
+      </span>
+
+      <span class="delete-button">
+        <span mdTooltip="Delete Task">
+          <button class="" (click)="deleteTask($event)"><i class="fa fa-window-close-o" aria-hidden="true"></i></button>
+        </span>
+      </span>
+
+    </div>
+  </div>
+</div>
