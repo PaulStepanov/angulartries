@@ -3,13 +3,13 @@ import {NgModule} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { AppComponent } from './components/app.root.rootcomponent';
+import { AppComponent } from './components/main-component/app.root.rootcomponent';
 import {LoginModule} from "./app.login.module";
 import { MaterialModule,MdInputModule } from '@angular/material';
 import 'hammerjs';
-import {HeaderComponent} from "./components/app.header";
-import {AppTasksComponent} from "./components/tasks/app.tasks";
-import {TaskComponent} from "./components/tasks/app.task";
+import {HeaderComponent} from "./components/header-component/app.header";
+import {AppTasksComponent} from "./components/task-component/tasks/app.tasks";
+import {TaskComponent} from "./components/task-component/tasks/task/app.task";
 
 @NgModule({
   declarations: [

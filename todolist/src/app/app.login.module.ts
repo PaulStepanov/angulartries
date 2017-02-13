@@ -3,7 +3,7 @@
  */
 import { NgModule } from '@angular/core';
 
-import { LoginComponent } from './components/app.loginComponent';
+import { LoginComponent } from './components/login-component/app.loginComponent';
 import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule} from "@angular/forms";
 

@@ -7,8 +7,8 @@ import {Task} from "./task";
 @Component({
   moduleId: module.id,
   selector: 'app-task',
-  templateUrl: '../../public/templates/app.task.html',
-  styleUrls: ['../../public/css/task.css'],
+  templateUrl: 'app.task.html',
+  styleUrls: ['task.css'],
 })
 
 export class TaskComponent implements OnInit {
@@ -19,6 +19,7 @@ export class TaskComponent implements OnInit {
   delTask:EventEmitter<Task>=new EventEmitter();
   constructor() {
   }
+
   deleteTask(){
     this.delTask.emit(this.task);
   }
