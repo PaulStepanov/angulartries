@@ -1,6 +1,3 @@
-/**
- * Created by pili on 2/13/17.
- */
 import {Component, OnInit} from '@angular/core';
 import {MdDialog} from '@angular/material';
 import {AddTaskDialog} from "./taskdialog/taskDialog";
@@ -15,9 +12,10 @@ export class HeaderComponent implements OnInit {
   constructor(public dialog: MdDialog) {
   }
 
-  openDialogAddTask(){
+  openDialogAddTask() {
     this.dialog.open(AddTaskDialog)
   }
+
   ngOnInit() {
   }
 

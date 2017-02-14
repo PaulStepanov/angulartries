@@ -1,7 +1,4 @@
-/**
- * Created by pili on 2/13/17.
- */
-import {Component, OnInit, NgModule, Input, Output, EventEmitter} from '@angular/core';
+import  {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {Task} from "./task";
 
 @Component({
@@ -13,14 +10,15 @@ import {Task} from "./task";
 
 export class TaskComponent implements OnInit {
   @Input()
-  task:Task;
+  task: Task;
 
   @Output()
-  delTask:EventEmitter<Task>=new EventEmitter();
+  delTask: EventEmitter<Task> = new EventEmitter();
+
   constructor() {
   }
 
-  deleteTask(){
+  deleteTask() {
     this.delTask.emit(this.task);
   }
 

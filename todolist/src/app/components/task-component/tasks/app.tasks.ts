@@ -1,9 +1,4 @@
-import {ng2WalkerFactoryUtils} from "codelyzer/angular/ng2WalkerFactoryUtils";
-/**
- * Created by pili on 2/13/17.
- */
-import {Component, OnInit, NgModule} from '@angular/core';
-import {TaskComponent} from "./task/app.task";
+import {Component, OnInit} from '@angular/core';
 import {Task} from "./task/task";
 import {TaskManagerService} from "../../servicies/TaskManagerService";
 
@@ -16,20 +11,20 @@ import {TaskManagerService} from "../../servicies/TaskManagerService";
 })
 
 export class AppTasksComponent implements OnInit {
-  tasks: Task[] =[];
+  tasks: Task[] = [];
 
-  constructor(private taskManagerService:TaskManagerService){
+  constructor(private taskManagerService: TaskManagerService) {
 
   }
+
   delTask(task: Task) {
     this.taskManagerService.delTask(task);
     console.log(this.tasks);
   }
 
   ngOnInit() {
-    this.tasks=this.taskManagerService.getTasks();
+    this.tasks = this.taskManagerService.getTasks();
   }
-
 
 
 }

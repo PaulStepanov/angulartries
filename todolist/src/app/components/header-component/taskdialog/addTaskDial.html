@@ -1,9 +1,10 @@
-<md-input-container   >
+<md-input-container>
   <input md-input color="primar" placeholder="Task name" #name>
 </md-input-container>
-<md-input-container   >
+<md-input-container>
   <input md-input color="primar" placeholder="Date" #date>
 </md-input-container>
 <button md-dialog-close (click)="addTask(date.value,name.value)" type="button" class="btn btn-primary">Add Task</button>
-<button md-button  md-dialog-close type="button" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></button>
+<button md-button md-dialog-close type="button" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i>
+</button>
 
