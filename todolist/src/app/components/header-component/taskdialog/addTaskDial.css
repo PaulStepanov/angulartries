@@ -1,0 +1,25 @@
+.taskText {
+  width: 100%;
+}
+.taskContainer{
+  width: 100%;
+}
+.dateContainer{
+  width: 40%;
+  height: 10%;
+}
+.priorityContainer{
+  width: 60%;
+  height: 10%;
+}
+.priorityName{
+  margin-left: 11px;
+}
+.closeBut{
+  float: right;
+}
+.addTaskText{
+  float: left;
+  font-size: 17px;
+  margin-left: 40%;
+}

@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   }
 
   openDialogAddTask() {
-    this.dialog.open(AddTaskDialog)
+    this.dialog.open(AddTaskDialog,{width:"40%",height:'25%'})
   }
 
   ngOnInit() {

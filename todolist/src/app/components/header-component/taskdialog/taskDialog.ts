@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {TaskManagerService} from "../../servicies/TaskManagerService";
 import {Task} from "../../task-component/tasks/task/task";
 
@@ -9,6 +9,24 @@ import {Task} from "../../task-component/tasks/task/task";
   styleUrls: ['addTaskDial.css']
 })
 export class AddTaskDialog implements OnInit {
+  priorities = [
+    {
+      name: "Priority 1",
+      color: "Red"
+    },
+    {
+      name: "Priority 2",
+      color: "Orange"
+    },
+    {
+      name: "Priority 3",
+      color: "Green"
+    },
+    {
+      name:"Priority 4",
+      color:"Gray"
+    }];
+
   constructor(private taskManagerService: TaskManagerService) {
   }
 
@@ -16,7 +34,7 @@ export class AddTaskDialog implements OnInit {
 
   }
 
-  addTask(name: string, date: string,priority?:number) {
+  addTask(name: string, date: string, priority?: number) {
     this.taskManagerService.addTask(new Task(name, date));
   }
 
