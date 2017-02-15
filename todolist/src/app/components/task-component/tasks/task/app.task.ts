@@ -25,4 +25,17 @@ export class TaskComponent implements OnInit {
   ngOnInit() {
   }
 
+  getPriorityColor(){
+    switch (this.task.priority){
+      case 0:
+        return "gray"
+      case 1:
+        return "red"
+      case 2:
+        return "orange"
+      case 3:
+        return "green"
+    }
+  }
+
 }

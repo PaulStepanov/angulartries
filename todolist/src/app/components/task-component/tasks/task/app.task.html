@@ -2,7 +2,9 @@
   <div class="row">
     <div class="col-md-4">
       <!--TODO priority tag-->
-      <span class="priority"></span>
+      <span class="priority">
+        <i class="fa fa-flag" [style.color]="getPriorityColor()" aria-hidden="true"></i>
+      </span>
       <span>{{task.title}}</span>
     </div>
     <div class="col-md-1">

@@ -7,11 +7,9 @@ import {Task} from "../task-component/tasks/task/task";
 @Injectable()
 export class TaskManagerService {
 
-    tasks:Task[]=[new Task("Fuck Jenifer","13.87.45"),new Task("Fuck Triss","12.56.2023")];
+    tasks:Task[]=[new Task("Fuck Jenifer","13.87.45",1),new Task("Fuck Triss","12.56.2023",2)];
     constructor() { }
 
-  constructor() {
-  }
 
   getTasks() {
     return this.tasks;
@@ -27,4 +25,5 @@ export class TaskManagerService {
       this.tasks.splice(index, 1);
     }
   }
+
 }

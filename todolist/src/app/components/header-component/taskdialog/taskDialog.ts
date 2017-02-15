@@ -16,7 +16,7 @@ export class AddTaskDialog implements OnInit {
 
   }
 
-  addTask(name: string, date: string) {
+  addTask(name: string, date: string,priority?:number) {
     this.taskManagerService.addTask(new Task(name, date));
   }
 
