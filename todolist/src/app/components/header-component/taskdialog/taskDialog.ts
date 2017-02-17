@@ -30,6 +30,7 @@ export class AddTaskDialog implements OnInit {
   constructor(private taskManagerService: TaskManagerService) {
   }
 
+  
   ngOnInit() {
 
   }
