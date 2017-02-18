@@ -1,7 +1,7 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {TaskManagerService} from "../../servicies/TaskManagerService";
 import {Task} from "../../task-component/tasks/task/task";
-
+//Ш дшлу зкщскфыештфеу
 @Component({
   moduleId: module.id,
   selector: 'app-dialog-addtask',
@@ -30,7 +30,7 @@ export class AddTaskDialog implements OnInit {
   constructor(private taskManagerService: TaskManagerService) {
   }
 
-  
+
   ngOnInit() {
 
   }
