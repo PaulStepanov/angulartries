@@ -12,6 +12,7 @@ import {AppTasksComponent} from "./components/task-component/tasks/app.tasks";
 import {TaskComponent} from "./components/task-component/tasks/task/app.task";
 import {AddTaskDialog} from "./components/header-component/taskdialog/taskDialog";
 import {TaskManagerService} from "./components/servicies/TaskManagerService";
+import {MyDatePickerModule} from "mydatepicker";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {TaskManagerService} from "./components/servicies/TaskManagerService";
     HttpModule,
     LoginModule,
     MaterialModule.forRoot(),
-    MdInputModule
+    MdInputModule,
+    MyDatePickerModule
   ],
   bootstrap: [AppComponent],
   entryComponents: [AddTaskDialog],

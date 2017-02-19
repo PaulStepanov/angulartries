@@ -13,24 +13,24 @@
   </md-input-container>
 </div>
 
-<!--TODO:Make date picker-->
-<span class="dateContainer">
-  <md-input-container>
-    <input md-input color="primar" placeholder="Date" #date>
-  </md-input-container>
-</span>
+<div class="dateContainer left" >
+  <form #myForm="ngForm" novalidate>
+  <my-date-picker name="mydate" [options]="myDatePickerOptions"
+                  [(ngModel)]="date" required></my-date-picker>
+</form>
+</div>
 
-<span class="priorityContainer">
-<md-select placeholder="Select priority">
-  <md-option *ngFor="let priority of priorities" [value]="priority.value" #priorityField>
-    <i class="fa fa-flag" [style.color]="priority.color" aria-hidden="true"></i>
+<div class="priorityContainer" >
+<md-select placeholder="Select priority" [(ngModel)]="selectedPriority" >
+  <md-option *ngFor="let priority of priorities" [value]="priority.value" >
+    <i class="fa fa-flag" [style.color]="priority.color" aria-hidden="true" ></i>
     <span class="priorityName">{{priority.name}}</span>
   </md-option>
 </md-select>
-</span>
+</div>
 <br>
 
-<button md-dialog-close (click)="addTask(date.value,name.value,priorityField.value)" type="button" class="btn btn-primary">Add Task
+<button md-dialog-close (click)="addTask(name.value)" type="button" class="btn btn-primary">Add Task
 </button>
 
 <!--TODO add focus on input,not exit button-->

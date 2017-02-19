@@ -6,7 +6,7 @@ export class Task {
   title: string;
   date: string;
   isDone: boolean = false;
-  priority:number=0;
+  priority:number=4;
 
   constructor(title: string, date: string, priority?:number,isDone?: boolean) {
     this.title = title;
