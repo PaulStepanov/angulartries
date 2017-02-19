@@ -1,14 +1,17 @@
 /**
  * Created by pili on 2/13/17.
  */
+import * as moment from 'moment';
+import Moment = moment.Moment;
+
 export class Task {
   id: string;
   title: string;
-  date: string;
+  date: Moment;
   isDone: boolean = false;
   priority:number=4;
 
-  constructor(title: string, date: string, priority?:number,isDone?: boolean) {
+  constructor(title: string, date: Moment, priority?:number,isDone?: boolean) {
     this.title = title;
     this.date = date;
     if (isDone) {

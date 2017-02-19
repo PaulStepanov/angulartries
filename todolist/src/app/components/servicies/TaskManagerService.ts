@@ -2,15 +2,15 @@
  * Created by pili on 2/13/17.
  */
 import {Injectable} from '@angular/core';
-import {Task} from "../task-component/tasks/task/task";
-
+import {Task} from "../../accessoryClasses/task/Task";
+import * as moment from 'moment';
 @Injectable()
 export class TaskManagerService {
 
     tasks:Task[]=[
-      new Task("Fuck Jenifer","23-12-2019",2),
-      new Task("Fuck Triss","20-03-2018",3),
-      new Task("Add Class priority and fix hardcode","16-02-2017",1)
+      new Task("Fuck Jenifer",moment(),2),
+      new Task("Fuck Triss",moment(),4),
+      new Task("Add Class priority and fix hardcode",moment(),1)
     ];
     constructor() { }
 

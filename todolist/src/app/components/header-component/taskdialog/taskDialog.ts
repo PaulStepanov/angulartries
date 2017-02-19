@@ -1,7 +1,9 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {TaskManagerService} from "../../servicies/TaskManagerService";
-import {Task} from "../../task-component/tasks/task/task";
+import {Task} from "../../../accessoryClasses/task/Task";
 import {IMyOptions} from "mydatepicker";
+import * as moment from 'moment';
+import Moment = moment.Moment;
 
 @Component({
   moduleId: module.id,
@@ -42,7 +44,14 @@ export class AddTaskDialog implements OnInit {
   constructor(private taskManagerService: TaskManagerService) {
   }
 
-  private date: Object = { date: { year: 2018, month: 10, day: 9 } };
+  private date={
+    date:
+    {
+      year:moment().year(),
+      month:moment().month(),
+      day:moment().date()
+    }
+  };
   private selectedPriority;
 
   ngOnInit() {
@@ -50,8 +59,12 @@ export class AddTaskDialog implements OnInit {
   }
 
   addTask(name: string) {
-    this.taskManagerService.addTask(new Task(name,this.date.toString(),this.selectedPriority));
-    console.log(this.taskManagerService.getTasks());
+    let date:Moment=moment()//TODO:может пофиксить этот хардкод?
+      .date(this.date.date.day)
+      .month(this.date.date.month)
+      .year(this.date.date.year);
+    this.taskManagerService.addTask(new Task(name,date,this.selectedPriority));
+    console.log(this.date);
 
   }
 
