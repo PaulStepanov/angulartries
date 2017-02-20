@@ -1,33 +1,44 @@
 /**
  * Created by pili on 2/13/17.
  */
-import {Injectable} from '@angular/core';
+import {Injectable,OnInit} from '@angular/core';
 import {Task} from "../../accessoryClasses/task/Task";
 import * as moment from 'moment';
+import {TasksStore} from "./TasksStore";
+
+/**
+ *Managing tasks on client side: sorting,filtering,etc...
+ *  */
 @Injectable()
 export class TaskManagerService {
 
-    tasks:Task[]=[
-      new Task("Fuck Jenifer",moment(),2),
-      new Task("Fuck Triss",moment(),4),
-      new Task("Add Class priority and fix hardcode",moment(),1)
-    ];
-    constructor() { }
+  constructor(private tasksStore:TasksStore){
 
+  }
 
-  getTasks() {
-    return this.tasks;
+  getTasks() {//TODO:make amount property
+    return this.tasksStore.getTasks(100);
   }
 
   addTask(task: Task) {
-    this.tasks.push(task);
+    this.tasksStore.addTask(task);
   }
 
+
   delTask(task: Task) {
-    let index = this.tasks.indexOf(task);
-    if (index > -1) {
-      this.tasks.splice(index, 1);
-    }
+    this.tasksStore.delTask(task);
+  }
+
+  sortByPriority(tasks: Task[]){
+    return tasks.sort((task1:Task,task2:Task)=>{
+      if (task1.priority>task2.priority) {
+        return 1
+      }
+      if (task1.priority<task2.priority) {
+        return -1
+      }
+      return 0
+    })
   }
 
 }

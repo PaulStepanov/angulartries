@@ -13,6 +13,7 @@ import {TaskComponent} from "./components/task-component/tasks/task/app.task";
 import {AddTaskDialog} from "./components/header-component/taskdialog/taskDialog";
 import {TaskManagerService} from "./components/servicies/TaskManagerService";
 import {MyDatePickerModule} from "mydatepicker";
+import {TasksStore} from "./components/servicies/TasksStore";
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import {MyDatePickerModule} from "mydatepicker";
   ],
   bootstrap: [AppComponent],
   entryComponents: [AddTaskDialog],
-  providers: [TaskManagerService]
+  providers: [TaskManagerService,TasksStore]
 })
 export class AppModule {
 }
