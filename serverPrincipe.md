@@ -21,13 +21,19 @@ otherwise postpone it to specified amount of days_
 #### POST:
  * **/tasks/add**  
  body:{task}
+ _response:_   
+{  
+ isAdded:boolean,  
+ error:number,  
+ errorText:string  
+}  
  
 #Data exchange standarts:  
 ###Task to cominicate with server   
 {  
- id:'string',  
- date:'2013-02-25',// ISO 8601   
- title:'title',  
- priority:2, //1-4  
- isDone:false    
+  id:'string',  
+  date:'string',// ISO 8601, example:2013-02-25   
+  title:'string',  
+  priority:number, //1-4  
+  isDone:boolean    
 }  
