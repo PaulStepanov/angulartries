@@ -1,4 +1,4 @@
-# Server request handling
+#Server request handling
 ##get tasks:  
 #### GET :   
 * **/tasks/recent/{amount}**   
@@ -22,3 +22,12 @@ otherwise postpone it to specified amount of days_
  * **/tasks/add**  
  body:{task}
  
+#Data exchange standarts:  
+###Task to cominicate with server   
+{  
+ id:'string',  
+ date:'2013-02-25',// ISO 8601   
+ title:'title',  
+ priority:2, //1-4  
+ isDone:false    
+}  
