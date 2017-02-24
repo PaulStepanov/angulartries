@@ -3,8 +3,8 @@
 #### GET :   
 * **/tasks/recent/{amount}**   
 _return number(amount) of tasks in array object_  
-* /tasks/byDate/{startDate}-{lastDate}  
-* /tasks/byDate/{startDate}  
+* **/tasks/byDate/{startDate}-{lastDate}**  
+* **/tasks/byDate/{startDate}**  
 _return array of tasks until today_
  
 ##updating tasks:  
