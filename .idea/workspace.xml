@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a2592cf1-29f5-4375-9a41-cdea02ab7539" name="Default" comment="" />
+    <list default="true" id="a2592cf1-29f5-4375-9a41-cdea02ab7539" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fakeServer/test/routes/tasks.js" afterPath="$PROJECT_DIR$/fakeServer/test/routes/tasks.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/serverPrincipe.md" afterPath="$PROJECT_DIR$/serverPrincipe.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/angular-cli.json" afterPath="$PROJECT_DIR$/todolist/angular-cli.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/package.json" afterPath="$PROJECT_DIR$/todolist/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/src/app/accessoryClasses/task/TaskBuilder.ts" afterPath="$PROJECT_DIR$/todolist/src/app/accessoryClasses/task/TaskBuilder.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/src/app/app.login.module.ts" afterPath="$PROJECT_DIR$/todolist/src/app/app.login.module.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/src/app/components/main-component/app.root.rootcomponent.ts" afterPath="$PROJECT_DIR$/todolist/src/app/components/main-component/app.root.rootcomponent.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/src/app/components/servicies/TasksStore.ts" afterPath="$PROJECT_DIR$/todolist/src/app/components/servicies/TasksStore.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/app.tasks.ts" afterPath="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/app.tasks.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/src/index.html" afterPath="$PROJECT_DIR$/todolist/src/index.html" />
+    </list>
     <ignored path="New folder.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -119,7 +130,7 @@
         <entry file="file://$PROJECT_DIR$/serverPrincipe.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="-99">
+              <first_editor relative-caret-position="495">
                 <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
                 <folding />
               </first_editor>
@@ -609,12 +620,12 @@
       <workItem from="1487770700885" duration="6248000" />
       <workItem from="1487875866776" duration="1724000" />
       <workItem from="1487935547998" duration="6178000" />
-      <workItem from="1487946757008" duration="12137000" />
+      <workItem from="1487946757008" duration="12040000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35410000" />
+    <option name="totallyTimeSpent" value="35313000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1038,7 +1049,7 @@
     <entry file="file://$PROJECT_DIR$/serverPrincipe.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-99">
+          <first_editor relative-caret-position="495">
             <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
             <folding />
           </first_editor>
