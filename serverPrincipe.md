@@ -1,10 +1,10 @@
-# Server request handling
+#Server request handling
 ##get tasks:  
 #### GET :   
 * **/tasks/recent/{amount}**   
 _return number(amount) of tasks in array object_  
-* /tasks/byDate/{startDate}-{lastDate}  
-* /tasks/byDate/{startDate}  
+* **/tasks/byDate/{startDate}-{lastDate}**  
+* **/tasks/byDate/{startDate}**  
 _return array of tasks until today_
  
 ##updating tasks:  
@@ -21,4 +21,19 @@ otherwise postpone it to specified amount of days_
 #### POST:
  * **/tasks/add**  
  body:{task}
+ _response:_   
+{  
+ isAdded:boolean,  
+ error:number,  
+ errorText:string  
+}  
  
+#Data exchange standarts:  
+###Task to cominicate with server   
+{  
+  id:'string',  
+  date:'string',// ISO 8601, example:2013-02-25   
+  title:'string',  
+  priority:number, //1-4  
+  isDone:boolean    
+}  

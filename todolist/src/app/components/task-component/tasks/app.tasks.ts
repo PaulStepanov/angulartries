@@ -23,7 +23,10 @@ export class AppTasksComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.tasks = this.taskManagerService.sortByPriority(this.taskManagerService.getTasks());
+    this.taskManagerService.getTasks().subscribe(task=>{
+      this.tasks.push(task);
+    });
+    // this.tasks = this.taskManagerService.sortByPriority(this.taskManagerService.getTasks());
   }
 
 
