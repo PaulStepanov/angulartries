@@ -30,9 +30,10 @@ _response:_{
  body:{task}
  _response:_   
 {  
- isAdded:boolean,  
- error:number,  
- errorText:string  
+ isAdded:boolean, 
+ id:string, 
+ error:number,    
+ errorText:string    
 }  
  
 #Data exchange standarts:  

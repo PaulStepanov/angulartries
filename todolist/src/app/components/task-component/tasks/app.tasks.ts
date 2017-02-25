@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Task} from "../../../accessoryClasses/task/Task";
 import {TaskManagerService} from "../../servicies/TaskManagerService";
+import {TasksArrAsync} from "../../../accessoryClasses/task/TasksArrAsync";
 
 @Component({
   moduleId: module.id,
@@ -11,8 +12,7 @@ import {TaskManagerService} from "../../servicies/TaskManagerService";
 })
 
 export class AppTasksComponent implements OnInit {
-  private tasks: Task[] = [];
-  private 
+  private tasksArrAsync: TasksArrAsync ;
 
   constructor(private taskManagerService: TaskManagerService) {
 
@@ -20,17 +20,10 @@ export class AppTasksComponent implements OnInit {
 
   delTask(task: Task) {
     this.taskManagerService.delTask(task);
-    console.log(this.tasks);
   }
-
-  
 
   ngOnInit() {
-    this.tasks=this.taskManagerService.getTasks();
+    this.tasksArrAsync=this.taskManagerService.getDefaultTasks();
   };
-  
-  updateTasksList(){
-    this.taskManagerService.getTasks();
-  }
-    // this.tasks = this.taskManagerService.sortByPriority(this.taskManagerService.getTasks());
+    // this.tasks = this.taskManagerService.sortByPriority(this.taskManagerService.getDefaultTasks());
   }

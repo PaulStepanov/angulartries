@@ -3,9 +3,9 @@ import {Observable} from "rxjs";
 import {Subject,} from 'rxjs/'
 
 /**
- * Async Tasks array that use observeable and 
+ * Async Tasks array that use observeable and
  * send true to observer when array is changed
- * */ 
+ * */
 export class TasksArrAsync{
     private tasks:Task[]=[]
     private changeSream:Subject<true>=new Subject();
@@ -17,18 +17,26 @@ export class TasksArrAsync{
     public push(task:Task){
         this.tasks.push(task)
         this.changeSream.next(true)
-    } 
+    }
 
     public getTasks(){
         return this.tasks;
-    } 
+    }
 
     public clear(){
         this.tasks=[]
         this.changeSream.next(true)
     }
 
+    public remove(task:Task){
+      let index = this.tasks.indexOf(task);
+      if (index > -1) {
+        this.tasks.splice(index, 1);
+      }
+      this.changeSream.next(true)
+    }
 
-    
+
+
 
 }

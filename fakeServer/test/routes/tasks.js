@@ -30,8 +30,20 @@ router.post('/add',function(req, res, next){
     tasks.push(task);
     res.json({
         isAdded:true,
-        error:undefind,
-        errorText:undefined
+        id:3
     })
+});
+
+router.get('/delete/:id',function (req, res, next) {
+    let taskID=req.params['id'];
+    for (task of tasks){
+        if (task.id==taskID){
+            let index = this.tasks.indexOf(task);
+            if (index > -1) {
+                this.tasks.splice(index, 1);
+            }
+            res.json({isDeleted:true})
+        }
+    }
 });
 module.exports = router;

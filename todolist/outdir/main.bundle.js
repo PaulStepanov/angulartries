@@ -60,8 +60,8 @@ var TaskManagerService = (function () {
     function TaskManagerService(tasksStore) {
         this.tasksStore = tasksStore;
     }
-    TaskManagerService.prototype.getTasks = function () {
-        return this.tasksStore.getTasks(100);
+    TaskManagerService.prototype.getDefaultTasks = function () {
+        return this.tasksStore.getDefaultTasks(100);
     };
     TaskManagerService.prototype.addTask = function (task) {
         this.tasksStore.addTask(task);
@@ -81,7 +81,7 @@ var TaskManagerService = (function () {
         });
     };
     TaskManagerService = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__TasksStore__["a" /* TasksStore */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__TasksStore__["a" /* TasksStore */]) === 'function' && _a) || Object])
     ], TaskManagerService);
     return TaskManagerService;
@@ -167,7 +167,7 @@ var AddTaskDialog = (function () {
             selector: 'app-dialog-addtask',
             template: __webpack_require__(858),
             styles: [__webpack_require__(853)]
-        }), 
+        }),
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__servicies_TaskManagerService__["a" /* TaskManagerService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__servicies_TaskManagerService__["a" /* TaskManagerService */]) === 'function' && _a) || Object])
     ], AddTaskDialog);
     return AddTaskDialog;
@@ -233,7 +233,7 @@ var TasksStore = (function () {
         }
     };
     TasksStore = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */]) === 'function' && _a) || Object])
     ], TasksStore);
     return TasksStore;
@@ -316,7 +316,7 @@ var LoginModule = (function () {
             declarations: [__WEBPACK_IMPORTED_MODULE_1__components_login_component_app_loginComponent__["a" /* LoginComponent */]],
             providers: [],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_1__components_login_component_app_loginComponent__["a" /* LoginComponent */]]
-        }), 
+        }),
         __metadata('design:paramtypes', [])
     ], LoginModule);
     return LoginModule;
@@ -398,7 +398,7 @@ var AppModule = (function () {
             bootstrap: [__WEBPACK_IMPORTED_MODULE_5__components_main_component_app_root_rootcomponent__["a" /* AppComponent */]],
             entryComponents: [__WEBPACK_IMPORTED_MODULE_12__components_header_component_taskdialog_taskDialog__["a" /* AddTaskDialog */]],
             providers: [__WEBPACK_IMPORTED_MODULE_13__components_servicies_TaskManagerService__["a" /* TaskManagerService */], __WEBPACK_IMPORTED_MODULE_15__components_servicies_TasksStore__["a" /* TasksStore */]]
-        }), 
+        }),
         __metadata('design:paramtypes', [])
     ], AppModule);
     return AppModule;
@@ -441,7 +441,7 @@ var HeaderComponent = (function () {
             selector: 'app-header',
             template: __webpack_require__(857),
             styles: [__webpack_require__(852)]
-        }), 
+        }),
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialog"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_material__["MdDialog"]) === 'function' && _a) || Object])
     ], HeaderComponent);
     return HeaderComponent;
@@ -474,7 +474,7 @@ var LoginComponent = (function () {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* Component */])({
             selector: 'loginModule',
             template: __webpack_require__(859)
-        }), 
+        }),
         __metadata('design:paramtypes', [])
     ], LoginComponent);
     return LoginComponent;
@@ -508,7 +508,7 @@ var AppComponent = (function () {
             selector: 'app-root',
             template: __webpack_require__(860),
             styles: [__webpack_require__(854)]
-        }), 
+        }),
         __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;
@@ -545,14 +545,14 @@ var AppTasksComponent = (function () {
         console.log(this.tasks);
     };
     AppTasksComponent.prototype.ngOnInit = function () {
-        this.tasks = this.taskManagerService.sortByPriority(this.taskManagerService.getTasks());
+        this.tasks = this.taskManagerService.sortByPriority(this.taskManagerService.getDefaultTasks());
     };
     AppTasksComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* Component */])({
             selector: 'app-tasks',
             template: __webpack_require__(861),
             styles: [__webpack_require__(855)]
-        }), 
+        }),
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__servicies_TaskManagerService__["a" /* TaskManagerService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__servicies_TaskManagerService__["a" /* TaskManagerService */]) === 'function' && _a) || Object])
     ], AppTasksComponent);
     return AppTasksComponent;
@@ -602,11 +602,11 @@ var TaskComponent = (function () {
         }
     };
     __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* Input */])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* Input */])(),
         __metadata('design:type', (typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__accessoryClasses_task_Task__["a" /* Task */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__accessoryClasses_task_Task__["a" /* Task */]) === 'function' && _a) || Object)
     ], TaskComponent.prototype, "task", void 0);
     __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["S" /* Output */])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["S" /* Output */])(),
         __metadata('design:type', (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* EventEmitter */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* EventEmitter */]) === 'function' && _b) || Object)
     ], TaskComponent.prototype, "delTask", void 0);
     TaskComponent = __decorate([
@@ -614,7 +614,7 @@ var TaskComponent = (function () {
             selector: 'app-task',
             template: __webpack_require__(862),
             styles: [__webpack_require__(856)],
-        }), 
+        }),
         __metadata('design:paramtypes', [])
     ], TaskComponent);
     return TaskComponent;

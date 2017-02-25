@@ -64,8 +64,6 @@ export class AddTaskDialog implements OnInit {
       .month(this.date.date.month)
       .year(this.date.date.year);
     this.taskManagerService.addTask(new Task(name,date,this.selectedPriority));
-    console.log(this.date);
-
   }
 
 }

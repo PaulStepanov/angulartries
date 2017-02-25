@@ -38,6 +38,6 @@ export class TaskBuilder {
   }
 
   build() {
-    return new Task(this.title,this.date,this.priority,this.isDone);
+    return new Task(this.title,this.date,this.priority,this.isDone,this.id);
   }
 }

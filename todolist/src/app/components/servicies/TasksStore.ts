@@ -20,16 +20,16 @@ import {read} from "fs";
 @Injectable()
 export class TasksStore {
 
-  
 
   constructor(private http: Http) {
   }
 
-  getTasks(amount: number):Observable<Task> {
-    let getURL=`/tasks/recent/${{amount}}`;
+  getTasks(amount: number): Observable<Task> {
+    let getURL = `/tasks/recent/${amount}`;
+    console.log('hi');
     let amountSubj$ = new Subject();
     this.http.get(getURL).subscribe(val => {
-      let tasks=this.extractData(val);
+      let tasks = this.extractData(val);
       for (let task of tasks) {
         amountSubj$.next(
           this.convertJSONTask(task)
@@ -40,43 +40,43 @@ export class TasksStore {
   }
 
 //postone task for amount of days as a optional parameter, default 1 day
-  postponeTask(task:Task,daysAmount?:number):Observable<boolean>{
+  postponeTask(task: Task, daysAmount?: number): Observable<boolean> {
     if (!daysAmount) {
-      daysAmount=1
+      daysAmount = 1
     }
-    let postoneSubj$=new Subject();
-    let taskId=task.id;
-    let postponeURL = `/tasks/postpone/${{taskId}}?day=${{daysAmount}}`;
-    this.http.get(postponeURL).subscribe(resp=>{
+    let postoneSubj$ = new Subject();
+    let taskId = task.id;
+    let postponeURL = `/tasks/postpone/${taskId}?day=${daysAmount}`;
+    this.http.get(postponeURL).subscribe(resp => {
       postoneSubj$.next(this.extractData(resp)['isPostponed']);
     })
     return postoneSubj$;
 
   }
 
-  addTask(task: Task):Observable<boolean> {
-    let addURL='/tasks/add';
-    let readyStateSubj$=new Subject;
-    this.http.post(addURL,{
-      date:task.date.format('YYYY-MM-DD'),//formating according to ISO 8601
-      title:task.title,
-      priority:task.priority,
-      isDone:task.isDone
+  addTask(task: Task): Observable<string> {
+    let addURL = '/tasks/add';
+    let readyStateSubj$ = new Subject;
+    this.http.post(addURL, {
+      date: task.date.format('YYYY-MM-DD'),//formating according to ISO 8601
+      title: task.title,
+      priority: task.priority,
+      isDone: task.isDone
     })
-      .subscribe(val=>{
-        let doneJSON=this.extractData(val);//JSON that have only one fiel isDone, true if task was added on the server side
+      .subscribe(val => {
+        let doneJSON = this.extractData(val);
         readyStateSubj$.next(
-          doneJSON['isAdded']
+          doneJSON['id']
         )
       });
     return readyStateSubj$;
   }
 
-  delTask(task: Task):Observable<boolean>{
-    let delSubj$=new Subject;
-    let taskID=task.id;
-    let delURL=`/tasks/delete/${{taskID}}`
-    this.http.get(delURL).subscribe(resp=>{
+  delTask(task: Task): Observable<boolean> {
+    let delSubj$ = new Subject;
+    let taskID = task.id;
+    let delURL = `/tasks/delete/${taskID}`;
+    this.http.get(delURL).subscribe(resp => {
       delSubj$.next(this.extractData(resp)['isDeleted'])
     })
     return delSubj$;
@@ -84,8 +84,8 @@ export class TasksStore {
 
 
   /*Converts http JSON task to a Task class*/
-  private convertJSONTask(task):Task{
-    let taskBuilder=new TaskBuilder();
+  private convertJSONTask(task): Task {
+    let taskBuilder = new TaskBuilder();
     return taskBuilder
       .setId(task['id'])
       .setDate(moment(task['date']))
@@ -98,6 +98,6 @@ export class TasksStore {
   /*Extracting data from http response to JSON format*/
   private extractData(res: Response) {
     let body = res.json();
-    return body || { };
+    return body || {};
   }
 }

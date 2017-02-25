@@ -11,7 +11,7 @@ export class Task {
   isDone: boolean = false;
   priority:number=4;
 
-  constructor(title: string, date: Moment, priority?:number,isDone?: boolean) {
+  constructor(title: string, date: Moment, priority?:number,isDone?: boolean,id?:string,) {
     this.title = title;
     this.date = date;
     if (isDone) {
@@ -21,6 +21,9 @@ export class Task {
     }
     if (priority) {
       this.priority=priority;
+    }
+    if (id){
+      this.id=id;
     }
   }
 }
