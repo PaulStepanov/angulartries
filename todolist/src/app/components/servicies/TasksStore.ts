@@ -15,13 +15,12 @@ import {read} from "fs";
 /**
  * class for managing tasks with server,
  * data exchange format you can find in the repository root
- * TODO: add asynhronys with RxJs
+ * All public methods return Observable!!!
  * */
 @Injectable()
 export class TasksStore {
 
-  tasks: Task[] = [
-  ];
+  
 
   constructor(private http: Http) {
   }
@@ -38,6 +37,21 @@ export class TasksStore {
       }
     });
     return amountSubj$
+  }
+
+//postone task for amount of days as a optional parameter, default 1 day
+  postponeTask(task:Task,daysAmount?:number):Observable<boolean>{
+    if (!daysAmount) {
+      daysAmount=1
+    }
+    let postoneSubj$=new Subject();
+    let taskId=task.id;
+    let postponeURL = `/tasks/postpone/${{taskId}}?day=${{daysAmount}}`;
+    this.http.get(postponeURL).subscribe(resp=>{
+      postoneSubj$.next(this.extractData(resp)['isPostponed']);
+    })
+    return postoneSubj$;
+
   }
 
   addTask(task: Task):Observable<boolean> {
@@ -58,11 +72,14 @@ export class TasksStore {
     return readyStateSubj$;
   }
 
-  delTask(task: Task) {
-    let index = this.tasks.indexOf(task);
-    if (index > -1) {
-      this.tasks.splice(index, 1);
-    }
+  delTask(task: Task):Observable<boolean>{
+    let delSubj$=new Subject;
+    let taskID=task.id;
+    let delURL=`/tasks/delete/${{taskID}}`
+    this.http.get(delURL).subscribe(resp=>{
+      delSubj$.next(this.extractData(resp)['isDeleted'])
+    })
+    return delSubj$;
   }
 
 

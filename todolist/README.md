@@ -18,3 +18,5 @@ my attempts to make a todolist app using angular2,material design module
 * [material.angular](https://material.angular.io/)
 * [datepicker](https://github.com/kekeh/mydatepicker)
 * [Fuel-UI](http://fuelinteractive.github.io)
+https://pouchdb.com/
+https://www.rethinkdb.com/

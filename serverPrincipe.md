@@ -13,9 +13,16 @@ _return array of tasks until today_
   body:{task} 
    
 #### GET:
+* **/tasks/delete/{taskId}** 
+ _response:_{   
+ isDeleted:boolean,     
+} 
 * **/tasks/postpone/{taskId}?[day]**  
 _postpone task for 1 day if day param `not` specified,  
 otherwise postpone it to specified amount of days_
+_response:_{   
+ isPostponed:boolean,     
+} 
 
 ##adding tasks   
 #### POST:

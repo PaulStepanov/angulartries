@@ -11,7 +11,8 @@ import {TaskManagerService} from "../../servicies/TaskManagerService";
 })
 
 export class AppTasksComponent implements OnInit {
-  tasks: Task[] = [];
+  private tasks: Task[] = [];
+  private 
 
   constructor(private taskManagerService: TaskManagerService) {
 
@@ -22,14 +23,14 @@ export class AppTasksComponent implements OnInit {
     console.log(this.tasks);
   }
 
+  
+
   ngOnInit() {
-    this.taskManagerService.getTasks().subscribe(task=>{
-      this.tasks.push(task);
-    });
+    this.tasks=this.taskManagerService.getTasks();
+  };
+  
+  updateTasksList(){
+    this.taskManagerService.getTasks();
+  }
     // this.tasks = this.taskManagerService.sortByPriority(this.taskManagerService.getTasks());
   }
-
-
-
-
-}
