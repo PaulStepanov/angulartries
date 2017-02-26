@@ -15,38 +15,64 @@ import {Observable} from "rxjs";
 @Injectable()
 export class TaskManagerService {
   private Defaults_Loaded_Tasks_Amount = 100;
-  private taskArr: TasksArrAsync = new TasksArrAsync();
+  private globalChangeStream$=new Subject();
+
 
   constructor(private tasksStore: TasksStore) {
-    this.tasksStore.getTasks(this.Defaults_Loaded_Tasks_Amount)
-      .subscribe(task => {
-        this.taskArr.push(task)
-      })
+
   }
 
   getDefaultTasks() {//TODO:make amount property
-    return this.taskArr;
+    let taskArr: TasksArrAsync = new TasksArrAsync()
+    this.tasksStore.getTasks(this.Defaults_Loaded_Tasks_Amount)
+      .subscribe({
+        next: task => {
+          taskArr.push(task)
+        },
+        complete: () => {
+          taskArr.getChangeStream().subscribe(change => {
+            switch (change.type) {
+              case 'push':{
+                let task:Task=<Task>change.data;
+                this.addTaskToStore(task,()=>{
+                  this.globalChangeStream$.next(change);
+                });
+                break;
+              }
+              case 'remove':{
+                let task:Task=<Task>change.data;
+                this.tasksStore.delTask(task).subscribe(res => {
+                  if (!res) alert("It's a bug, if you see this message,your task didn't deleted");//TODO:fix
+                });
+                break;
+              }
+            }
+          });
+        }
+      });
+    this.globalChangeStream$.subscribe(change=>{
+      taskArr=this.getDefaultTasks();//TODO:make change handler
+    });
+    return taskArr;
   }
 
-  getChangeStream(): Observable<true> {
-    return this.taskArr.getChangeStream();
+  addTask(task:Task) {
+    this.addTaskToStore(task);
+    this.globalChangeStream$.next({});
   }
 
-  addTask(task: Task) {
+  private addTaskToStore(task:Task,success?:Function,error?:Function){//Todo:May be change to Promise
     this.tasksStore.addTask(task).subscribe(res => {
-      if (res!=null) {
+      if (res != null) {
         task.id = res;
-        this.taskArr.push(task);
+        success().bind();
+        // this.taskArr.push(task); TODO:may be mistake here:)
+      } else {
+        error().bind();
+        alert("I'm done,task didn't added");
       }
+
     });
-  }
-
-
-  delTask(task: Task) {
-    this.tasksStore.delTask(task).subscribe(res => {
-      if (res) this.taskArr.remove(task);
-    });
-
   }
 
   // sortByPriority(tasks: Task[]) {

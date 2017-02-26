@@ -35,7 +35,9 @@ export class TasksStore {
           this.convertJSONTask(task)
         )
       }
+      amountSubj$.complete();
     });
+
     return amountSubj$
   }
 
@@ -78,7 +80,7 @@ export class TasksStore {
     let delURL = `/tasks/delete/${taskID}`;
     this.http.get(delURL).subscribe(resp => {
       delSubj$.next(this.extractData(resp)['isDeleted'])
-    })
+    });
     return delSubj$;
   }
 

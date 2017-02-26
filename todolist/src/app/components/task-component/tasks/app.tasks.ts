@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Task} from "../../../accessoryClasses/task/Task";
 import {TaskManagerService} from "../../servicies/TaskManagerService";
 import {TasksArrAsync} from "../../../accessoryClasses/task/TasksArrAsync";
+import {Observable} from "rxjs";
 
 @Component({
   moduleId: module.id,
@@ -12,18 +13,26 @@ import {TasksArrAsync} from "../../../accessoryClasses/task/TasksArrAsync";
 })
 
 export class AppTasksComponent implements OnInit {
-  private tasksArrAsync: TasksArrAsync ;
-
+  private tasks: TasksArrAsync ;
+  private changeStream:Observable<boolean> ;
   constructor(private taskManagerService: TaskManagerService) {
 
   }
 
   delTask(task: Task) {
-    this.taskManagerService.delTask(task);
+    this.tasks.remove(task);
   }
 
   ngOnInit() {
-    this.tasksArrAsync=this.taskManagerService.getDefaultTasks();
+    this.tasks=this.taskManagerService.getDefaultTasks();
+    // this.changeStream=this.taskManagerService.getChangeStream();
+    // this.changeStream.subscribe(val=>{
+    //   this.syncTaskList()});
   };
-    // this.tasks = this.taskManagerService.sortByPriority(this.taskManagerService.getDefaultTasks());
+
+  // private syncTaskList(){
+  //   this.tasks=this.taskManagerService.getDefaultTasks();
+  //   this.tasks = this.taskManagerService.sortByPriority(this.taskManagerService.getDefaultTasks());
+  // }
+
   }

@@ -1,22 +1,23 @@
 import {Task} from './Task'
 import {Observable} from "rxjs";
 import {Subject,} from 'rxjs/'
+import {Change} from "../other/Change";
 
 /**
  * Async Tasks array that use observeable and
  * send true to observer when array is changed
  * */
 export class TasksArrAsync{
-    private tasks:Task[]=[]
-    private changeSream:Subject<true>=new Subject();
+    private tasks:Task[]=[];
+    private changeStream:Subject<Change>=new Subject();
 
-    public getChangeStream():Subject<true>{
-        return this.changeSream;
+    public getChangeStream():Subject<Change>{
+        return this.changeStream;
     }
 
     public push(task:Task){
-        this.tasks.push(task)
-        this.changeSream.next(true)
+        this.tasks.push(task);
+        this.changeStream.next(new Change('push',task))
     }
 
     public getTasks(){
@@ -24,8 +25,8 @@ export class TasksArrAsync{
     }
 
     public clear(){
-        this.tasks=[]
-        this.changeSream.next(true)
+        this.tasks=[];
+        this.changeStream.next(new Change('clear',{}))
     }
 
     public remove(task:Task){
@@ -33,8 +34,9 @@ export class TasksArrAsync{
       if (index > -1) {
         this.tasks.splice(index, 1);
       }
-      this.changeSream.next(true)
+      this.changeStream.next(new Change('remove',task));
     }
+
 
 
 
