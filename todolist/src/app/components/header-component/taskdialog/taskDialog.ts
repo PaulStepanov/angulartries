@@ -37,8 +37,7 @@ export class AddTaskDialog implements OnInit {
   private myDatePickerOptions: IMyOptions = {
     dateFormat: 'dd.mm.yyyy',
     width:'50%',
-    todayBtnTxt: 'Today',
-    disableUntil:{year: 2017, month: 2, day: 19}
+    todayBtnTxt: 'Today'
   };
 
   constructor(private taskManagerService: TaskManagerService) {
