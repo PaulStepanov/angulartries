@@ -13,7 +13,9 @@ import {TaskComponent} from "./components/task-component/tasks/task/app.task";
 import {AddTaskDialog} from "./components/header-component/taskdialog/taskDialog";
 import {TaskManagerService} from "./components/servicies/TaskManagerService";
 import {MyDatePickerModule} from "mydatepicker";
-import {TasksStore} from "./components/servicies/TasksStore";
+import {TasksStore} from "./components/servicies/TasksServerComunicator";
+import {TasksSorter} from "./components/servicies/TasksSorter";
+import {PostponeDialog} from "./components/task-component/tasks/task/postponeDialog/postponeDialog";
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import {TasksStore} from "./components/servicies/TasksStore";
     HeaderComponent,
     AppTasksComponent,
     TaskComponent,
-    AddTaskDialog
+    AddTaskDialog,
+    PostponeDialog
   ],
   imports: [
     NgbModule.forRoot(),
@@ -34,8 +37,8 @@ import {TasksStore} from "./components/servicies/TasksStore";
     MyDatePickerModule
   ],
   bootstrap: [AppComponent],
-  entryComponents: [AddTaskDialog],
-  providers: [TaskManagerService,TasksStore]
+  entryComponents: [AddTaskDialog,PostponeDialog],
+  providers: [TaskManagerService,TasksStore,TasksSorter]
 })
 export class AppModule {
 }

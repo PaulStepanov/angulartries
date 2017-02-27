@@ -3,62 +3,55 @@
  */
 import {Injectable, OnInit} from '@angular/core';
 import {Task} from "../../accessoryClasses/task/Task";
-import {TasksArrAsync} from "../../accessoryClasses/task/TasksArrAsync";
 import * as moment from 'moment';
-import {TasksStore} from "./TasksStore";
+import {TasksStore} from "./TasksServerComunicator";
 import {Subject,} from 'rxjs/'
 import {Observable} from "rxjs";
+import Moment = moment.Moment;
 
 /**
  *Managing tasks on client side: sorting,filtering,etc...
+ *Have method getChangeStream that returns observable which triggers observers when
+ * new task was added,deleted,changed
  *  */
 @Injectable()
 export class TaskManagerService {
   private Defaults_Loaded_Tasks_Amount = 100;
-  private taskArr: TasksArrAsync = new TasksArrAsync();
+  private globalChangeStram = new Subject();
 
   constructor(private tasksStore: TasksStore) {
-    this.tasksStore.getTasks(this.Defaults_Loaded_Tasks_Amount)
-      .subscribe(task => {
-        this.taskArr.push(task)
-      })
+
   }
 
-  getDefaultTasks() {//TODO:make amount property
-    return this.taskArr;
+  getDefaultTasks(): Observable<Task> {//TODO:make amount property
+    return this.tasksStore.getTasks(this.Defaults_Loaded_Tasks_Amount)
   }
 
-  getChangeStream(): Observable<true> {
-    return this.taskArr.getChangeStream();
+
+  getChangeStream(): Observable<any> {
+    return this.globalChangeStram.asObservable();
   }
 
   addTask(task: Task) {
     this.tasksStore.addTask(task).subscribe(res => {
-      if (res!=null) {
-        task.id = res;
-        this.taskArr.push(task);
+      if (res != null) {
+        this.globalChangeStram.next(task);
+        // this.taskArr.push(task);
       }
     });
   }
 
+  postponeTask(task:Task,date:Moment){
+
+  }
 
   delTask(task: Task) {
     this.tasksStore.delTask(task).subscribe(res => {
-      if (res) this.taskArr.remove(task);
+      if (res) this.globalChangeStram.next(task);
+      ;
     });
 
   }
 
-  // sortByPriority(tasks: Task[]) {
-  //   return tasks.sort((task1: Task, task2: Task) => {
-  //     if (task1.priority > task2.priority) {
-  //       return 1
-  //     }
-  //     if (task1.priority < task2.priority) {
-  //       return -1
-  //     }
-  //     return 0
-  //   })
-  // }
 
 }

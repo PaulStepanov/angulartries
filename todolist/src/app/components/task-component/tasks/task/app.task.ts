@@ -1,5 +1,8 @@
 import  {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {Task} from "../../../../accessoryClasses/task/Task";
+import {TaskManagerService} from "../../../servicies/TaskManagerService";
+import {MdDialog} from "@angular/material";
+import {PostponeDialog} from "./postponeDialog/postponeDialog";
 
 @Component({
   moduleId: module.id,
@@ -15,12 +18,17 @@ export class TaskComponent implements OnInit {
   @Output()
   delTask: EventEmitter<Task> = new EventEmitter();
 
-  constructor() {
+  constructor(private taskManagerService: TaskManagerService,public dialog: MdDialog) {
   }
 
   deleteTask() {
-    this.delTask.emit(this.task);
-    console.log(this.task);
+    this.taskManagerService.delTask(this.task);
+  }
+
+
+
+  openDialogPostponeTask(){
+    this.dialog.open(PostponeDialog,{width:"25%",height:'25%'})
   }
 
   ngOnInit() {

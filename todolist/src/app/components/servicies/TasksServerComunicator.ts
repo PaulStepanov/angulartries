@@ -19,21 +19,24 @@ import {read} from "fs";
  * */
 @Injectable()
 export class TasksStore {
-
-
   constructor(private http: Http) {
   }
 
+
   getTasks(amount: number): Observable<Task> {
     let getURL = `/tasks/recent/${amount}`;
-    console.log('hi');
     let amountSubj$ = new Subject();
-    this.http.get(getURL).subscribe(val => {
-      let tasks = this.extractData(val);
-      for (let task of tasks) {
-        amountSubj$.next(
-          this.convertJSONTask(task)
-        )
+    this.http.get(getURL).subscribe({
+      next: val => {
+        let tasks = this.extractData(val);
+        for (let task of tasks) {
+          amountSubj$.next(
+            this.convertJSONTask(task)
+          )
+        }
+      },
+      complete:()=>{
+        amountSubj$.complete();
       }
     });
     return amountSubj$
