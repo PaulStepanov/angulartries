@@ -59,9 +59,9 @@ export class ChangeDropDownMenu implements OnInit {
         priority = 4;
         break;
       }
-
-
     }
+    this.task.priority=priority;
+    this.taskManagerService.updateTask(this.task);
   }
 
   postponeOneDay() {
@@ -79,6 +79,7 @@ export class ChangeDropDownMenu implements OnInit {
   onPostponeCalendarDateChanged(event: IMyDateModel) {
     this.postponeTask();
   }
+
 
   stopPropagation(event) {
     event.stopPropagation();

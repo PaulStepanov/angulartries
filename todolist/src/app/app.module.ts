@@ -15,7 +15,10 @@ import {TaskManagerService} from "./components/servicies/TaskManagerService";
 import {MyDatePickerModule} from "mydatepicker";
 import {TasksStore} from "./components/servicies/TasksServerComunicator";
 import {TasksSorter} from "./components/servicies/TasksSorter";
-import {PostponeDialog} from "./components/task-component/tasks/task/postponeDialog/postponeDialog";
+import {
+  ChangeDropDownMenu
+} from "./components/task-component/tasks/task/changeButton/changeButton.component";
+import {DropdownModule} from "ngx-dropdown";
 
 @NgModule({
   declarations: [
@@ -24,7 +27,7 @@ import {PostponeDialog} from "./components/task-component/tasks/task/postponeDia
     AppTasksComponent,
     TaskComponent,
     AddTaskDialog,
-    PostponeDialog
+    ChangeDropDownMenu
   ],
   imports: [
     NgbModule.forRoot(),
@@ -34,10 +37,11 @@ import {PostponeDialog} from "./components/task-component/tasks/task/postponeDia
     LoginModule,
     MaterialModule.forRoot(),
     MdInputModule,
-    MyDatePickerModule
+    MyDatePickerModule,
+    DropdownModule
   ],
   bootstrap: [AppComponent],
-  entryComponents: [AddTaskDialog,PostponeDialog],
+  entryComponents: [AddTaskDialog],
   providers: [TaskManagerService,TasksStore,TasksSorter]
 })
 export class AppModule {

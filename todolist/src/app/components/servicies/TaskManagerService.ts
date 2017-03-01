@@ -36,9 +36,16 @@ export class TaskManagerService {
     this.tasksStore.addTask(task).subscribe(res => {
       if (res != null) {
         this.globalChangeStram.next(task);
-        // this.taskArr.push(task);
       }
     });
+  }
+
+  updateTask(task:Task){
+    this.tasksStore.updateTask(task).subscribe({
+      complete:()=>{
+        this.globalChangeStram.next(task);
+      }
+    })
   }
 
   postponeTask(task:Task,date:Moment){
@@ -54,7 +61,6 @@ export class TaskManagerService {
   delTask(task: Task) {
     this.tasksStore.delTask(task).subscribe(res => {
       if (res) this.globalChangeStram.next(task);
-      ;
     });
 
   }
