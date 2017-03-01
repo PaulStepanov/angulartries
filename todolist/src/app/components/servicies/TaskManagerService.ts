@@ -42,7 +42,7 @@ export class TaskManagerService {
   }
 
   postponeTask(task:Task,date:Moment){
-    let difference:number=moment.duration(task.date.diff(date)).asDays();
+    let difference:number=moment.duration(date.diff(task.date)).asDays();
     this.tasksStore.postponeTask(task,difference).subscribe({
       complete:()=>{
         this.globalChangeStram.next(task);

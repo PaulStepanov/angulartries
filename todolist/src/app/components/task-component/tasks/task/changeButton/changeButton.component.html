@@ -1,10 +1,60 @@
-<button class="btn " type="button" data-toggle="dropdown">
-  <i class="fa fa-reply" aria-hidden="true"></i></button>
+<a data-toggle="dropdown">
+  <i class="fa fa-list-ul fa-2x" aria-hidden="true"></i>
+</a>
 <ul class="dropdown-menu">
-  <li><a href="#">{{task.priority}}</a></li>
-  <li><a href="#">CSS</a></li>
-  <li><a href="#">JavaScript</a></li>
+  <li><a href="">Edit Text</a></li>
+  <li role="separator" class="divider"></li>
+  <li class="shadowText">Shedule</li>
+  <li>
+    <div class="container tabs">
+      <div class="row">
+        <div class="col-md-4"><a mdTooltip="Tomorrow" (click)="postponeOneDay()"><i class="fa fa-undo  fa-2x" aria-hidden="true"></i></a></div>
+        <div class="col-md-4"><a mdTooltip="Next Week" (click)="postponeOneWeek()"><i class="fa fa-arrow-circle-o-right  fa-2x"
+                                                          aria-hidden="true"></i></a></div>
+        <div class="col-md-4" (click)="stopPropagation($event)">
+
+          <!--Here i use https://github.com/pleerock/ng2-dropdown  -->
+          <div class="dropdown" dropdown [dropdownToggle]="false" [dropdown-not-closable-zone]="true">
+            <a class="postponeDateTooltip" mdTooltip="Pick Date">
+              <i class="fa fa-calendar  fa-2x" aria-hidden="true" dropdown-open></i>
+            </a>
+            <ul class="dropdown-menu">
+              <div class="cal" (click)="stopPropagation($event)">
+                <my-date-picker name="mydate" [options]="postponeDatePickerOptions"
+                                [(ngModel)]="postponeDate"
+                                (dateChanged)="onPostponeCalendarDateChanged($event)"></my-date-picker>
+              </div>
+
+            </ul>
+          </div>
+          <!-- -------------  -->
+
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+    </div>
+  </li>
+  <li role="separator" class="divider"></li>
+  <li class="shadowText">Priority</li>
+  <div class="container tabs">
+    <div class="row">
+      <div class="col-md-3"><a mdTooltip="Priority 1"  class="red" (click)="setPriority($event)"><i  id="priority1" class="fa fa-flag fa-2x" aria-hidden="true"></i>
+      </a></div>
+      <div class="col-md-3"><a mdTooltip="Priority 2"  class="orange" (click)="setPriority($event)"><i id="priority2" class="fa fa-flag fa-2x" aria-hidden="true"></i>
+      </a></div>
+      <div class="col-md-3"><a mdTooltip="Priority 3"  class="green" (click)="setPriority($event)"><i id="priority3" class="fa fa-flag fa-2x" aria-hidden="true"></i>
+      </a></div>
+      <div class="col-md-3"><a mdTooltip="Priority 4"  class="gray" (click)="setPriority($event)"><i id="priority4" class="fa fa-flag fa-2x"
+                                                                      aria-hidden="true"></i></a></div>
+    </div>
+  </div>
+  <li role="separator" class="divider"></li>
+  <div class="cal" (click)="stopPropagation($event)">
+    <my-date-picker name="mydate" [options]="myDatePickerOptions"
+                    [(ngModel)]="date" (dateChanged)="onPostponeCalendarDateChanged($event)"></my-date-picker>
+  </div>
+
 </ul>
 
-<my-date-picker name="mydate" [options]="myDatePickerOptions"
-                  [(ngModel)]="date" required (dateChanged)="onDateChanged($event)></my-date-picker>
+
+

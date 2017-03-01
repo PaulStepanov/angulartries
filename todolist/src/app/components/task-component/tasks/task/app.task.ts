@@ -2,7 +2,6 @@ import  {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {Task} from "../../../../accessoryClasses/task/Task";
 import {TaskManagerService} from "../../../servicies/TaskManagerService";
 import {MdDialog} from "@angular/material";
-import {PostponeDialog} from "./postponeDialog/postponeDialog";
 
 @Component({
   moduleId: module.id,
@@ -26,15 +25,10 @@ export class TaskComponent implements OnInit {
   }
 
 
-
-  openDialogPostponeTask(){
-    this.dialog.open(PostponeDialog,{width:"25%",height:'25%'})
-  }
-
   ngOnInit() {
   }
 
-  getPriorityColor(){
+  getPriorityColor(){//TODO:refactor this code
     switch (this.task.priority){
       case 0:
         return "gray"
