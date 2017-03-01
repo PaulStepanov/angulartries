@@ -5,7 +5,11 @@
       <span class="priority">
         <i class="fa fa-flag" [style.color]="getPriorityColor()" aria-hidden="true"></i>
       </span>
-      <span>{{task.title}}</span>
+      <div>
+       <md-input-container>
+          <input id="focus" class="taskText" md-input color="primar" value="{{task.title}}" (blur)="updateText(taskTitle)" #taskTitle>
+        </md-input-container>
+      </div>
     </div>
     <div class="col-md-2">
       <span class="date">{{task.date.format('Do MMMM YYYY')}}</span>
@@ -13,13 +17,8 @@
     <div class="col-md-3 col-md-offset-1 buttons">
       <!--buttons-->
       <span class="edit-button">
-            <changeDropDownMenu [task]="task"></changeDropDownMenu>
+            <changeDropDownMenu (editTaskText)="focusOnEditTaskArea(taskTitle)" [task]="task"></changeDropDownMenu>
         </span>
-      <span class="delete-button">
-        <span mdTooltip="Delete Task">
-          <button class="" (click)="deleteTask($event)"><i class="fa fa-window-close-o" aria-hidden="true"></i></button>
-        </span>
-      </span>
 
     </div>
   </div>

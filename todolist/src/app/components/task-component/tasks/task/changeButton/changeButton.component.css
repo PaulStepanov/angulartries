@@ -5,7 +5,13 @@
 
 .tabs{
   width: 200px;
+}
 
+.redText{
+  color: red;
+}
+.redText:hover{
+  color: red;
 }
 
 .red{

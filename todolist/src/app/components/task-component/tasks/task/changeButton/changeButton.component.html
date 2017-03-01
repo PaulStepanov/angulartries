@@ -2,7 +2,7 @@
   <i class="fa fa-list-ul fa-2x" aria-hidden="true"></i>
 </a>
 <ul class="dropdown-menu">
-  <li><a href="">Edit Text</a></li>
+  <li><a (click)="editTaskTitle()">Edit Text</a></li>
   <li role="separator" class="divider"></li>
   <li class="shadowText">Shedule</li>
   <li>
@@ -48,6 +48,8 @@
                                                                       aria-hidden="true"></i></a></div>
     </div>
   </div>
+  <li role="separator" class="divider"></li>
+  <li id="redLi"><a class="redText" (click)="deleteTask($event)">Delete this Task</a></li>
   <li role="separator" class="divider"></li>
   <div class="cal" (click)="stopPropagation($event)">
     <my-date-picker name="mydate" [options]="myDatePickerOptions"

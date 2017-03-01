@@ -58,6 +58,7 @@ export class TasksStore {
     let postponeURL = `/tasks/postpone/${taskId}?day=${daysAmount}`;
     this.http.get(postponeURL).subscribe(resp => {
       if (this.extractData(resp)['isPostponed']) {
+        console.log('comlp');
         postoneSubj$.complete();
       }
 

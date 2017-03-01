@@ -14,18 +14,21 @@ export class TaskComponent implements OnInit {
   @Input()
   task: Task;
 
-  @Output()
-  delTask: EventEmitter<Task> = new EventEmitter();
-
   constructor(private taskManagerService: TaskManagerService,public dialog: MdDialog) {
   }
 
-  deleteTask() {
-    this.taskManagerService.delTask(this.task);
+  ngOnInit() {
+  }
+
+  focusOnEditTaskArea(element){
+    element.focus();
   }
 
 
-  ngOnInit() {
+
+  updateText(inputText){
+    this.task.title=inputText.value;
+    this.taskManagerService.updateTask(this.task);
   }
 
   getPriorityColor(){//TODO:refactor this code
