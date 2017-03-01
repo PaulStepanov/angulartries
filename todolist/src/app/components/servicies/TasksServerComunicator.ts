@@ -47,11 +47,19 @@ export class TasksStore {
     if (!daysAmount) {
       daysAmount = 1
     }
+    //Debugging
+    if (!task.id){
+      alert('ni task id, error in TasksServerComunicator')
+    }
+    //----------------------
     let postoneSubj$ = new Subject();
     let taskId = task.id;
     let postponeURL = `/tasks/postpone/${taskId}?day=${daysAmount}`;
     this.http.get(postponeURL).subscribe(resp => {
-      postoneSubj$.next(this.extractData(resp)['isPostponed']);
+      if (this.extractData(resp)['isPostponed']) {
+        postoneSubj$.complete();
+      }
+      
     })
     return postoneSubj$;
 

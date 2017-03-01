@@ -58,7 +58,7 @@ export class AddTaskDialog implements OnInit {
   }
 
   addTask(name: string) {
-    let date:Moment=moment()//TODO:может пофиксить этот хардкод?
+    let date:Moment=moment()
       .date(this.date.date.day)
       .month(this.date.date.month)
       .year(this.date.date.year);
