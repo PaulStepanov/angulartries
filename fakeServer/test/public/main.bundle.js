@@ -273,6 +273,7 @@ var TasksStore = (function () {
         var postponeURL = "/tasks/postpone/" + taskId + "?day=" + daysAmount;
         this.http.get(postponeURL).subscribe(function (resp) {
             if (_this.extractData(resp)['isPostponed']) {
+                console.log('comlp');
                 postoneSubj$.complete();
             }
         });
@@ -800,12 +801,15 @@ var TaskComponent = (function () {
     function TaskComponent(taskManagerService, dialog) {
         this.taskManagerService = taskManagerService;
         this.dialog = dialog;
-        this.delTask = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
     }
-    TaskComponent.prototype.deleteTask = function () {
-        this.taskManagerService.delTask(this.task);
-    };
     TaskComponent.prototype.ngOnInit = function () {
+    };
+    TaskComponent.prototype.focusOnEditTaskArea = function (element) {
+        element.focus();
+    };
+    TaskComponent.prototype.updateText = function (inputText) {
+        this.task.title = inputText.value;
+        this.taskManagerService.updateTask(this.task);
     };
     TaskComponent.prototype.getPriorityColor = function () {
         switch (this.task.priority) {
@@ -823,20 +827,16 @@ var TaskComponent = (function () {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
         __metadata('design:type', (typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__accessoryClasses_task_Task__["a" /* Task */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__accessoryClasses_task_Task__["a" /* Task */]) === 'function' && _a) || Object)
     ], TaskComponent.prototype, "task", void 0);
-    __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(), 
-        __metadata('design:type', (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]) === 'function' && _b) || Object)
-    ], TaskComponent.prototype, "delTask", void 0);
     TaskComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-task',
             template: __webpack_require__(872),
             styles: [__webpack_require__(864)],
         }), 
-        __metadata('design:paramtypes', [(typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__servicies_TaskManagerService__["a" /* TaskManagerService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__servicies_TaskManagerService__["a" /* TaskManagerService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_material__["MdDialog"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_material__["MdDialog"]) === 'function' && _d) || Object])
+        __metadata('design:paramtypes', [(typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__servicies_TaskManagerService__["a" /* TaskManagerService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__servicies_TaskManagerService__["a" /* TaskManagerService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_material__["MdDialog"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_material__["MdDialog"]) === 'function' && _c) || Object])
     ], TaskComponent);
     return TaskComponent;
-    var _a, _b, _c, _d;
+    var _a, _b, _c;
 }());
 //# sourceMappingURL=E:/progects/New folder/todolist/src/app.task.js.map
 
@@ -871,6 +871,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var ChangeDropDownMenu = (function () {
     function ChangeDropDownMenu(taskManagerService) {
         this.taskManagerService = taskManagerService;
+        this.editTaskText = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         this.postponeDatePickerOptions = {
             dateFormat: 'dd.mm.yyyy',
             width: '100%',
@@ -886,6 +887,12 @@ var ChangeDropDownMenu = (function () {
         };
     }
     ChangeDropDownMenu.prototype.ngOnInit = function () {
+    };
+    ChangeDropDownMenu.prototype.editTaskTitle = function () {
+        this.editTaskText.emit(this.task);
+    };
+    ChangeDropDownMenu.prototype.deleteTask = function () {
+        this.taskManagerService.delTask(this.task);
     };
     ChangeDropDownMenu.prototype.setPriority = function ($event) {
         var priorityID = event.target['id'];
@@ -935,16 +942,20 @@ var ChangeDropDownMenu = (function () {
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(), 
         __metadata('design:type', (typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__accessoryClasses_task_Task__["a" /* Task */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__accessoryClasses_task_Task__["a" /* Task */]) === 'function' && _a) || Object)
     ], ChangeDropDownMenu.prototype, "task", void 0);
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(), 
+        __metadata('design:type', (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]) === 'function' && _b) || Object)
+    ], ChangeDropDownMenu.prototype, "editTaskText", void 0);
     ChangeDropDownMenu = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'changeDropDownMenu',
             template: __webpack_require__(873),
             styles: [__webpack_require__(865)]
         }), 
-        __metadata('design:paramtypes', [(typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__servicies_TaskManagerService__["a" /* TaskManagerService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__servicies_TaskManagerService__["a" /* TaskManagerService */]) === 'function' && _b) || Object])
+        __metadata('design:paramtypes', [(typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__servicies_TaskManagerService__["a" /* TaskManagerService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__servicies_TaskManagerService__["a" /* TaskManagerService */]) === 'function' && _c) || Object])
     ], ChangeDropDownMenu);
     return ChangeDropDownMenu;
-    var _a, _b;
+    var _a, _b, _c;
 }());
 //# sourceMappingURL=E:/progects/New folder/todolist/src/changeButton.component.js.map
 
@@ -1244,7 +1255,7 @@ module.exports = ""
 /***/ 865:
 /***/ (function(module, exports) {
 
-module.exports = ".shadowText{\r\n  color:rgba(96,96,96,0.46);\r\n  margin-left: 7px;\r\n}\r\n\r\n.tabs{\r\n  width: 200px;\r\n\r\n}\r\n\r\n.red{\r\n  color: red;\r\n}\r\n\r\n.orange{\r\n  color:orange;\r\n}\r\n\r\n.green{\r\n  color:green;\r\n}\r\n\r\n.gray{\r\n  color:gray;\r\n}\r\n"
+module.exports = ".shadowText{\r\n  color:rgba(96,96,96,0.46);\r\n  margin-left: 7px;\r\n}\r\n\r\n.tabs{\r\n  width: 200px;\r\n}\r\n\r\n.redText{\r\n  color: red;\r\n}\r\n.redText:hover{\r\n  color: red;\r\n}\r\n\r\n.red{\r\n  color: red;\r\n}\r\n\r\n.orange{\r\n  color:orange;\r\n}\r\n\r\n.green{\r\n  color:green;\r\n}\r\n\r\n.gray{\r\n  color:gray;\r\n}\r\n"
 
 /***/ }),
 
@@ -1286,21 +1297,21 @@ module.exports = "<app-header></app-header>\r\n<app-tasks></app-tasks>\r\n"
 /***/ 871:
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<app-task *ngFor=\"let task of tasks\" [task]=\"task\" (delTask)=\"delTask(task)\"></app-task>\r\n"
+module.exports = "\r\n<app-task *ngFor=\"let task of tasks\" [task]=\"task\"></app-task>\r\n"
 
 /***/ }),
 
 /***/ 872:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-4\">\r\n      <!--TODO priority tag-->\r\n      <span class=\"priority\">\r\n        <i class=\"fa fa-flag\" [style.color]=\"getPriorityColor()\" aria-hidden=\"true\"></i>\r\n      </span>\r\n      <span>{{task.title}}</span>\r\n    </div>\r\n    <div class=\"col-md-2\">\r\n      <span class=\"date\">{{task.date.format('Do MMMM YYYY')}}</span>\r\n    </div>\r\n    <div class=\"col-md-3 col-md-offset-1 buttons\">\r\n      <!--buttons-->\r\n      <span class=\"edit-button\">\r\n            <changeDropDownMenu [task]=\"task\"></changeDropDownMenu>\r\n        </span>\r\n      <span class=\"delete-button\">\r\n        <span mdTooltip=\"Delete Task\">\r\n          <button class=\"\" (click)=\"deleteTask($event)\"><i class=\"fa fa-window-close-o\" aria-hidden=\"true\"></i></button>\r\n        </span>\r\n      </span>\r\n\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-4\">\r\n      <!--TODO priority tag-->\r\n      <span class=\"priority\">\r\n        <i class=\"fa fa-flag\" [style.color]=\"getPriorityColor()\" aria-hidden=\"true\"></i>\r\n      </span>\r\n      <div>\r\n       <md-input-container>\r\n          <input id=\"focus\" class=\"taskText\" md-input color=\"primar\" value=\"{{task.title}}\" (blur)=\"updateText(taskTitle)\" #taskTitle>\r\n        </md-input-container>\r\n      </div>\r\n    </div>\r\n    <div class=\"col-md-2\">\r\n      <span class=\"date\">{{task.date.format('Do MMMM YYYY')}}</span>\r\n    </div>\r\n    <div class=\"col-md-3 col-md-offset-1 buttons\">\r\n      <!--buttons-->\r\n      <span class=\"edit-button\">\r\n            <changeDropDownMenu (editTaskText)=\"focusOnEditTaskArea(taskTitle)\" [task]=\"task\"></changeDropDownMenu>\r\n        </span>\r\n\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
 /***/ 873:
 /***/ (function(module, exports) {
 
-module.exports = "<a data-toggle=\"dropdown\">\r\n  <i class=\"fa fa-list-ul fa-2x\" aria-hidden=\"true\"></i>\r\n</a>\r\n<ul class=\"dropdown-menu\">\r\n  <li><a href=\"\">Edit Text</a></li>\r\n  <li role=\"separator\" class=\"divider\"></li>\r\n  <li class=\"shadowText\">Shedule</li>\r\n  <li>\r\n    <div class=\"container tabs\">\r\n      <div class=\"row\">\r\n        <div class=\"col-md-4\"><a mdTooltip=\"Tomorrow\" (click)=\"postponeOneDay()\"><i class=\"fa fa-undo  fa-2x\" aria-hidden=\"true\"></i></a></div>\r\n        <div class=\"col-md-4\"><a mdTooltip=\"Next Week\" (click)=\"postponeOneWeek()\"><i class=\"fa fa-arrow-circle-o-right  fa-2x\"\r\n                                                          aria-hidden=\"true\"></i></a></div>\r\n        <div class=\"col-md-4\" (click)=\"stopPropagation($event)\">\r\n\r\n          <!--Here i use https://github.com/pleerock/ng2-dropdown  -->\r\n          <div class=\"dropdown\" dropdown [dropdownToggle]=\"false\" [dropdown-not-closable-zone]=\"true\">\r\n            <a class=\"postponeDateTooltip\" mdTooltip=\"Pick Date\">\r\n              <i class=\"fa fa-calendar  fa-2x\" aria-hidden=\"true\" dropdown-open></i>\r\n            </a>\r\n            <ul class=\"dropdown-menu\">\r\n              <div class=\"cal\" (click)=\"stopPropagation($event)\">\r\n                <my-date-picker name=\"mydate\" [options]=\"postponeDatePickerOptions\"\r\n                                [(ngModel)]=\"postponeDate\"\r\n                                (dateChanged)=\"onPostponeCalendarDateChanged($event)\"></my-date-picker>\r\n              </div>\r\n\r\n            </ul>\r\n          </div>\r\n          <!-- -------------  -->\r\n\r\n        </div>\r\n        <div class=\"col-md-4\"></div>\r\n      </div>\r\n    </div>\r\n  </li>\r\n  <li role=\"separator\" class=\"divider\"></li>\r\n  <li class=\"shadowText\">Priority</li>\r\n  <div class=\"container tabs\">\r\n    <div class=\"row\">\r\n      <div class=\"col-md-3\"><a mdTooltip=\"Priority 1\"  class=\"red\" ><i  (click)=\"setPriority($event)\"id=\"priority1\" class=\"fa fa-flag fa-2x\" aria-hidden=\"true\"></i>\r\n      </a></div>\r\n      <div class=\"col-md-3\"><a mdTooltip=\"Priority 2\"  class=\"orange\" (click)=\"setPriority($event)\"><i id=\"priority2\" class=\"fa fa-flag fa-2x\" aria-hidden=\"true\"></i>\r\n      </a></div>\r\n      <div class=\"col-md-3\"><a mdTooltip=\"Priority 3\"  class=\"green\" (click)=\"setPriority($event)\"><i id=\"priority3\" class=\"fa fa-flag fa-2x\" aria-hidden=\"true\"></i>\r\n      </a></div>\r\n      <div class=\"col-md-3\"><a mdTooltip=\"Priority 4\"  class=\"gray\" (click)=\"setPriority($event)\"><i id=\"priority4\" class=\"fa fa-flag fa-2x\"\r\n                                                                      aria-hidden=\"true\"></i></a></div>\r\n    </div>\r\n  </div>\r\n  <li role=\"separator\" class=\"divider\"></li>\r\n  <div class=\"cal\" (click)=\"stopPropagation($event)\">\r\n    <my-date-picker name=\"mydate\" [options]=\"myDatePickerOptions\"\r\n                    [(ngModel)]=\"date\" (dateChanged)=\"onPostponeCalendarDateChanged($event)\"></my-date-picker>\r\n  </div>\r\n\r\n</ul>\r\n\r\n\r\n\r\n"
+module.exports = "<a data-toggle=\"dropdown\">\r\n  <i class=\"fa fa-list-ul fa-2x\" aria-hidden=\"true\"></i>\r\n</a>\r\n<ul class=\"dropdown-menu\">\r\n  <li><a (click)=\"editTaskTitle()\">Edit Text</a></li>\r\n  <li role=\"separator\" class=\"divider\"></li>\r\n  <li class=\"shadowText\">Shedule</li>\r\n  <li>\r\n    <div class=\"container tabs\">\r\n      <div class=\"row\">\r\n        <div class=\"col-md-4\"><a mdTooltip=\"Tomorrow\" (click)=\"postponeOneDay()\"><i class=\"fa fa-undo  fa-2x\" aria-hidden=\"true\"></i></a></div>\r\n        <div class=\"col-md-4\"><a mdTooltip=\"Next Week\" (click)=\"postponeOneWeek()\"><i class=\"fa fa-arrow-circle-o-right  fa-2x\"\r\n                                                          aria-hidden=\"true\"></i></a></div>\r\n        <div class=\"col-md-4\" (click)=\"stopPropagation($event)\">\r\n\r\n          <!--Here i use https://github.com/pleerock/ng2-dropdown  -->\r\n          <div class=\"dropdown\" dropdown [dropdownToggle]=\"false\" [dropdown-not-closable-zone]=\"true\">\r\n            <a class=\"postponeDateTooltip\" mdTooltip=\"Pick Date\">\r\n              <i class=\"fa fa-calendar  fa-2x\" aria-hidden=\"true\" dropdown-open></i>\r\n            </a>\r\n            <ul class=\"dropdown-menu\">\r\n              <div class=\"cal\" (click)=\"stopPropagation($event)\">\r\n                <my-date-picker name=\"mydate\" [options]=\"postponeDatePickerOptions\"\r\n                                [(ngModel)]=\"postponeDate\"\r\n                                (dateChanged)=\"onPostponeCalendarDateChanged($event)\"></my-date-picker>\r\n              </div>\r\n\r\n            </ul>\r\n          </div>\r\n          <!-- -------------  -->\r\n\r\n        </div>\r\n        <div class=\"col-md-4\"></div>\r\n      </div>\r\n    </div>\r\n  </li>\r\n  <li role=\"separator\" class=\"divider\"></li>\r\n  <li class=\"shadowText\">Priority</li>\r\n  <div class=\"container tabs\">\r\n    <div class=\"row\">\r\n      <div class=\"col-md-3\"><a mdTooltip=\"Priority 1\"  class=\"red\" ><i  (click)=\"setPriority($event)\"id=\"priority1\" class=\"fa fa-flag fa-2x\" aria-hidden=\"true\"></i>\r\n      </a></div>\r\n      <div class=\"col-md-3\"><a mdTooltip=\"Priority 2\"  class=\"orange\" (click)=\"setPriority($event)\"><i id=\"priority2\" class=\"fa fa-flag fa-2x\" aria-hidden=\"true\"></i>\r\n      </a></div>\r\n      <div class=\"col-md-3\"><a mdTooltip=\"Priority 3\"  class=\"green\" (click)=\"setPriority($event)\"><i id=\"priority3\" class=\"fa fa-flag fa-2x\" aria-hidden=\"true\"></i>\r\n      </a></div>\r\n      <div class=\"col-md-3\"><a mdTooltip=\"Priority 4\"  class=\"gray\" (click)=\"setPriority($event)\"><i id=\"priority4\" class=\"fa fa-flag fa-2x\"\r\n                                                                      aria-hidden=\"true\"></i></a></div>\r\n    </div>\r\n  </div>\r\n  <li role=\"separator\" class=\"divider\"></li>\r\n  <li id=\"redLi\"><a class=\"redText\" (click)=\"deleteTask($event)\">Delete this Task</a></li>\r\n  <li role=\"separator\" class=\"divider\"></li>\r\n  <div class=\"cal\" (click)=\"stopPropagation($event)\">\r\n    <my-date-picker name=\"mydate\" [options]=\"myDatePickerOptions\"\r\n                    [(ngModel)]=\"date\" (dateChanged)=\"onPostponeCalendarDateChanged($event)\"></my-date-picker>\r\n  </div>\r\n\r\n</ul>\r\n\r\n\r\n\r\n"
 
 /***/ })
 
