@@ -58,10 +58,7 @@ export class AddTaskDialog implements OnInit {
   }
 
   addTask(name: string) {
-    let date:Moment=moment()
-      .date(this.date.date.day)
-      .month(this.date.date.month)
-      .year(this.date.date.year);
+    let date:Moment=moment([this.date.date.year,this.date.date.month,this.date.date.day]);
     this.taskManagerService.addTask(new Task(name,date,this.selectedPriority));
   }
 
