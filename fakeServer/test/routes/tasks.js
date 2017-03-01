@@ -5,13 +5,13 @@ var router = express.Router();
 let tasks=[
     {
         id:'1',
-        date:'2013-02-08',
+        date:'2017-02-08',
         title:'title',
         priority:2,
         isDone:false
     }, {
         id:'2',
-        date:'2013-02-09',
+        date:'2017-04-01',
         title:'title2',
         priority:2,
         isDone:false
@@ -27,6 +27,7 @@ router.get('/recent/:amount', function(req, res, next) {
 });
 router.post('/add',function(req, res, next){
     let task=req.body;
+    task.id=3;
     tasks.push(task);
     res.json({
         isAdded:true,
@@ -34,13 +35,29 @@ router.post('/add',function(req, res, next){
     })
 });
 
+router.post('/update/:id',function (req, res, next) {
+    let taskID=req.params['id'];
+    let taskReq=req.body;
+    for (task of tasks){
+        if (task.id==taskID){
+            let index = tasks.indexOf(task);
+            if (index > -1) {
+                tasks[index]=taskReq;
+                console.log(task.priority);
+               tasks[index].id=taskID;
+            }
+        }
+    }
+    res.json({isUpdt:true})
+})
+
 router.get('/delete/:id',function (req, res, next) {
     let taskID=req.params['id'];
     for (task of tasks){
         if (task.id==taskID){
-            let index = this.tasks.indexOf(task);
+            let index =tasks.indexOf(task);
             if (index > -1) {
-                this.tasks.splice(index, 1);
+                tasks.splice(index, 1);
             }
             res.json({isDeleted:true})
         }
