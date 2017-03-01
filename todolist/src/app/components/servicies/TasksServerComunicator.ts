@@ -17,6 +17,7 @@ import {read} from "fs";
  * data exchange format you can find in the repository root
  * All public methods return Observable!!!
  * */
+//TODO:refactor this whole code
 @Injectable()
 export class TasksStore {
   constructor(private http: Http) {
@@ -39,7 +40,7 @@ export class TasksStore {
         amountSubj$.complete();
       }
     });
-    return amountSubj$
+    return amountSubj$.asObservable()
   }
 
 //postone task for amount of days as a optional parameter, default 1 day
@@ -59,28 +60,38 @@ export class TasksStore {
       if (this.extractData(resp)['isPostponed']) {
         postoneSubj$.complete();
       }
-      
+
     })
-    return postoneSubj$;
+    return postoneSubj$.asObservable();
 
   }
 
   addTask(task: Task): Observable<string> {
     let addURL = '/tasks/add';
     let readyStateSubj$ = new Subject;
-    this.http.post(addURL, {
-      date: task.date.format('YYYY-MM-DD'),//formating according to ISO 8601
-      title: task.title,
-      priority: task.priority,
-      isDone: task.isDone
-    })
+    this.http.post(addURL,
+      this.formatTaskToServer(task))
       .subscribe(val => {
         let doneJSON = this.extractData(val);
         readyStateSubj$.next(
           doneJSON['id']
         )
       });
-    return readyStateSubj$;
+
+    return readyStateSubj$.asObservable();
+  }
+
+  updateTask(task:Task):Observable<Task>{
+    let updtSubj$ = new Subject;
+    let updtURL=`/tasks/update/${task.id}`;
+    this.http.post(updtURL,
+    this.formatTaskToServer(task))
+      .subscribe(val=>{
+        let doneJSON = this.extractData(val);
+        updtSubj$.complete();
+      });
+
+    return updtSubj$.asObservable();
   }
 
   delTask(task: Task): Observable<boolean> {
@@ -90,7 +101,7 @@ export class TasksStore {
     this.http.get(delURL).subscribe(resp => {
       delSubj$.next(this.extractData(resp)['isDeleted'])
     })
-    return delSubj$;
+    return delSubj$.asObservable();
   }
 
 
@@ -110,5 +121,15 @@ export class TasksStore {
   private extractData(res: Response) {
     let body = res.json();
     return body || {};
+  }
+
+  //formates task to standart acceptable with server
+  private formatTaskToServer(task:Task):Object{
+    return {
+      date: task.date.format('YYYY-MM-DD'),//formating according to ISO 8601
+        title: task.title,
+      priority: task.priority,
+      isDone: task.isDone
+    }
   }
 }
