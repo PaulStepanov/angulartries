@@ -5,3 +5,6 @@
   <li><a href="#">CSS</a></li>
   <li><a href="#">JavaScript</a></li>
 </ul>
+
+<my-date-picker name="mydate" [options]="myDatePickerOptions"
+                  [(ngModel)]="date" required (dateChanged)="onDateChanged($event)></my-date-picker>
