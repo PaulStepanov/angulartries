@@ -2,7 +2,7 @@
  * Created by Павел on 27-Feb-17.
  */
 
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {TaskManagerService} from "../../../../servicies/TaskManagerService";
 import {Task} from "../../../../../accessoryClasses/task/Task";
 import * as moment from 'moment';
@@ -17,6 +17,10 @@ import {IMyOptions, IMyDateModel} from "mydatepicker";
 export class ChangeDropDownMenu implements OnInit {
   @Input()
   public task: Task;
+
+  @Output()
+  editTaskText:EventEmitter<Task>=new EventEmitter();
+
 
   private postponeDatePickerOptions: IMyOptions = {
     dateFormat: 'dd.mm.yyyy',
@@ -37,6 +41,14 @@ export class ChangeDropDownMenu implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  editTaskTitle(){
+    this.editTaskText.emit(this.task);
+  }
+
+  deleteTask() {
+    this.taskManagerService.delTask(this.task);
   }
 
   setPriority($event) {
