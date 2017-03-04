@@ -1,20 +1,30 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
-      <!--TODO priority tag-->
-      <span class="priority">
-        <i class="fa fa-flag" [style.color]="getPriorityColor()" aria-hidden="true"></i>
-      </span>
-      <div>
-       <md-input-container>
-          <input id="focus" class="taskText" md-input color="primar" value="{{task.title}}" (blur)="updateText(taskTitle)" #taskTitle>
-        </md-input-container>
-      </div>
-    </div>
     <div class="col-md-2">
+      <span class="completeStatusButton">
+        <span id="complete" *ngIf="task.isDone">
+          <a id="doneIcon" (click)="undoComplleteTask()"><i class="fa fa-chevron-down fa-2x" aria-hidden="true"></i></a>
+        </span>
+        <span id="notcomplete" *ngIf="!task.isDone">
+          <a id="undoneIcon" (click)="completeTask()"><i class="fa fa-circle-o fa-2x" aria-hidden="true"></i></a>
+        </span>
+      </span>
+      <span class="priority">
+        <i class="fa fa-flag fa-2x" [style.color]="getPriorityColor()" aria-hidden="true"></i>
+      </span>
+    </div>
+    <div class="col-md-4 ">
+      <span>
+        <md-input-container>
+          <input id="focus" class="taskText" md-input color="primar" value="{{task.title}}"
+                 (blur)="updateText(taskTitle)" #taskTitle>
+        </md-input-container>
+      </span>
+    </div>
+    <div class="col-md-3 ">
       <span class="date">{{task.date.format('Do MMMM YYYY')}}</span>
     </div>
-    <div class="col-md-3 col-md-offset-1 buttons">
+    <div class="col-md-2 col-md-offset-1 buttons">
       <!--buttons-->
       <span class="edit-button">
             <changeDropDownMenu (editTaskText)="focusOnEditTaskArea(taskTitle)" [task]="task"></changeDropDownMenu>

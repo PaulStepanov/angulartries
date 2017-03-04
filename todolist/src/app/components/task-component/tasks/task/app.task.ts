@@ -44,4 +44,12 @@ export class TaskComponent implements OnInit {
     }
   }
 
+  completeTask(){
+    this.taskManagerService.completeTask(this.task);
+  }
+
+  undoComplleteTask(){
+    this.taskManagerService.undoCompleteTask(this.task);
+  }
+
 }

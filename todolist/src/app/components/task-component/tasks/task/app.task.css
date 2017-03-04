@@ -1,0 +1,10 @@
+#doneIcon{
+  color: #88c149!important;
+}
+#doneIcon:hover{
+  color: red!important;
+}
+
+#undoneIcon:hover{
+  color:green!important;
+}
