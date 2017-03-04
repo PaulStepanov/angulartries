@@ -15,6 +15,8 @@ _return array of tasks until today_
 #### GET:
 * **/tasks/complete/{taskId}** 
 
+* **/tasks/undoComplete/{taskId}** 
+
 * **/tasks/delete/{taskId}** 
  _response:_{   
  isDeleted:boolean,     
