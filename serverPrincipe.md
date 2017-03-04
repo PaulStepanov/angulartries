@@ -13,6 +13,8 @@ _return array of tasks until today_
   body:{task} 
    
 #### GET:
+* **/tasks/complete/{taskId}** 
+
 * **/tasks/delete/{taskId}** 
  _response:_{   
  isDeleted:boolean,     
