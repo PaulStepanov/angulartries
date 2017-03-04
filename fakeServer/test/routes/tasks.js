@@ -44,29 +44,31 @@ router.post('/update/:id', function (req, res, next) {
         if (task.id == taskID) {
             let index = tasks.indexOf(task);
             if (index > -1) {
-                console.log(moment(task.date).format());
+                tasks[index] = taskReq;
+                console.log(task.priority);
+                tasks[index].id = taskID;
             }
         }
     }
     res.json({isUpdt: true})
-});
+})
 
 router.get('/postpone/:id', function (req, res, next) {
     let params = req.params;
     let taskID = params.id;
-    let postponeDays=req.query.day;
+    let postponeDays = req.query.day;
 
     for (task of tasks) {
         if (task.id == taskID) {
             let index = tasks.indexOf(task);
             if (index > -1) {
-                let time=moment(task.date);
-                time=time.add(postponeDays,'days');
-                tasks[index].date=time.format('YYYY-MM-DD')
+                let time = moment(task.date);
+                time = time.add(postponeDays, 'days');
+                tasks[index].date = time.format('YYYY-MM-DD')
             }
         }
     }
-    res.json({isPostponed:'true'})
+    res.json({isPostponed: 'true'})
 });
 
 router.get('/delete/:id', function (req, res, next) {

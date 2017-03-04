@@ -1,7 +1,7 @@
-<a data-toggle="dropdown">
-  <i class="fa fa-list-ul fa-2x" aria-hidden="true"></i>
-</a>
-<ul class="dropdown-menu">
+<div class="dropdown" dropdown [dropdownToggle]="false" [dropdown-not-closable-zone]="true">
+  <i class="fa fa-list-ul fa-2x" aria-hidden="true" dropdown-open></i>
+
+<ul class="dropdown-menu" >
   <li><a (click)="editTaskTitle()">Edit Text</a></li>
   <li role="separator" class="divider"></li>
   <li class="shadowText">Shedule</li>
@@ -11,20 +11,17 @@
         <div class="col-md-4"><a mdTooltip="Tomorrow" (click)="postponeOneDay()"><i class="fa fa-undo  fa-2x" aria-hidden="true"></i></a></div>
         <div class="col-md-4"><a mdTooltip="Next Week" (click)="postponeOneWeek()"><i class="fa fa-arrow-circle-o-right  fa-2x"
                                                           aria-hidden="true"></i></a></div>
-        <div class="col-md-4" (click)="stopPropagation($event)">
+        <div class="col-md-4" >
 
           <!--Here i use https://github.com/pleerock/ng2-dropdown  -->
-          <div class="dropdown" dropdown [dropdownToggle]="false" [dropdown-not-closable-zone]="true">
+          <div class="dropdown" dropdown [dropdownToggle]="true" [dropdown-not-closable-zone]="true">
             <a class="postponeDateTooltip" mdTooltip="Pick Date">
-              <i class="fa fa-calendar  fa-2x" aria-hidden="true" dropdown-open></i>
+              <i class="fa fa-calendar  fa-2x" aria-hidden="true" dropdown-open ></i>
             </a>
             <ul class="dropdown-menu">
-              <div class="cal" (click)="stopPropagation($event)">
                 <my-date-picker name="mydate" [options]="postponeDatePickerOptions"
                                 [(ngModel)]="postponeDate"
                                 (dateChanged)="onPostponeCalendarDateChanged($event)"></my-date-picker>
-              </div>
-
             </ul>
           </div>
           <!-- -------------  -->
@@ -51,12 +48,7 @@
   <li role="separator" class="divider"></li>
   <li id="redLi"><a class="redText" (click)="deleteTask($event)">Delete this Task</a></li>
   <li role="separator" class="divider"></li>
-  <div class="cal" (click)="stopPropagation($event)">
-    <my-date-picker name="mydate" [options]="myDatePickerOptions"
-                    [(ngModel)]="date" (dateChanged)="onPostponeCalendarDateChanged($event)"></my-date-picker>
-  </div>
-
 </ul>
-
+</div>
 
 

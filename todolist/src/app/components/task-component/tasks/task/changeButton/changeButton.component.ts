@@ -29,7 +29,7 @@ export class ChangeDropDownMenu implements OnInit {
     disableUntil: {year: moment().year(), month: moment().month(), day: moment().date()}
   };
 
-  private postponeDate = {
+  postponeDate = {
     date: {
       year: moment().year(),
       month: moment().month(),
@@ -51,7 +51,7 @@ export class ChangeDropDownMenu implements OnInit {
     this.taskManagerService.delTask(this.task);
   }
 
-  setPriority($event) {
+  setPriority(event) {
     let priorityID: string = event.target['id'];
     let priority: number;
     switch (priorityID) {
@@ -85,12 +85,12 @@ export class ChangeDropDownMenu implements OnInit {
       newDate= this.task.date.clone();
       newDate.add(1,'days');
     }
-    
+
     this.taskManagerService.postponeTask(this.task, newDate);
   }
 
   postponeOneWeek() {
-    let newDate: Moment 
+    let newDate: Moment
     if(this.task.date.isSame(moment(),'day') || this.task.date.isBefore(moment(),'day')){
       newDate=moment().hour(0).minutes(0).second(0).milliseconds(0);
       newDate.add(1, 'week');
@@ -98,21 +98,12 @@ export class ChangeDropDownMenu implements OnInit {
       newDate=this.task.date.clone();
       newDate.add(1,'week');
     }
-  
+
     this.taskManagerService.postponeTask(this.task, newDate);
   }
 
   onPostponeCalendarDateChanged(event: IMyDateModel) {
-    this.postponeTask();
-  }
-
-
-  stopPropagation(event) {
-    event.stopPropagation();
-  }
-
-  private postponeTask() {//TODO:refactor this sheet
-    let date: Moment = moment([this.postponeDate.date.year, this.postponeDate.date.month, this.postponeDate.date.day])
+    let date=moment(event.jsdate);
     this.taskManagerService.postponeTask(this.task, date);
   }
 
