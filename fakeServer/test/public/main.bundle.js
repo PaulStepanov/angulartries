@@ -894,7 +894,7 @@ var ChangeDropDownMenu = (function () {
     ChangeDropDownMenu.prototype.deleteTask = function () {
         this.taskManagerService.delTask(this.task);
     };
-    ChangeDropDownMenu.prototype.setPriority = function ($event) {
+    ChangeDropDownMenu.prototype.setPriority = function (event) {
         var priorityID = event.target['id'];
         var priority;
         switch (priorityID) {
@@ -919,23 +919,31 @@ var ChangeDropDownMenu = (function () {
         this.taskManagerService.updateTask(this.task);
     };
     ChangeDropDownMenu.prototype.postponeOneDay = function () {
-        var newDate = __WEBPACK_IMPORTED_MODULE_3_moment__().hour(0).minutes(0).second(0).milliseconds(0);
-        newDate.add(1, 'days');
+        var newDate;
+        if (this.task.date.isSame(__WEBPACK_IMPORTED_MODULE_3_moment__(), 'day') || this.task.date.isBefore(__WEBPACK_IMPORTED_MODULE_3_moment__(), 'day')) {
+            newDate = __WEBPACK_IMPORTED_MODULE_3_moment__().hour(0).minutes(0).second(0).milliseconds(0);
+            newDate.add(1, 'days');
+        }
+        else {
+            newDate = this.task.date.clone();
+            newDate.add(1, 'days');
+        }
         this.taskManagerService.postponeTask(this.task, newDate);
     };
     ChangeDropDownMenu.prototype.postponeOneWeek = function () {
-        var newDate = __WEBPACK_IMPORTED_MODULE_3_moment__().hour(0).minutes(0).second(0).milliseconds(0);
-        newDate.add(1, 'week');
+        var newDate;
+        if (this.task.date.isSame(__WEBPACK_IMPORTED_MODULE_3_moment__(), 'day') || this.task.date.isBefore(__WEBPACK_IMPORTED_MODULE_3_moment__(), 'day')) {
+            newDate = __WEBPACK_IMPORTED_MODULE_3_moment__().hour(0).minutes(0).second(0).milliseconds(0);
+            newDate.add(1, 'week');
+        }
+        else {
+            newDate = this.task.date.clone();
+            newDate.add(1, 'week');
+        }
         this.taskManagerService.postponeTask(this.task, newDate);
     };
     ChangeDropDownMenu.prototype.onPostponeCalendarDateChanged = function (event) {
-        this.postponeTask();
-    };
-    ChangeDropDownMenu.prototype.stopPropagation = function (event) {
-        event.stopPropagation();
-    };
-    ChangeDropDownMenu.prototype.postponeTask = function () {
-        var date = __WEBPACK_IMPORTED_MODULE_3_moment__([this.postponeDate.date.year, this.postponeDate.date.month, this.postponeDate.date.day]);
+        var date = __WEBPACK_IMPORTED_MODULE_3_moment__(event.jsdate);
         this.taskManagerService.postponeTask(this.task, date);
     };
     __decorate([
@@ -1311,7 +1319,7 @@ module.exports = "<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div
 /***/ 873:
 /***/ (function(module, exports) {
 
-module.exports = "<a data-toggle=\"dropdown\">\r\n  <i class=\"fa fa-list-ul fa-2x\" aria-hidden=\"true\"></i>\r\n</a>\r\n<ul class=\"dropdown-menu\">\r\n  <li><a (click)=\"editTaskTitle()\">Edit Text</a></li>\r\n  <li role=\"separator\" class=\"divider\"></li>\r\n  <li class=\"shadowText\">Shedule</li>\r\n  <li>\r\n    <div class=\"container tabs\">\r\n      <div class=\"row\">\r\n        <div class=\"col-md-4\"><a mdTooltip=\"Tomorrow\" (click)=\"postponeOneDay()\"><i class=\"fa fa-undo  fa-2x\" aria-hidden=\"true\"></i></a></div>\r\n        <div class=\"col-md-4\"><a mdTooltip=\"Next Week\" (click)=\"postponeOneWeek()\"><i class=\"fa fa-arrow-circle-o-right  fa-2x\"\r\n                                                          aria-hidden=\"true\"></i></a></div>\r\n        <div class=\"col-md-4\" (click)=\"stopPropagation($event)\">\r\n\r\n          <!--Here i use https://github.com/pleerock/ng2-dropdown  -->\r\n          <div class=\"dropdown\" dropdown [dropdownToggle]=\"false\" [dropdown-not-closable-zone]=\"true\">\r\n            <a class=\"postponeDateTooltip\" mdTooltip=\"Pick Date\">\r\n              <i class=\"fa fa-calendar  fa-2x\" aria-hidden=\"true\" dropdown-open></i>\r\n            </a>\r\n            <ul class=\"dropdown-menu\">\r\n              <div class=\"cal\" (click)=\"stopPropagation($event)\">\r\n                <my-date-picker name=\"mydate\" [options]=\"postponeDatePickerOptions\"\r\n                                [(ngModel)]=\"postponeDate\"\r\n                                (dateChanged)=\"onPostponeCalendarDateChanged($event)\"></my-date-picker>\r\n              </div>\r\n\r\n            </ul>\r\n          </div>\r\n          <!-- -------------  -->\r\n\r\n        </div>\r\n        <div class=\"col-md-4\"></div>\r\n      </div>\r\n    </div>\r\n  </li>\r\n  <li role=\"separator\" class=\"divider\"></li>\r\n  <li class=\"shadowText\">Priority</li>\r\n  <div class=\"container tabs\">\r\n    <div class=\"row\">\r\n      <div class=\"col-md-3\"><a mdTooltip=\"Priority 1\"  class=\"red\" ><i  (click)=\"setPriority($event)\"id=\"priority1\" class=\"fa fa-flag fa-2x\" aria-hidden=\"true\"></i>\r\n      </a></div>\r\n      <div class=\"col-md-3\"><a mdTooltip=\"Priority 2\"  class=\"orange\" (click)=\"setPriority($event)\"><i id=\"priority2\" class=\"fa fa-flag fa-2x\" aria-hidden=\"true\"></i>\r\n      </a></div>\r\n      <div class=\"col-md-3\"><a mdTooltip=\"Priority 3\"  class=\"green\" (click)=\"setPriority($event)\"><i id=\"priority3\" class=\"fa fa-flag fa-2x\" aria-hidden=\"true\"></i>\r\n      </a></div>\r\n      <div class=\"col-md-3\"><a mdTooltip=\"Priority 4\"  class=\"gray\" (click)=\"setPriority($event)\"><i id=\"priority4\" class=\"fa fa-flag fa-2x\"\r\n                                                                      aria-hidden=\"true\"></i></a></div>\r\n    </div>\r\n  </div>\r\n  <li role=\"separator\" class=\"divider\"></li>\r\n  <li id=\"redLi\"><a class=\"redText\" (click)=\"deleteTask($event)\">Delete this Task</a></li>\r\n  <li role=\"separator\" class=\"divider\"></li>\r\n  <div class=\"cal\" (click)=\"stopPropagation($event)\">\r\n    <my-date-picker name=\"mydate\" [options]=\"myDatePickerOptions\"\r\n                    [(ngModel)]=\"date\" (dateChanged)=\"onPostponeCalendarDateChanged($event)\"></my-date-picker>\r\n  </div>\r\n\r\n</ul>\r\n\r\n\r\n\r\n"
+module.exports = "<div class=\"dropdown\" dropdown [dropdownToggle]=\"false\" [dropdown-not-closable-zone]=\"true\">\r\n  <i class=\"fa fa-list-ul fa-2x\" aria-hidden=\"true\" dropdown-open></i>\r\n\r\n<ul class=\"dropdown-menu\" >\r\n  <li><a (click)=\"editTaskTitle()\">Edit Text</a></li>\r\n  <li role=\"separator\" class=\"divider\"></li>\r\n  <li class=\"shadowText\">Shedule</li>\r\n  <li>\r\n    <div class=\"container tabs\">\r\n      <div class=\"row\">\r\n        <div class=\"col-md-4\"><a mdTooltip=\"Tomorrow\" (click)=\"postponeOneDay()\"><i class=\"fa fa-undo  fa-2x\" aria-hidden=\"true\"></i></a></div>\r\n        <div class=\"col-md-4\"><a mdTooltip=\"Next Week\" (click)=\"postponeOneWeek()\"><i class=\"fa fa-arrow-circle-o-right  fa-2x\"\r\n                                                          aria-hidden=\"true\"></i></a></div>\r\n        <div class=\"col-md-4\" >\r\n\r\n          <!--Here i use https://github.com/pleerock/ng2-dropdown  -->\r\n          <div class=\"dropdown\" dropdown [dropdownToggle]=\"true\" [dropdown-not-closable-zone]=\"true\">\r\n            <a class=\"postponeDateTooltip\" mdTooltip=\"Pick Date\">\r\n              <i class=\"fa fa-calendar  fa-2x\" aria-hidden=\"true\" dropdown-open ></i>\r\n            </a>\r\n            <ul class=\"dropdown-menu\">\r\n                <my-date-picker name=\"mydate\" [options]=\"postponeDatePickerOptions\"\r\n                                [(ngModel)]=\"postponeDate\"\r\n                                (dateChanged)=\"onPostponeCalendarDateChanged($event)\"></my-date-picker>\r\n            </ul>\r\n          </div>\r\n          <!-- -------------  -->\r\n\r\n        </div>\r\n        <div class=\"col-md-4\"></div>\r\n      </div>\r\n    </div>\r\n  </li>\r\n  <li role=\"separator\" class=\"divider\"></li>\r\n  <li class=\"shadowText\">Priority</li>\r\n  <div class=\"container tabs\">\r\n    <div class=\"row\">\r\n      <div class=\"col-md-3\"><a mdTooltip=\"Priority 1\"  class=\"red\" ><i  (click)=\"setPriority($event)\"id=\"priority1\" class=\"fa fa-flag fa-2x\" aria-hidden=\"true\"></i>\r\n      </a></div>\r\n      <div class=\"col-md-3\"><a mdTooltip=\"Priority 2\"  class=\"orange\" (click)=\"setPriority($event)\"><i id=\"priority2\" class=\"fa fa-flag fa-2x\" aria-hidden=\"true\"></i>\r\n      </a></div>\r\n      <div class=\"col-md-3\"><a mdTooltip=\"Priority 3\"  class=\"green\" (click)=\"setPriority($event)\"><i id=\"priority3\" class=\"fa fa-flag fa-2x\" aria-hidden=\"true\"></i>\r\n      </a></div>\r\n      <div class=\"col-md-3\"><a mdTooltip=\"Priority 4\"  class=\"gray\" (click)=\"setPriority($event)\"><i id=\"priority4\" class=\"fa fa-flag fa-2x\"\r\n                                                                      aria-hidden=\"true\"></i></a></div>\r\n    </div>\r\n  </div>\r\n  <li role=\"separator\" class=\"divider\"></li>\r\n  <li id=\"redLi\"><a class=\"redText\" (click)=\"deleteTask($event)\">Delete this Task</a></li>\r\n  <li role=\"separator\" class=\"divider\"></li>\r\n</ul>\r\n</div>\r\n\r\n\r\n"
 
 /***/ })
 
