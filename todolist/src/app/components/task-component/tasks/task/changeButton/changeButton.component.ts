@@ -77,14 +77,28 @@ export class ChangeDropDownMenu implements OnInit {
   }
 
   postponeOneDay() {
-    let newDate: Moment = moment().hour(0).minutes(0).second(0).milliseconds(0);
-    newDate.add(1, 'days');
+    let newDate: Moment;
+    if(this.task.date.isSame(moment(),'day') || this.task.date.isBefore(moment(),'day')){
+      newDate= moment().hour(0).minutes(0).second(0).milliseconds(0);
+      newDate.add(1, 'days');
+    } else {
+      newDate= this.task.date.clone();
+      newDate.add(1,'days');
+    }
+    
     this.taskManagerService.postponeTask(this.task, newDate);
   }
 
   postponeOneWeek() {
-    let newDate: Moment = moment().hour(0).minutes(0).second(0).milliseconds(0);
-    newDate.add(1, 'week');
+    let newDate: Moment 
+    if(this.task.date.isSame(moment(),'day') || this.task.date.isBefore(moment(),'day')){
+      newDate=moment().hour(0).minutes(0).second(0).milliseconds(0);
+      newDate.add(1, 'week');
+    } else{
+      newDate=this.task.date.clone();
+      newDate.add(1,'week');
+    }
+  
     this.taskManagerService.postponeTask(this.task, newDate);
   }
 
