@@ -4,7 +4,9 @@
 * **/tasks/recent/{amount}**   
 _return number(amount) of tasks in array object_  
 * **/tasks/byDate?startDate={startDate}&endDate={lastDate}**  
+
 * **/tasks/byDate?startDate={startDate}**  
+Date passes in ISO 8601 format, example:	_2017-03-04_  
 _return array of tasks until today_
  
 ##updating tasks:  
