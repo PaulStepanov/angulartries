@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TaskManagerService} from "../../servicies/TaskManagerService";
 import {Task} from "../../../accessoryClasses/task/Task";
 import {IMyOptions} from "mydatepicker";
@@ -6,7 +6,6 @@ import * as moment from 'moment';
 import Moment = moment.Moment;
 
 @Component({
-  moduleId: module.id,
   selector: 'app-dialog-addtask',
   templateUrl: 'addTaskDial.html',
   styleUrls: ['addTaskDial.css']
@@ -61,5 +60,4 @@ export class AddTaskDialog implements OnInit {
     let date:Moment=moment([this.date.date.year,this.date.date.month,this.date.date.day]);
     this.taskManagerService.addTask(new Task(name,date,this.selectedPriority));
   }
-
 }

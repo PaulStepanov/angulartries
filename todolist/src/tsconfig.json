@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "version":"2.0.10",
     "baseUrl": "",
     "declaration": false,
     "emitDecoratorMetadata": true,

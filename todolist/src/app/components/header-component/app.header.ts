@@ -8,6 +8,7 @@ import {AddTaskDialog} from "./taskdialog/taskDialog";
   templateUrl: 'app.header.html',
   styleUrls: ['app.header.css']
 })
+
 export class HeaderComponent implements OnInit {
   constructor(public dialog: MdDialog) {
   }
@@ -18,5 +19,4 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

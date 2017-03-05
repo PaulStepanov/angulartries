@@ -1,138 +1,101 @@
-/**
- * Created by pili on 2/20/17.
- */
 import {Injectable} from '@angular/core';
 import {Task} from "../../accessoryClasses/task/Task";
 import * as moment from 'moment';
 import {Subject,} from 'rxjs/'
-import {el} from "@angular/platform-browser/testing/browser_util";
 import {Http, URLSearchParams, Response, RequestOptionsArgs} from "@angular/http";
 import {TaskBuilder} from "../../accessoryClasses/task/TaskBuilder";
 import {Observable} from "rxjs";
-import {read} from "fs";
 import Moment = moment.Moment;
-
 
 /**
  * class for managing tasks with server,
  * data exchange format you can find in the repository root
  * All public methods return Observable!!!
  * */
-//TODO:refactor this whole code
 @Injectable()
-export class TasksServerComunicator {
+export class TasksServerCommunicator {
   constructor(private http: Http) {
   }
 
   //Return tasks from startDate to endDate
-  getTasksByDate(startDate: Moment, endDate?: Moment):Observable<Task>{
+  getTasksByDate(startDate: Moment, endDate?: Moment): Observable<Task> {
     let getURL = `/tasks/byDate`;
-    let getSubj$ = new Subject();
     let options: RequestOptionsArgs;
-    let searchParams:URLSearchParams=new URLSearchParams();
+    let searchParams: URLSearchParams = new URLSearchParams();
     //Setup body of request
-    searchParams.set('startDate',startDate.format('YYYY-MM-DD'));
+    searchParams.set('startDate', startDate.format('YYYY-MM-DD'));
     if (endDate) {
-      searchParams.set('endDate',endDate.format('YYYY-MM-DD'));
+      searchParams.set('endDate', endDate.format('YYYY-MM-DD'));
     }
-    options={
-      search:searchParams
+    options = {
+      search: searchParams
     };
-    return this.http.get(getURL, options)
-      .map(val=>this.extractData(val))
-      .mergeMap(tasks=> Observable.from(tasks)
-        .map(task=>this.convertJSONTask(task))
-      )
 
+    return this.http.get(getURL, options)
+      .map(val => TasksServerCommunicator.extractData(val))
+      .mergeMap(tasks => Observable.from(tasks)
+        .map(task => TasksServerCommunicator.convertJSONTask(task))
+      )
   }
 
-//postone task for amount of days as a optional parameter, default 1 day
+//postpone task for amount of days as a optional parameter, default 1 day
   postponeTask(task: Task, daysAmount?: number): Observable<boolean> {
     if (!daysAmount) {
       daysAmount = 1
     }
     //Debugging
     if (!task.id) {
-      alert('ni task id, error in TasksServerComunicator')
+      alert('ni task id, error in TasksServerCommunicator')
     }
     //----------------------
-    let postoneSubj$ = new Subject();
-    let taskId = task.id;
-    let postponeURL = `/tasks/postpone/${taskId}?day=${daysAmount}`;
-    this.http.get(postponeURL)
-      .filter(resp=>this.extractData(resp)['isPostponed'])
-      .do(resp => {
-        postoneSubj$.complete();
-    });
-    return postoneSubj$.asObservable();
+    let postponeURL = `/tasks/postpone/${task.id}`;
+    let searchPatams = new URLSearchParams();
+    searchPatams.set('day', daysAmount.toString());
 
+    return this.http.get(postponeURL, {
+      search: searchPatams
+    })
+      .map(resp => TasksServerCommunicator.extractData(resp))
+      .filter(val => val['isPostponed'])
   }
 
   addTask(task: Task): Observable<string> {
     let addURL = '/tasks/add';
-    let readyStateSubj$ = new Subject;
-    this.http.post(addURL,
-      this.formatTaskToServer(task))
 
-      .subscribe(val => {
-        let doneJSON = this.extractData(val);
-        readyStateSubj$.next(
-          doneJSON['id']
-        )
-      });
-    return readyStateSubj$.asObservable();
+    return this.http.post(addURL,
+      TasksServerCommunicator.formatTaskToServer(task))
+      .map(val => TasksServerCommunicator.extractData(val))
+      .map(val => val['id'])
   }
 
   updateTask(task: Task): Observable<Task> {
-    let updtSubj$ = new Subject;
     let updtURL = `/tasks/update/${task.id}`;
-    this.http.post(updtURL,
-      this.formatTaskToServer(task))
-      .subscribe(val => {
-        let doneJSON = this.extractData(val);
-        updtSubj$.complete();
-      });
-
-    return updtSubj$.asObservable();
+    return this.http.post(updtURL,
+      TasksServerCommunicator.formatTaskToServer(task))
+      .map(val => TasksServerCommunicator.extractData(val))
   }
 
   delTask(task: Task): Observable<boolean> {
-    let delSubj$ = new Subject;
-    let taskID = task.id;
-    let delURL = `/tasks/delete/${taskID}`;
-    this.http.get(delURL).subscribe(resp => {
-      delSubj$.next(this.extractData(resp)['isDeleted'])
-    })
-    return delSubj$.asObservable();
+    let delURL = `/tasks/delete/${task.id}`;
+    return this.http.get(delURL)
+      .map(val => TasksServerCommunicator.extractData(val)['isDeleted'])
   }
 
-  completeTask(task: Task): Observable<null> {
-    let complSubj$ = new Subject;
-    let taskID = task.id;
-    let complURL = `/tasks/complete/${taskID}`;
-    this.http.get(complURL).subscribe(resp => {
-      if (this.extractData(resp)['isCompleted']) {
-        complSubj$.complete()
-      }
-    });
-    return complSubj$;
+  completeTask(task: Task): Observable<boolean> {
+    let complURL = `/tasks/complete/${task.id}`;
+    return this.http.get(complURL)
+      .map(val => TasksServerCommunicator.extractData(val)['isCompleted'])
   }
 
-  undoCompleteTask(task: Task): Observable<null> {
-    let complSubj$ = new Subject;
-    let taskID = task.id;
-    let complURL = `/tasks/undoComplete/${taskID}`;
-    this.http.get(complURL).subscribe(resp => {
-      if (this.extractData(resp)['isCompleted']) {
-        complSubj$.complete()
-      }
-    });
-    return complSubj$;
+  undoCompleteTask(task: Task): Observable<boolean> {
+    let complURL = `/tasks/undoComplete/${task.id}`;
+    return this.http.get(complURL)
+      .map(val => TasksServerCommunicator.extractData(val)['isCompleted'])
   }
 
 
   /*Converts http JSON task to a Task class*/
-  private convertJSONTask(task): Task {
+  private static convertJSONTask(task): Task {
     let taskBuilder = new TaskBuilder();
     return taskBuilder
       .setId(task['id'])
@@ -144,13 +107,13 @@ export class TasksServerComunicator {
   }
 
   /*Extracting data from http response to JSON format*/
-  private extractData(res: Response) {
+  private static extractData(res: Response) {
     let body = res.json();
     return body || {};
   }
 
   //formates task to standart acceptable with server
-  private formatTaskToServer(task: Task): Object {
+  private static formatTaskToServer(task: Task): Object {
     return {
       date: task.date.format('YYYY-MM-DD'),//formating according to ISO 8601
       title: task.title,
