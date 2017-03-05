@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Task} from "../../accessoryClasses/task/Task";
+import {Task} from "../../accessoryClasses/domain/Task";
 
 @Injectable()
 export class TasksSorter {
