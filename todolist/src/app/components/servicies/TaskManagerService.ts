@@ -23,10 +23,6 @@ export class TaskManagerService {
 
   }
 
-  getDefaultTasks(): Observable<Task> {//TODO:make amount property
-    return this.tasksStore.getTasks(this.Defaults_Loaded_Tasks_Amount)
-  }
-
   getTasksByDate(startDate: Moment, endDate?: Moment):Observable<Task>{
     return this.tasksStore.getTasksByDate(startDate,endDate);
   }

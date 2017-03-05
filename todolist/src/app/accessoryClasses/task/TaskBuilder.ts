@@ -10,34 +10,34 @@ export class TaskBuilder {
   title: string;
   date: Moment;
   isDone: boolean = false;
-  priority:number=4;
+  priority: number = 4;
 
-  setId(id){
-    this.id=id;
+  setId(id) {
+    this.id = id;
     return this
   }
 
   setTitle(title) {
-    this.title=title;
+    this.title = title;
     return this;
   }
 
-  setDate(date){
-    this.date=date;
+  setDate(date) {
+    this.date = date;
     return this;
   }
 
   setIdDone(isDone) {
-    this.isDone=isDone;
+    this.isDone = isDone;
     return this;
   }
 
-  setPriority(priority){
-    this.priority=priority;
+  setPriority(priority) {
+    this.priority = priority;
     return this;
   }
 
   build() {
-    return new Task(this.title,this.date,this.priority,this.isDone,this.id);
+    return new Task(this.title, this.date, this.priority, this.isDone, this.id);
   }
 }
