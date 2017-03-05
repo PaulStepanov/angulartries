@@ -2,6 +2,13 @@
 
 My attempts to make a todolist app using angular2,material design module
 
+## How to run
+1. open todolist/ folder in the terminal and type :"_npm i_"
+2. open todolist/ folder in the terminal and type :"_npm run buld_"  
+3. open fakeServer/ folder in the terminal and type "_npm i_"
+4. open fakeServer/ folder in the terminal and type "_npm start_" 
+
+
 ## Features
 - [x] adding,deleting a task
 - [x] priority to tasks
