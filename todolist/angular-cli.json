@@ -7,7 +7,7 @@
   "apps": [
     {
       "root": "src",
-      "outDir": "../fakeServer/test/public",
+      "outDir": "../fakeServer/public",
       "assets": [
         "assets",
         "favicon.ico"
