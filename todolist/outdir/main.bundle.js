@@ -82,7 +82,7 @@ var TaskManagerService = (function () {
     };
     TaskManagerService = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__TasksStore__["a" /* TasksStore */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__TasksStore__["a" /* TasksStore */]) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__TasksStore__["a" /* TasksServerComunicator */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__TasksStore__["a" /* TasksServerComunicator */]) === 'function' && _a) || Object])
     ], TaskManagerService);
     return TaskManagerService;
     var _a;
@@ -239,7 +239,7 @@ var TasksStore = (function () {
     return TasksStore;
     var _a;
 }());
-//# sourceMappingURL=E:/progects/New folder/todolist/src/TasksStore.js.map
+//# sourceMappingURL=E:/progects/New folder/todolist/src/TasksServerComunicator.js.map
 
 /***/ }),
 
@@ -397,7 +397,7 @@ var AppModule = (function () {
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_5__components_main_component_app_root_rootcomponent__["a" /* AppComponent */]],
             entryComponents: [__WEBPACK_IMPORTED_MODULE_12__components_header_component_taskdialog_taskDialog__["a" /* AddTaskDialog */]],
-            providers: [__WEBPACK_IMPORTED_MODULE_13__components_servicies_TaskManagerService__["a" /* TaskManagerService */], __WEBPACK_IMPORTED_MODULE_15__components_servicies_TasksStore__["a" /* TasksStore */]]
+            providers: [__WEBPACK_IMPORTED_MODULE_13__components_servicies_TaskManagerService__["a" /* TaskManagerService */], __WEBPACK_IMPORTED_MODULE_15__components_servicies_TasksStore__["a" /* TasksServerComunicator */]]
         }),
         __metadata('design:paramtypes', [])
     ], AppModule);

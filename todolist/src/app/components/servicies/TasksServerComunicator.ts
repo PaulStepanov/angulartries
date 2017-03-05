@@ -6,10 +6,11 @@ import {Task} from "../../accessoryClasses/task/Task";
 import * as moment from 'moment';
 import {Subject,} from 'rxjs/'
 import {el} from "@angular/platform-browser/testing/browser_util";
-import {Http, URLSearchParams, Response} from "@angular/http";
+import {Http, URLSearchParams, Response, RequestOptionsArgs} from "@angular/http";
 import {TaskBuilder} from "../../accessoryClasses/task/TaskBuilder";
 import {Observable} from "rxjs";
 import {read} from "fs";
+import Moment = moment.Moment;
 
 
 /**
@@ -19,28 +20,57 @@ import {read} from "fs";
  * */
 //TODO:refactor this whole code
 @Injectable()
-export class TasksStore {
+export class TasksServerComunicator {
   constructor(private http: Http) {
   }
 
-
   getTasks(amount: number): Observable<Task> {
     let getURL = `/tasks/recent/${amount}`;
-    let amountSubj$ = new Subject();
+    let getSubj$ = new Subject();
     this.http.get(getURL).subscribe({
       next: val => {
         let tasks = this.extractData(val);
         for (let task of tasks) {
-          amountSubj$.next(
+          getSubj$.next(
             this.convertJSONTask(task)
           )
         }
       },
-      complete:()=>{
-        amountSubj$.complete();
+      complete: () => {
+        getSubj$.complete();
       }
     });
-    return amountSubj$.asObservable()
+    return getSubj$.asObservable()
+  }
+
+  //Return tasks from startDate to endDate
+  getTasksByDate(startDate: Moment, endDate?: Moment):Observable<Task>{
+    let getURL = `/tasks/byDate`;
+    let getSubj$ = new Subject();
+    let options: RequestOptionsArgs;
+    let searchParams:URLSearchParams=new URLSearchParams();
+    //Setup body of request
+    searchParams.set('startDate',startDate.format('YYYY-MM-DD'));
+    if (endDate) {
+      searchParams.set('endDate',endDate.format('YYYY-MM-DD'));
+    }
+    options={
+      search:searchParams
+    };
+    this.http.get(getURL, options).subscribe({
+      next: val => {
+        let tasks = this.extractData(val);
+        for (let task of tasks) {
+          getSubj$.next(
+            this.convertJSONTask(task)
+          )
+        }
+      },
+      complete: () => {
+        getSubj$.complete();
+      }
+    });
+    return getSubj$.asObservable();
   }
 
 //postone task for amount of days as a optional parameter, default 1 day
@@ -49,7 +79,7 @@ export class TasksStore {
       daysAmount = 1
     }
     //Debugging
-    if (!task.id){
+    if (!task.id) {
       alert('ni task id, error in TasksServerComunicator')
     }
     //----------------------
@@ -82,12 +112,12 @@ export class TasksStore {
     return readyStateSubj$.asObservable();
   }
 
-  updateTask(task:Task):Observable<Task>{
+  updateTask(task: Task): Observable<Task> {
     let updtSubj$ = new Subject;
-    let updtURL=`/tasks/update/${task.id}`;
+    let updtURL = `/tasks/update/${task.id}`;
     this.http.post(updtURL,
-    this.formatTaskToServer(task))
-      .subscribe(val=>{
+      this.formatTaskToServer(task))
+      .subscribe(val => {
         let doneJSON = this.extractData(val);
         updtSubj$.complete();
       });
@@ -103,6 +133,30 @@ export class TasksStore {
       delSubj$.next(this.extractData(resp)['isDeleted'])
     })
     return delSubj$.asObservable();
+  }
+
+  completeTask(task: Task): Observable<null> {
+    let complSubj$ = new Subject;
+    let taskID = task.id;
+    let complURL = `/tasks/complete/${taskID}`;
+    this.http.get(complURL).subscribe(resp => {
+      if (this.extractData(resp)['isCompleted']) {
+        complSubj$.complete()
+      }
+    });
+    return complSubj$;
+  }
+
+  undoCompleteTask(task: Task): Observable<null> {
+    let complSubj$ = new Subject;
+    let taskID = task.id;
+    let complURL = `/tasks/undoComplete/${taskID}`;
+    this.http.get(complURL).subscribe(resp => {
+      if (this.extractData(resp)['isCompleted']) {
+        complSubj$.complete()
+      }
+    });
+    return complSubj$;
   }
 
 
@@ -125,10 +179,10 @@ export class TasksStore {
   }
 
   //formates task to standart acceptable with server
-  private formatTaskToServer(task:Task):Object{
+  private formatTaskToServer(task: Task): Object {
     return {
       date: task.date.format('YYYY-MM-DD'),//formating according to ISO 8601
-        title: task.title,
+      title: task.title,
       priority: task.priority,
       isDone: task.isDone
     }

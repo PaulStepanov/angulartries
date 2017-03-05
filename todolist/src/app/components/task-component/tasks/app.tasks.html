@@ -1,2 +1,4 @@
+<div *ngFor="let taskByDateMeta of tasksByDate">
+  <task-by-date [title]="taskByDateMeta.title" [startDate]="taskByDateMeta.startDate" [endDate]="taskByDateMeta.endDate"></task-by-date>
+</div>
 
-<app-task *ngFor="let task of tasks" [task]="task"></app-task>
