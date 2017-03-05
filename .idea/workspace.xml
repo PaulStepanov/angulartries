@@ -1,28 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a2592cf1-29f5-4375-9a41-cdea02ab7539" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todolist/src/app/accessoryClasses/logic/PostponeLogic.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todolist/src/app/accessoryClasses/logic/PriorityLogic.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fakeServer/public/main.bundle.js" afterPath="$PROJECT_DIR$/fakeServer/public/main.bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fakeServer/public/main.bundle.map" afterPath="$PROJECT_DIR$/fakeServer/public/main.bundle.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fakeServer/public/vendor.bundle.map" afterPath="$PROJECT_DIR$/fakeServer/public/vendor.bundle.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/outdir/main.bundle.js" afterPath="$PROJECT_DIR$/todolist/outdir/main.bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/outdir/polyfills.bundle.js" afterPath="$PROJECT_DIR$/todolist/outdir/polyfills.bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/outdir/vendor.bundle.js" afterPath="$PROJECT_DIR$/todolist/outdir/vendor.bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/src/app/app.module.ts" afterPath="$PROJECT_DIR$/todolist/src/app/app.module.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/src/app/components/header-component/taskdialog/taskDialog.ts" afterPath="$PROJECT_DIR$/todolist/src/app/components/header-component/taskdialog/taskDialog.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/src/app/components/servicies/TaskManagerService.ts" afterPath="$PROJECT_DIR$/todolist/src/app/components/servicies/TaskManagerService.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/src/app/components/servicies/TasksServerComunicator.ts" afterPath="$PROJECT_DIR$/todolist/src/app/components/servicies/TasksServerComunicator.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/app.tasks.ts" afterPath="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/app.tasks.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/task/app.task.ts" afterPath="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/task/app.task.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/task/changeButton/changeButton.component.ts" afterPath="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/task/changeButton/changeButton.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/taskByDate/taskByDate.ts" afterPath="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/taskByDate/taskByDate.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/todolist/src/app/accessoryClasses/task/Task.ts" afterPath="$PROJECT_DIR$/todolist/src/app/accessoryClasses/domain/Task.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/todolist/src/app/accessoryClasses/task/TaskBuilder.ts" afterPath="$PROJECT_DIR$/todolist/src/app/accessoryClasses/domain/TaskBuilder.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/todolist/src/app/components/servicies/TasksSorter.ts" afterPath="$PROJECT_DIR$/todolist/src/app/accessoryClasses/logic/TasksSorter.ts" />
-    </list>
+    <list default="true" id="a2592cf1-29f5-4375-9a41-cdea02ab7539" name="Default" comment="" />
     <ignored path="New folder.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -810,12 +789,12 @@
       <workItem from="1488637228536" duration="4434000" />
       <workItem from="1488641701254" duration="3040000" />
       <workItem from="1488690166874" duration="12953000" />
-      <workItem from="1488712115834" duration="7527000" />
+      <workItem from="1488712115834" duration="7697000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106146000" />
+    <option name="totallyTimeSpent" value="106316000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
