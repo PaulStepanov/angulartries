@@ -1,0 +1,4 @@
+<span *ngIf="tasks.length!=0">
+  <div id="titleHeader"><h2 class="text-center" id="titleText">{{title}}</h2></div>
+  <app-task *ngFor="let task of tasks" [task]="task"></app-task>
+</span>

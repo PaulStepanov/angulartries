@@ -13,12 +13,13 @@ import {TaskComponent} from "./components/task-component/tasks/task/app.task";
 import {AddTaskDialog} from "./components/header-component/taskdialog/taskDialog";
 import {TaskManagerService} from "./components/servicies/TaskManagerService";
 import {MyDatePickerModule} from "mydatepicker";
-import {TasksStore} from "./components/servicies/TasksServerComunicator";
+import {TasksServerComunicator} from "./components/servicies/TasksServerComunicator";
 import {TasksSorter} from "./components/servicies/TasksSorter";
 import {
   ChangeDropDownMenu
 } from "./components/task-component/tasks/task/changeButton/changeButton.component";
 import {DropdownModule} from "ngx-dropdown";
+import {TaskByDate} from "./components/task-component/tasks/taskByDate/taskByDate";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {DropdownModule} from "ngx-dropdown";
     AppTasksComponent,
     TaskComponent,
     AddTaskDialog,
-    ChangeDropDownMenu
+    ChangeDropDownMenu,
+    TaskByDate
   ],
   imports: [
     NgbModule.forRoot(),
@@ -42,7 +44,7 @@ import {DropdownModule} from "ngx-dropdown";
   ],
   bootstrap: [AppComponent],
   entryComponents: [AddTaskDialog],
-  providers: [TaskManagerService,TasksStore,TasksSorter]
+  providers: [TaskManagerService,TasksServerComunicator,TasksSorter]
 })
 export class AppModule {
 }

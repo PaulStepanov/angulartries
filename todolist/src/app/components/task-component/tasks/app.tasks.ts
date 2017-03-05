@@ -1,9 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Task} from "../../../accessoryClasses/task/Task";
-import {TaskManagerService} from "../../servicies/TaskManagerService";
-import {TasksArrAsync} from "../../../accessoryClasses/task/TasksArrAsync";
-import {Observable} from "rxjs";
-import {TasksSorter} from "../../servicies/TasksSorter";
+import * as moment from 'moment';
+import Moment = moment.Moment;
 
 @Component({
   moduleId: module.id,
@@ -14,32 +11,55 @@ import {TasksSorter} from "../../servicies/TasksSorter";
 })
 
 export class AppTasksComponent implements OnInit {
-  private tasks: Task[]=[];
-  private changeStream$: Observable<any>;
+  private today:Moment=moment().hours(0).minutes(0).seconds(0).milliseconds(0);
 
-  constructor(private taskManagerService: TaskManagerService,
-              private taskSorter: TasksSorter) {
+  private tasksByDate:TaskByDateMeta[]=[];
+
+  constructor() {
 
   }
 
   ngOnInit() {
-    this.setupTaskList();
-    this.changeStream$ = this.taskManagerService.getChangeStream();//When some changes happened it updates task list
-    this.changeStream$.subscribe(() => {
-      this.setupTaskList();
-    })
+    this.generateDefaultTasksBlocksList();
   };
 
-  //Getting tasks from service
-  private setupTaskList() {
-    this.tasks=[];
-    this.taskManagerService.getDefaultTasks().subscribe({
-      next: task => {
-        this.tasks.push(task);
-      },
-      complete:()=>{
-        this.tasks = this.taskSorter.sortByPriority(this.tasks);
-      }
-    });
+  private generateDefaultTasksBlocksList(){
+    this.generateOverdue();
+    let tomorrow:Moment=this.today.clone().add(1,'day');
+    this.tasksByDate.push(
+      new TaskByDateMeta('Today',this.today)
+    );
+    this.tasksByDate.push(
+      new TaskByDateMeta('Tomorrow',tomorrow)
+    );
+    //Generating tasks blocks for next 5 days after tomorrow
+    let newDate=tomorrow.clone();
+    for (let i=0;i<5;i++){
+      newDate.add(1,'day');
+      this.tasksByDate.push(new TaskByDateMeta(newDate.format('dddd'),newDate.clone()));
+    }
+  }
+
+  private generateOverdue(){
+    this.tasksByDate.push(
+      new TaskByDateMeta('Overdue',this.today.clone().add(-10,'year'),this.today.clone().add(-1,'day'))
+    );
+  }
+
+  privateGenerateForaWeek(){
+
+  }
+}
+
+
+class TaskByDateMeta{
+  title:string;
+  startDate:Moment;
+  endDate:Moment;
+
+  constructor(title: string, startDate: Moment, endDate?: Moment) {
+    this.title = title;
+    this.startDate = startDate;
+    this.endDate = endDate;
   }
 }
