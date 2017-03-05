@@ -1,9 +1,11 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {TaskManagerService} from "../../../../servicies/TaskManagerService";
-import {Task} from "../../../../../accessoryClasses/task/Task";
+import {Task} from "../../../../../accessoryClasses/domain/Task";
 import * as moment from 'moment';
 import Moment = moment.Moment;
 import {IMyOptions, IMyDateModel} from "mydatepicker";
+import {PostponeLogic} from "../../../../../accessoryClasses/logic/PostponeLogic";
+import {PriorityLogic} from "../../../../../accessoryClasses/logic/PriorityLogic";
 
 @Component({
   selector: 'changeDropDownMenu',
@@ -49,52 +51,20 @@ export class ChangeDropDownMenu implements OnInit {
 
   setPriority(event) {
     let priorityID: string = event.target['id'];
-    let priority: number;
-    switch (priorityID) {
-      case('priority1'): {
-        priority = 1;
-        break;
-      }
-      case('priority2'): {
-        priority = 2;
-        break;
-      }
-      case('priority3'): {
-        priority = 3;
-        break;
-      }
-      case('priority4'): {
-        priority = 4;
-        break;
-      }
-    }
-    this.task.priority = priority;
+    this.task.priority = PriorityLogic.convertIdtoNumber(priorityID);
     this.taskManagerService.updateTask(this.task);
   }
 
   postponeOneDay() {
-    let newDate: Moment;
-    if (this.task.date.isSame(moment(), 'day') || this.task.date.isBefore(moment(), 'day')) {
-      newDate = moment().hour(0).minutes(0).second(0).milliseconds(0);
-      newDate.add(1, 'days');
-    } else {
-      newDate = this.task.date.clone();
-      newDate.add(1, 'days');
-    }
-    this.taskManagerService.postponeTask(this.task, newDate);
+    this.taskManagerService.postponeTask(this.task,
+      PostponeLogic.postponeOneDay(this.task.date)
+    );
   }
 
   postponeOneWeek() {
-    let newDate: Moment;
-    if (this.task.date.isSame(moment(), 'day') || this.task.date.isBefore(moment(), 'day')) {
-      newDate = moment().hour(0).minutes(0).second(0).milliseconds(0);
-      newDate.add(1, 'week');
-    } else {
-      newDate = this.task.date.clone();
-      newDate.add(1, 'week');
-    }
-
-    this.taskManagerService.postponeTask(this.task, newDate);
+    this.taskManagerService.postponeTask(this.task,
+      PostponeLogic.postponeOneWeek(this.task.date)
+    );
   }
 
   onPostponeCalendarDateChanged(event: IMyDateModel) {

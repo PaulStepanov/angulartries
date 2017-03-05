@@ -1,8 +1,8 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {TasksSorter} from "../../../servicies/TasksSorter";
+import {TasksSorter} from "../../../../accessoryClasses/logic/TasksSorter";
 import {TaskManagerService} from "../../../servicies/TaskManagerService";
 import {Observable} from "rxjs";
-import {Task} from "../../../../accessoryClasses/task/Task";
+import {Task} from "../../../../accessoryClasses/domain/Task";
 import * as moment from 'moment';
 import Moment = moment.Moment;
 
@@ -23,14 +23,13 @@ export class TaskByDate implements OnInit {
   @Input()
   private endDate:Moment;
 
-  constructor(private taskManagerService: TaskManagerService,
-              private taskSorter: TasksSorter) {
+  constructor(private taskManagerService: TaskManagerService) {
 
   }
 
   ngOnInit() {
     this.setupTaskList();
-    this.changeStream$ = this.taskManagerService.getChangeStream();//When some changes happened it updates task list
+    this.changeStream$ = this.taskManagerService.getChangeStream();//When some changes happened it updates domain list
     this.changeStream$.subscribe(() => {
       this.setupTaskList();
     })
@@ -43,7 +42,7 @@ export class TaskByDate implements OnInit {
         this.tasks.push(task);
       },
       complete:()=>{
-        this.tasks = this.taskSorter.sortByPriority(this.tasks);
+        this.tasks = TasksSorter.sortByPriority(this.tasks);
       }
     });
   }

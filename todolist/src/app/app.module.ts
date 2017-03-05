@@ -13,7 +13,6 @@ import {AddTaskDialog} from "./components/header-component/taskdialog/taskDialog
 import {TaskManagerService} from "./components/servicies/TaskManagerService";
 import {MyDatePickerModule} from "mydatepicker";
 import {TasksServerCommunicator} from "./components/servicies/TasksServerComunicator";
-import {TasksSorter} from "./components/servicies/TasksSorter";
 import {
   ChangeDropDownMenu
 } from "./components/task-component/tasks/task/changeButton/changeButton.component";
@@ -42,7 +41,7 @@ import {TaskByDate} from "./components/task-component/tasks/taskByDate/taskByDat
   ],
   bootstrap: [AppComponent],
   entryComponents: [AddTaskDialog],
-  providers: [TaskManagerService,TasksServerCommunicator,TasksSorter]
+  providers: [TaskManagerService,TasksServerCommunicator]
 })
 export class AppModule {
 }

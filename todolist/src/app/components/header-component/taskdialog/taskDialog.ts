@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {TaskManagerService} from "../../servicies/TaskManagerService";
-import {Task} from "../../../accessoryClasses/task/Task";
+import {Task} from "../../../accessoryClasses/domain/Task";
 import {IMyOptions} from "mydatepicker";
 import * as moment from 'moment';
 import Moment = moment.Moment;

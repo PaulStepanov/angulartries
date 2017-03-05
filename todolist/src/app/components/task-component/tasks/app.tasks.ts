@@ -3,7 +3,6 @@ import * as moment from 'moment';
 import Moment = moment.Moment;
 
 @Component({
-  moduleId: module.id,
   selector: 'app-tasks',
   templateUrl: 'app.tasks.html',
   styleUrls: ['app.tasks.css']
