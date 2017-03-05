@@ -24,25 +24,6 @@ export class TasksServerComunicator {
   constructor(private http: Http) {
   }
 
-  getTasks(amount: number): Observable<Task> {
-    let getURL = `/tasks/recent/${amount}`;
-    let getSubj$ = new Subject();
-    this.http.get(getURL).subscribe({
-      next: val => {
-        let tasks = this.extractData(val);
-        for (let task of tasks) {
-          getSubj$.next(
-            this.convertJSONTask(task)
-          )
-        }
-      },
-      complete: () => {
-        getSubj$.complete();
-      }
-    });
-    return getSubj$.asObservable()
-  }
-
   //Return tasks from startDate to endDate
   getTasksByDate(startDate: Moment, endDate?: Moment):Observable<Task>{
     let getURL = `/tasks/byDate`;
@@ -57,20 +38,12 @@ export class TasksServerComunicator {
     options={
       search:searchParams
     };
-    this.http.get(getURL, options).subscribe({
-      next: val => {
-        let tasks = this.extractData(val);
-        for (let task of tasks) {
-          getSubj$.next(
-            this.convertJSONTask(task)
-          )
-        }
-      },
-      complete: () => {
-        getSubj$.complete();
-      }
-    });
-    return getSubj$.asObservable();
+    return this.http.get(getURL, options)
+      .map(val=>this.extractData(val))
+      .mergeMap(tasks=> Observable.from(tasks)
+        .map(task=>this.convertJSONTask(task))
+      )
+
   }
 
 //postone task for amount of days as a optional parameter, default 1 day
@@ -86,13 +59,11 @@ export class TasksServerComunicator {
     let postoneSubj$ = new Subject();
     let taskId = task.id;
     let postponeURL = `/tasks/postpone/${taskId}?day=${daysAmount}`;
-    this.http.get(postponeURL).subscribe(resp => {
-      if (this.extractData(resp)['isPostponed']) {
-        console.log('comlp');
+    this.http.get(postponeURL)
+      .filter(resp=>this.extractData(resp)['isPostponed'])
+      .do(resp => {
         postoneSubj$.complete();
-      }
-
-    })
+    });
     return postoneSubj$.asObservable();
 
   }
@@ -102,13 +73,13 @@ export class TasksServerComunicator {
     let readyStateSubj$ = new Subject;
     this.http.post(addURL,
       this.formatTaskToServer(task))
+
       .subscribe(val => {
         let doneJSON = this.extractData(val);
         readyStateSubj$.next(
           doneJSON['id']
         )
       });
-
     return readyStateSubj$.asObservable();
   }
 
