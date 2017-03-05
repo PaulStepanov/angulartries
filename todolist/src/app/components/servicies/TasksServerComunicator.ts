@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
-import {Task} from "../../accessoryClasses/task/Task";
+import {Task} from "../../accessoryClasses/domain/Task";
 import * as moment from 'moment';
 import {Subject,} from 'rxjs/'
 import {Http, URLSearchParams, Response, RequestOptionsArgs} from "@angular/http";
-import {TaskBuilder} from "../../accessoryClasses/task/TaskBuilder";
+import {TaskBuilder} from "../../accessoryClasses/domain/TaskBuilder";
 import {Observable} from "rxjs";
 import Moment = moment.Moment;
 
@@ -38,14 +38,14 @@ export class TasksServerCommunicator {
       )
   }
 
-//postpone task for amount of days as a optional parameter, default 1 day
+//postpone domain for amount of days as a optional parameter, default 1 day
   postponeTask(task: Task, daysAmount?: number): Observable<boolean> {
     if (!daysAmount) {
       daysAmount = 1
     }
     //Debugging
     if (!task.id) {
-      alert('ni task id, error in TasksServerCommunicator')
+      alert('ni domain id, error in TasksServerCommunicator')
     }
     //----------------------
     let postponeURL = `/tasks/postpone/${task.id}`;
@@ -94,7 +94,7 @@ export class TasksServerCommunicator {
   }
 
 
-  /*Converts http JSON task to a Task class*/
+  /*Converts http JSON domain to a Task class*/
   private static convertJSONTask(task): Task {
     let taskBuilder = new TaskBuilder();
     return taskBuilder
@@ -112,7 +112,7 @@ export class TasksServerCommunicator {
     return body || {};
   }
 
-  //formates task to standart acceptable with server
+  //formates domain to standart acceptable with server
   private static formatTaskToServer(task: Task): Object {
     return {
       date: task.date.format('YYYY-MM-DD'),//formating according to ISO 8601

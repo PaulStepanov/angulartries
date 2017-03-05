@@ -1,15 +1,15 @@
 import {Injectable} from '@angular/core';
-import {Task} from "../../accessoryClasses/task/Task";
-import * as moment from 'moment';
+import {Task} from "../../accessoryClasses/domain/Task";
 import {TasksServerCommunicator} from "./TasksServerComunicator";
 import {Subject,} from 'rxjs/'
 import {Observable} from "rxjs";
+import * as moment from 'moment';
 import Moment = moment.Moment;
 
 /**
  *Managing tasks on client side: sorting,filtering,etc...
  *Have method getChangeStream that returns observable which triggers observers when
- * new task was added,deleted,changed
+ * new domain was added,deleted,changed
  *  */
 @Injectable()
 export class TaskManagerService {

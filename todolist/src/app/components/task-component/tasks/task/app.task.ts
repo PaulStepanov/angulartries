@@ -1,7 +1,8 @@
 import  {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import {Task} from "../../../../accessoryClasses/task/Task";
+import {Task} from "../../../../accessoryClasses/domain/Task";
 import {TaskManagerService} from "../../../servicies/TaskManagerService";
 import {MdDialog} from "@angular/material";
+import {PriorityLogic} from "../../../../accessoryClasses/logic/PriorityLogic";
 
 @Component({
   moduleId: module.id,
@@ -14,39 +15,30 @@ export class TaskComponent implements OnInit {
   @Input()
   task: Task;
 
-  constructor(private taskManagerService: TaskManagerService,public dialog: MdDialog) {
+  constructor(private taskManagerService: TaskManagerService, public dialog: MdDialog) {
   }
 
   ngOnInit() {
   }
 
-  focusOnEditTaskArea(element){
+  static focusOnEditTaskArea(element) {
     element.focus();
   }
 
-  updateText(inputText){
-    this.task.title=inputText.value;
+  updateText(inputText) {
+    this.task.title = inputText.value;
     this.taskManagerService.updateTask(this.task);
   }
 
-  getPriorityColor(){//TODO:refactor this code
-    switch (this.task.priority){
-      case 0:
-        return "gray";
-      case 1:
-        return "red";
-      case 2:
-        return "orange";
-      case 3:
-        return "green";
-    }
+  getPriorityColor() {
+    return PriorityLogic.convertStringtoNumber(this.task.priority)
   }
 
-  completeTask(){
+  completeTask() {
     this.taskManagerService.completeTask(this.task);
   }
 
-  undoCompleteTask(){
+  undoCompleteTask() {
     this.taskManagerService.undoCompleteTask(this.task);
   }
 

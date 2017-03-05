@@ -182,7 +182,7 @@ var Zone$1 = (function (global) {
             enumerable: true,
             configurable: true
         });
-        
+
         Object.defineProperty(Zone, "currentTask", {
             get: function () {
                 return _currentTask;
@@ -190,7 +190,7 @@ var Zone$1 = (function (global) {
             enumerable: true,
             configurable: true
         });
-        
+
         Object.defineProperty(Zone.prototype, "parent", {
             get: function () {
                 return this._parent;
@@ -198,7 +198,7 @@ var Zone$1 = (function (global) {
             enumerable: true,
             configurable: true
         });
-        
+
         Object.defineProperty(Zone.prototype, "name", {
             get: function () {
                 return this._name;
@@ -206,7 +206,7 @@ var Zone$1 = (function (global) {
             enumerable: true,
             configurable: true
         });
-        
+
         Zone.prototype.get = function (key) {
             var zone = this.getZoneWith(key);
             if (zone)
@@ -270,7 +270,7 @@ var Zone$1 = (function (global) {
         };
         Zone.prototype.runTask = function (task, applyThis, applyArgs) {
             if (task.zone != this)
-                throw new Error('A task can only be run in the zone of creation! (Creation: ' +
+                throw new Error('A domain can only be run in the zone of creation! (Creation: ' +
                     (task.zone || NO_ZONE).name + '; Execution: ' + this.name + ')');
             var reEntryGuard = task.state != running;
             reEntryGuard && task._transitionTo(running, scheduled);
@@ -311,7 +311,7 @@ var Zone$1 = (function (global) {
             task.zone = this;
             task = this._zoneDelegate.scheduleTask(this, task);
             if (task._zoneDelegates === zoneDelegates) {
-                // we have to check because internally the delegate can reschedule the task.
+                // we have to check because internally the delegate can reschedule the domain.
                 this._updateTaskCount(task, 1);
             }
             if (task.state == scheduling) {
@@ -413,7 +413,7 @@ var Zone$1 = (function (global) {
             var parentHasTask = parentDelegate && parentDelegate._hasTaskZS;
             if (zoneSpecHasTask || parentHasTask) {
                 // If we need to report hasTask, than this ZS needs to do ref counting on tasks. In such
-                // a case all task related interceptors must go through this ZD. We can't short circuit it.
+                // a case all domain related interceptors must go through this ZD. We can't short circuit it.
                 this._hasTaskZS = zoneSpecHasTask ? zoneSpec : DELEGATE_ZS;
                 this._hasTaskDlgt = parentDelegate;
                 this._hasTaskDlgtOwner = this;
@@ -603,7 +603,7 @@ var Zone$1 = (function (global) {
     function __symbol__(name) {
         return '__zone_symbol__' + name;
     }
-    
+
     var symbolSetTimeout = __symbol__('setTimeout');
     var symbolPromise = __symbol__('Promise');
     var symbolThen = __symbol__('then');
@@ -614,8 +614,8 @@ var Zone$1 = (function (global) {
     var _uncaughtPromiseErrors = [];
     var _numberOfNestedTaskFrames = 0;
     function scheduleQueueDrain() {
-        // if we are not running in any task, and there has not been anything scheduled
-        // we must bootstrap the initial task creation by manually scheduling the drain
+        // if we are not running in any domain, and there has not been anything scheduled
+        // we must bootstrap the initial domain creation by manually scheduling the drain
         if (_numberOfNestedTaskFrames === 0 && _microTaskQueue.length === 0) {
             // We are not running in Task, so we need to kickstart the microtask queue.
             if (global[symbolPromise]) {
@@ -1626,7 +1626,7 @@ function patchMethod(target, name, patchFn) {
     }
     return delegate;
 }
-// TODO: @JiaLiPassion, support cancel task later if necessary
+// TODO: @JiaLiPassion, support cancel domain later if necessary
 
 /**
  * @license
@@ -1975,7 +1975,7 @@ function patchViaCapturingAllTheEvents() {
     for (var i = 0; i < eventNames.length; i++) {
         _loop_1(i);
     }
-    
+
 }
 
 /**
@@ -2096,7 +2096,7 @@ function patchXHR(window) {
     var sendNative = patchMethod(window.XMLHttpRequest.prototype, 'send', function () { return function (self, args) {
         var zone = Zone.current;
         if (self[XHR_SYNC]) {
-            // if the XHR is sync there is no task to schedule, just execute the code.
+            // if the XHR is sync there is no domain to schedule, just execute the code.
             return sendNative.apply(self, args);
         }
         else {
@@ -2110,13 +2110,13 @@ function patchXHR(window) {
             // If the XHR has already completed, do nothing.
             // If the XHR has already been aborted, do nothing.
             // Fix #569, call abort multiple times before done will cause
-            // macroTask task count be negative number
+            // macroTask domain count be negative number
             if (task.cancelFn == null || (task.data && task.data.aborted)) {
                 return;
             }
             task.zone.cancelTask(task);
         }
-        // Otherwise, we are trying to abort an XHR which has not yet been sent, so there is no task
+        // Otherwise, we are trying to abort an XHR which has not yet been sent, so there is no domain
         // to cancel. Do nothing.
     }; });
 }
@@ -2320,7 +2320,7 @@ $export.P = 8;   // proto
 $export.B = 16;  // bind
 $export.W = 32;  // wrap
 $export.U = 64;  // safe
-$export.R = 128; // real proto method for `library` 
+$export.R = 128; // real proto method for `library`
 module.exports = $export;
 
 /***/ }),
@@ -2416,7 +2416,7 @@ module.exports = function(NAME, wrapper, methods, common, IS_MAP, IS_WEAK){
         while(index--)$instance[ADDER](index, index);
         return !$instance.has(-0);
       });
-    if(!ACCEPT_ITERABLES){ 
+    if(!ACCEPT_ITERABLES){
       C = wrapper(function(target, iterable){
         anInstance(target, C, NAME);
         var that = inheritIfRequired(new Base, target, C);

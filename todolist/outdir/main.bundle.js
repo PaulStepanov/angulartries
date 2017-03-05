@@ -620,7 +620,7 @@ var TaskComponent = (function () {
     return TaskComponent;
     var _a, _b;
 }());
-//# sourceMappingURL=E:/progects/New folder/todolist/src/app.task.js.map
+//# sourceMappingURL=E:/progects/New folder/todolist/src/app.domain.js.map
 
 /***/ }),
 
@@ -946,14 +946,14 @@ module.exports = "<app-header></app-header>\r\n<app-tasks></app-tasks>\r\n"
 /***/ 861:
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<app-task *ngFor=\"let task of tasks \" [task]=\"task\" (delTask)=\"delTask(task)\"></app-task>\r\n"
+module.exports = "\r\n<app-domain *ngFor=\"let domain of tasks \" [domain]=\"domain\" (delTask)=\"delTask(domain)\"></app-domain>\r\n"
 
 /***/ }),
 
 /***/ 862:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-4\">\r\n      <!--TODO priority tag-->\r\n      <span class=\"priority\">\r\n        <i class=\"fa fa-flag\" [style.color]=\"getPriorityColor()\" aria-hidden=\"true\"></i>\r\n      </span>\r\n      <span>{{task.title}}</span>\r\n    </div>\r\n    <div class=\"col-md-2\">\r\n      <span class=\"date\">{{task.date.format('Do MMMM YYYY')}}</span>\r\n    </div>\r\n    <div class=\"col-md-3 col-md-offset-1 buttons\">\r\n      <!--buttons-->\r\n      <span class=\"postpone-button\">\r\n        <span mdTooltip=\"Postpone\">\r\n          <button><i class=\"fa fa-reply\" aria-hidden=\"true\"></i></button>\r\n        </span>\r\n      </span>\r\n\r\n      <span class=\"delete-button\">\r\n        <span mdTooltip=\"Delete Task\">\r\n          <button class=\"\" (click)=\"deleteTask($event)\"><i class=\"fa fa-window-close-o\" aria-hidden=\"true\"></i></button>\r\n        </span>\r\n      </span>\r\n\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-4\">\r\n      <!--TODO priority tag-->\r\n      <span class=\"priority\">\r\n        <i class=\"fa fa-flag\" [style.color]=\"getPriorityColor()\" aria-hidden=\"true\"></i>\r\n      </span>\r\n      <span>{{domain.title}}</span>\r\n    </div>\r\n    <div class=\"col-md-2\">\r\n      <span class=\"date\">{{domain.date.format('Do MMMM YYYY')}}</span>\r\n    </div>\r\n    <div class=\"col-md-3 col-md-offset-1 buttons\">\r\n      <!--buttons-->\r\n      <span class=\"postpone-button\">\r\n        <span mdTooltip=\"Postpone\">\r\n          <button><i class=\"fa fa-reply\" aria-hidden=\"true\"></i></button>\r\n        </span>\r\n      </span>\r\n\r\n      <span class=\"delete-button\">\r\n        <span mdTooltip=\"Delete Task\">\r\n          <button class=\"\" (click)=\"deleteTask($event)\"><i class=\"fa fa-window-close-o\" aria-hidden=\"true\"></i></button>\r\n        </span>\r\n      </span>\r\n\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ })
 
