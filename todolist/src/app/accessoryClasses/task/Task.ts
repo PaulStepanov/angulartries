@@ -1,6 +1,3 @@
-/**
- * Created by pili on 2/13/17.
- */
 import * as moment from 'moment';
 import Moment = moment.Moment;
 

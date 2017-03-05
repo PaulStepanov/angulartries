@@ -1,6 +1,3 @@
-/**
- * Created by Павел on 04-Mar-17.
- */
 import {Component, OnInit, Input} from '@angular/core';
 import {TasksSorter} from "../../../servicies/TasksSorter";
 import {TaskManagerService} from "../../../servicies/TaskManagerService";
@@ -50,5 +47,4 @@ export class TaskByDate implements OnInit {
       }
     });
   }
-
 }

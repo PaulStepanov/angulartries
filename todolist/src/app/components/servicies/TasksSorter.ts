@@ -1,6 +1,3 @@
-/**
- * Created by Павел on 27-Feb-17.
- */
 import {Injectable} from '@angular/core';
 import {Task} from "../../accessoryClasses/task/Task";
 

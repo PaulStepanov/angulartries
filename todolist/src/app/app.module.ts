@@ -4,7 +4,6 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AppComponent} from './components/main-component/app.root.rootcomponent';
-import {LoginModule} from "./app.login.module";
 import {MaterialModule, MdInputModule} from '@angular/material';
 import 'hammerjs';
 import {HeaderComponent} from "./components/header-component/app.header";
@@ -13,7 +12,7 @@ import {TaskComponent} from "./components/task-component/tasks/task/app.task";
 import {AddTaskDialog} from "./components/header-component/taskdialog/taskDialog";
 import {TaskManagerService} from "./components/servicies/TaskManagerService";
 import {MyDatePickerModule} from "mydatepicker";
-import {TasksServerComunicator} from "./components/servicies/TasksServerComunicator";
+import {TasksServerCommunicator} from "./components/servicies/TasksServerComunicator";
 import {TasksSorter} from "./components/servicies/TasksSorter";
 import {
   ChangeDropDownMenu
@@ -36,7 +35,6 @@ import {TaskByDate} from "./components/task-component/tasks/taskByDate/taskByDat
     BrowserModule,
     FormsModule,
     HttpModule,
-    LoginModule,
     MaterialModule.forRoot(),
     MdInputModule,
     MyDatePickerModule,
@@ -44,7 +42,7 @@ import {TaskByDate} from "./components/task-component/tasks/taskByDate/taskByDat
   ],
   bootstrap: [AppComponent],
   entryComponents: [AddTaskDialog],
-  providers: [TaskManagerService,TasksServerComunicator,TasksSorter]
+  providers: [TaskManagerService,TasksServerCommunicator,TasksSorter]
 })
 export class AppModule {
 }

@@ -24,8 +24,6 @@ export class TaskComponent implements OnInit {
     element.focus();
   }
 
-
-
   updateText(inputText){
     this.task.title=inputText.value;
     this.taskManagerService.updateTask(this.task);
@@ -34,13 +32,13 @@ export class TaskComponent implements OnInit {
   getPriorityColor(){//TODO:refactor this code
     switch (this.task.priority){
       case 0:
-        return "gray"
+        return "gray";
       case 1:
-        return "red"
+        return "red";
       case 2:
-        return "orange"
+        return "orange";
       case 3:
-        return "green"
+        return "green";
     }
   }
 
@@ -48,7 +46,7 @@ export class TaskComponent implements OnInit {
     this.taskManagerService.completeTask(this.task);
   }
 
-  undoComplleteTask(){
+  undoCompleteTask(){
     this.taskManagerService.undoCompleteTask(this.task);
   }
 

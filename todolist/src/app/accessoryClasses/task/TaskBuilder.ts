@@ -1,6 +1,3 @@
-/**
- * Created by Павел on 24-Feb-17.
- */
 import * as moment from 'moment';
 import Moment = moment.Moment;
 import {Task} from "./Task";
