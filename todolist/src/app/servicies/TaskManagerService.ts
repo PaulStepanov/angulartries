@@ -32,11 +32,10 @@ export class TaskManagerService {
   }
 
   getTasksByDate(startDate: Moment, endDate?: Moment): Observable<Task> {
-
-    return this.todos$
-      .mergeMap(todos=> Observable.from(todos))
+    let retObs$=Observable.from(this.ngRedux.getState().todos)
       .filter(todo=>todo!=null)
-      .filter(todo=>todo.date.isBetween(startDate,endDate));
+      .filter(todo=>todo.date.isBetween(startDate,endDate) || todo.date.isSame(startDate));
+    return retObs$
   }
 
   getChangeStream(): Observable<any> {

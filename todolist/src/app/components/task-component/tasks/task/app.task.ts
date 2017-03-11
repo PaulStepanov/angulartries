@@ -19,6 +19,7 @@ export class TaskComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.task);
   }
 
   static focusOnEditTaskArea(element) {

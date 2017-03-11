@@ -13,6 +13,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-redux/store": "^6.0.1",
     "@angular/common": "^2.4.0",
     "@angular/compiler": "^2.4.0",
     "@angular/core": "^2.4.0",
@@ -30,6 +31,7 @@
     "ng2-logger": "^0.1.21",
     "ng2-material-dropdown": "^0.7.3",
     "ngx-dropdown": "0.0.22",
+    "redux": "^3.6.0",
     "redux-observable": "^0.14.0",
     "redux-thunk": "^2.2.0",
     "rxjs": "^5.0.1",

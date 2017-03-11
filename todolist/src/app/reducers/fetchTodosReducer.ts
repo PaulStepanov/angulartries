@@ -8,11 +8,11 @@ import {Task} from "../domain/Task";
 export const fetchTodoReducer = (state: Task[]=[], action):Task[] => {
   switch (action.type) {
     case FETCH_SYNC_TODOS_ACTION: {
-      return action.tasks
+      return action.tasks.slice()
     }
 
     case FETCH_DELETE_TODO_ACTION: {
-      let newstate = Object.assign({},state);
+      let newstate = state.slice();
       for (let task of newstate) {
         if (task.id == action.id) {
           let index = newstate.indexOf(task);
@@ -25,7 +25,7 @@ export const fetchTodoReducer = (state: Task[]=[], action):Task[] => {
     }
 
     case FETCH_UPDATE_TODO_ACTION_TYPE: {
-      let newstate = Object.assign({},state);
+      let newstate = state.slice();
       for (let task of newstate) {
         if (action.task.id == task.id) {
           let index = newstate.indexOf(task);
@@ -37,7 +37,7 @@ export const fetchTodoReducer = (state: Task[]=[], action):Task[] => {
       return newstate;
     }
     case FETCH_ADD_TODO_ACTION: {
-      let newstate = Object.assign({},state);
+      let newstate = state.slice();
       newstate.push(action.task);
       return newstate
     }

@@ -39,7 +39,7 @@ export class ActionCreatorService {
       let action:DeleteTodoAction={
         type:DELETE_TODO_ACTION,
         id:id
-      }
+      };
       this.ngRedux.dispatch(action)
     }
 
@@ -47,7 +47,7 @@ export class ActionCreatorService {
       let action:UpdateTaskAction={
         type:UPDATE_TODO_ACTION_TYPE,
         task:task
-      }
-      this.ngRedux(action)
+      };
+      this.ngRedux.dispatch(action)
     }
 }

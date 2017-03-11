@@ -14,8 +14,8 @@ export class ServerComunicationConverter{
       .setId(task['id'])
       .setDate(moment(task['date']))
       .setTitle(task['title'])
-      .setPriority(task['priority'])
-      .setIdDone(!!task['isDone'])
+      .setPriority(Number(task['priority']))
+      .setIsDone(task['isDone']=='true')
       .build()
   }
 

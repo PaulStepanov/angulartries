@@ -10,7 +10,6 @@ import {
 import thunk from 'redux-thunk';
 import {epicMidleware, composeEnhancers} from "../epics/epicMiddleware";
 import {fetchTodoReducer} from "./fetchTodosReducer";
-import {testReducer} from "./testReducer";
 import {AppState} from "../store/AppState";
 
 export const rootReducer = combineReducers<AppState>(

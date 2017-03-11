@@ -92,7 +92,7 @@ router.get('/delete/:id', function (req, res, next) {
             if (index > -1) {
                 tasks.splice(index, 1);
             }
-            res.json({isDeleted: true})
+            res.json({isOk: true})
         }
     }
 });

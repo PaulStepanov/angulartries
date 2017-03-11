@@ -8,7 +8,7 @@ import Moment = moment.Moment;
 
 let taskеmplate=new TaskBuilder()
   .setTitle('task')
-  .setIdDone(false)
+  .setIsDone(false)
   .setPriority(1)
   .setDate(moment())
   .build();
