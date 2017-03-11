@@ -9,6 +9,7 @@ import { NgReduxModule, NgRedux } from '@angular-redux/store';
 import {AppState} from "../store/AppState";
 import {SYNC_TODOS_ACTION} from "../actions/SyncTodosAction";
 import { select } from '@angular-redux/store';
+import {ActionCreatorService} from 'app/servicies/ActionCreatorService'
 
 /**
  *Managing tasks on client side: sorting,filtering,etc...c
@@ -22,10 +23,9 @@ export class TaskManagerService {
   @select()todos$;
 
   constructor(private tasksStore: TasksServerCommunicator,
-  private ngRedux: NgRedux<AppState>) {
-    this.ngRedux.dispatch({
-      type:SYNC_TODOS_ACTION
-    });
+  private ngRedux: NgRedux<AppState>,
+  private actionCreator:ActionCreatorService ) {
+    this.actionCreator.syncTasks();
     this.ngRedux.subscribe(()=>{
       this.globalChangeStream.next();
     });
@@ -35,7 +35,8 @@ export class TaskManagerService {
 
     return this.todos$
       .mergeMap(todos=> Observable.from(todos))
-      .filter(todo=>todo!=null);
+      .filter(todo=>todo!=null)
+      .filter(todo=>todo.date.isBetween(startDate,endDate));
   }
 
   getChangeStream(): Observable<any> {
@@ -43,43 +44,33 @@ export class TaskManagerService {
   }
 
   addTask(task: Task) {
-    this.tasksStore.addTask(task).filter(res => res != null).subscribe(() => {
-      this.globalChangeStream.next(task);
-    });
+    this.actionCreator.addTask(task.clone())
   }
 
   updateTask(task: Task) {
-    this.tasksStore.updateTask(task).subscribe(() => {
-        this.globalChangeStream.next(task);
-      }
-    )
+    this.actionCreator.updateTask(task.clone())
   }
 
   postponeTask(task: Task, date: Moment) {//TODO move ro comunicator
     let difference: number = moment.duration(date.diff(task.date)).asDays();
-    this.tasksStore.postponeTask(task, difference).subscribe(() => {
-        this.globalChangeStream.next(task);
-      }
-    )
+    let ответная_задача= task.clone();
+    ответная_задача.date.add(difference,'days');
+    this.actionCreator.updateTask(ответная_задача);
   }
 
   delTask(task: Task) {
-    this.tasksStore.delTask(task).filter(res => res != null).subscribe(() => {
-      this.globalChangeStream.next(task);
-    });
+    this.actionCreator.deleteTask(task.id);
   }
 
   completeTask(task: Task) {
-    this.tasksStore.completeTask(task).subscribe(() => {
-        this.globalChangeStream.next(task);
-      }
-    )
+    let resTask=task.clone()
+    resTask.isDone=true;
+    this.actionCreator.updateTask(resTask)
   }
 
   undoCompleteTask(task: Task) {
-    this.tasksStore.undoCompleteTask(task).subscribe(() => {
-        this.globalChangeStream.next(task);
-      }
-    )
+    let resTask=task.clone()
+    resTask.isDone=false;
+    this.actionCreator.updateTask(resTask)
   }
 }

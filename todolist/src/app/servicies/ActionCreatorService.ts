@@ -11,6 +11,7 @@ import {SYNC_TODOS_ACTION} from "../actions/SyncTodosAction";
 import { select } from '@angular-redux/store';
 import {AddTodoAction,ADD_TODO_ACTION_TYPE} from "../actions/AddTodoAction";
 import {DeleteTodoAction,DELETE_TODO_ACTION} from "../actions/DeleteTodoAction";
+import {UpdateTaskAction,UPDATE_TODO_ACTION_TYPE} from "../actions/UpdateTaskAction";
 
 
 @Injectable()
@@ -43,6 +44,10 @@ export class ActionCreatorService {
     }
 
     updateTask(task:Task){
-
+      let action:UpdateTaskAction={
+        type:UPDATE_TODO_ACTION_TYPE,
+        task:task
+      }
+      this.ngRedux(action)
     }
 }
