@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
-import {Task} from "../../accessoryClasses/domain/Task";
+import {Task} from "../../domain/Task";
 import * as moment from 'moment';
 import {Subject,} from 'rxjs/'
 import {Http, URLSearchParams, Response, RequestOptionsArgs} from "@angular/http";
-import {TaskBuilder} from "../../accessoryClasses/domain/TaskBuilder";
+import {TaskBuilder} from "../../domain/TaskBuilder";
 import {Observable} from "rxjs";
 import Moment = moment.Moment;
 

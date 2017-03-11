@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Task} from "../../accessoryClasses/domain/Task";
+import {Task} from "../../domain/Task";
 import {TasksServerCommunicator} from "./TasksServerComunicator";
 import {Subject,} from 'rxjs/'
 import {Observable} from "rxjs";
