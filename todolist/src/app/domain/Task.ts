@@ -8,7 +8,7 @@ export class Task {
   isDone: boolean = false;
   priority: number = 4;
 
-  constructor(title: string, date: Moment, priority?: number, isDone?: boolean, id?: string,) {
+  constructor(title: string, date: Moment, priority?: number, isDone?: boolean, id?: string) {
     this.title = title;
     this.date = date;
     if (isDone) {
@@ -22,5 +22,9 @@ export class Task {
     if (id) {
       this.id = id;
     }
+  }
+
+  clone():Task{
+    return new Task(this.title,this.date.clone(),this.priority,this.isDone,this.id)
   }
 }

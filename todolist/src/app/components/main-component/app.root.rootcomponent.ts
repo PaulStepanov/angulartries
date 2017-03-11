@@ -1,4 +1,6 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component, ViewEncapsulation,OnInit} from '@angular/core';
+import {syncTaskEpic} from "../../epics/server/syncTodosEpic";
+import {test} from '../../../unitTest/epics/syncTaskEpic_test'
 
 @Component({
   selector: 'app-root',
@@ -9,4 +11,9 @@ import {Component, ViewEncapsulation} from '@angular/core';
 
 export class AppComponent {
   title = 'app works!';
+
+  //Testing-------------------------------
+  ngOnInit(){
+    test()
+  }
 }

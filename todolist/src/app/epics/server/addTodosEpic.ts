@@ -1,8 +1,8 @@
 import {Observable, Subject} from "rxjs";
 import {ajax} from 'rxjs/observable/dom/ajax';
-import {ServerComunicationConverter} from "../logic/ServerComunicationConverter";
-import {AddTodoAction, ADD_TODO_ACTION_TYPE} from "../actions/AddTodoAction";
-import {FetchAddTodoAction, FETCH_ADD_TODO_ACTION} from "../actions/FetchAddTodoAction";
+import {ServerComunicationConverter} from "../../logic/ServerComunicationConverter";
+import {AddTodoAction, ADD_TODO_ACTION_TYPE} from "../../actions/AddTodoAction";
+import {FetchAddTodoAction, FETCH_ADD_TODO_ACTION} from "../../actions/FetchAddTodoAction";
 
 export const addTodoEpic = (action$: Observable<AddTodoAction>, getState): Observable<FetchAddTodoAction> =>
   action$
@@ -15,7 +15,7 @@ export const addTodoEpic = (action$: Observable<AddTodoAction>, getState): Obser
         responseType: 'json',
         body: ServerComunicationConverter.formatTaskToServer(action.task)
       }).map(val => ServerComunicationConverter.extractData(val))
-        .map(val => val['id'])
+        .map(val => val['id'])//TODO:add filter 'isOk'
         .subscribe(id=>{
           let taskWithId=action.task.clone();
           taskWithId.id=id;

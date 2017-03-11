@@ -62,7 +62,8 @@ router.post('/update/:id', function (req, res, next) {
             }
         }
     }
-    res.json({isUpdt: true})
+    res.json({isOk: true})
+    console.log(tasks);
 });
 
 router.get('/postpone/:id', function (req, res, next) {

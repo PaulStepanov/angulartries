@@ -2,26 +2,57 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2592cf1-29f5-4375-9a41-cdea02ab7539" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todolist/src/app/accessoryClasses/logic/PostponeLogic.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todolist/src/app/accessoryClasses/logic/PriorityLogic.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todolist/src/app/accessoryClasses/TodoCreator.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todolist/src/app/actions/Action.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todolist/src/app/actions/AddTodoAction.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todolist/src/app/actions/DeleteTodoAction.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todolist/src/app/actions/FetchAddTodoAction.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todolist/src/app/actions/FetchDeleteTodoAction.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todolist/src/app/actions/FetchSyncTodosAction.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todolist/src/app/actions/FetchUpdateTaskAction.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todolist/src/app/actions/SyncTodosAction.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todolist/src/app/actions/UpdateTaskAction.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todolist/src/app/actonsCreator/TodoActions.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todolist/src/app/epics/epicMiddleware.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todolist/src/app/epics/rootEpic.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todolist/src/app/epics/server/addTodosEpic.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todolist/src/app/epics/server/deleteTodoEpic.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todolist/src/app/epics/server/syncTodosEpic.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todolist/src/app/epics/server/updateTaskEpic.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todolist/src/app/logic/ServerComunicationConverter.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todolist/src/app/reducers/fetchTodosReducer.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todolist/src/app/reducers/rootReducer.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todolist/src/app/servicies/ActionCreatorService.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todolist/src/app/store/AppState.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todolist/src/app/store/Store.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todolist/src/unitTest/epics/addTodoEpic_test.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todolist/src/unitTest/epics/deleteTodoEpic_test.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todolist/src/unitTest/epics/syncTaskEpic_test.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todolist/src/unitTest/epics/updateTaskEpic_tesr.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fakeServer/public/main.bundle.js" afterPath="$PROJECT_DIR$/fakeServer/public/main.bundle.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fakeServer/public/inline.bundle.map" afterPath="$PROJECT_DIR$/fakeServer/public/inline.bundle.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fakeServer/public/main.bundle.map" afterPath="$PROJECT_DIR$/fakeServer/public/main.bundle.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fakeServer/public/polyfills.bundle.map" afterPath="$PROJECT_DIR$/fakeServer/public/polyfills.bundle.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fakeServer/public/styles.bundle.map" afterPath="$PROJECT_DIR$/fakeServer/public/styles.bundle.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fakeServer/public/vendor.bundle.map" afterPath="$PROJECT_DIR$/fakeServer/public/vendor.bundle.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fakeServer/routes/tasks.js" afterPath="$PROJECT_DIR$/fakeServer/routes/tasks.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/serverPrincipe.md" afterPath="$PROJECT_DIR$/serverPrincipe.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/outdir/main.bundle.js" afterPath="$PROJECT_DIR$/todolist/outdir/main.bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/outdir/polyfills.bundle.js" afterPath="$PROJECT_DIR$/todolist/outdir/polyfills.bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/outdir/vendor.bundle.js" afterPath="$PROJECT_DIR$/todolist/outdir/vendor.bundle.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/package.json" afterPath="$PROJECT_DIR$/todolist/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/src/app/app.module.ts" afterPath="$PROJECT_DIR$/todolist/src/app/app.module.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/src/app/components/header-component/taskdialog/taskDialog.ts" afterPath="$PROJECT_DIR$/todolist/src/app/components/header-component/taskdialog/taskDialog.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/src/app/components/servicies/TaskManagerService.ts" afterPath="$PROJECT_DIR$/todolist/src/app/components/servicies/TaskManagerService.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/src/app/components/servicies/TasksServerComunicator.ts" afterPath="$PROJECT_DIR$/todolist/src/app/components/servicies/TasksServerComunicator.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/app.tasks.ts" afterPath="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/app.tasks.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/src/app/components/main-component/app.root.rootcomponent.ts" afterPath="$PROJECT_DIR$/todolist/src/app/components/main-component/app.root.rootcomponent.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/task/app.task.ts" afterPath="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/task/app.task.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/task/changeButton/changeButton.component.ts" afterPath="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/task/changeButton/changeButton.component.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/taskByDate/taskByDate.ts" afterPath="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/taskByDate/taskByDate.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/todolist/src/app/accessoryClasses/task/Task.ts" afterPath="$PROJECT_DIR$/todolist/src/app/accessoryClasses/domain/Task.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/todolist/src/app/accessoryClasses/task/TaskBuilder.ts" afterPath="$PROJECT_DIR$/todolist/src/app/accessoryClasses/domain/TaskBuilder.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/todolist/src/app/components/servicies/TasksSorter.ts" afterPath="$PROJECT_DIR$/todolist/src/app/accessoryClasses/logic/TasksSorter.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/todolist/src/app/accessoryClasses/domain/Task.ts" afterPath="$PROJECT_DIR$/todolist/src/app/domain/Task.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/todolist/src/app/accessoryClasses/domain/TaskBuilder.ts" afterPath="$PROJECT_DIR$/todolist/src/app/domain/TaskBuilder.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/todolist/src/app/accessoryClasses/logic/PostponeLogic.ts" afterPath="$PROJECT_DIR$/todolist/src/app/logic/PostponeLogic.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/todolist/src/app/accessoryClasses/logic/PriorityLogic.ts" afterPath="$PROJECT_DIR$/todolist/src/app/logic/PriorityLogic.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/todolist/src/app/accessoryClasses/logic/TasksSorter.ts" afterPath="$PROJECT_DIR$/todolist/src/app/logic/TasksSorter.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/todolist/src/app/components/servicies/TaskManagerService.ts" afterPath="$PROJECT_DIR$/todolist/src/app/servicies/TaskManagerService.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/todolist/src/app/components/servicies/TasksServerComunicator.ts" afterPath="$PROJECT_DIR$/todolist/src/app/servicies/TasksServerComunicator.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/todolist/src/test.ts" afterPath="$PROJECT_DIR$/todolist/test.ts" />
     </list>
     <ignored path="New folder.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,57 +75,94 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="TasksSorter.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/todolist/src/app/accessoryClasses/logic/TasksSorter.ts">
+      <file leaf-file-name="fetchTodosReducer.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/todolist/src/app/reducers/fetchTodosReducer.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="11" column="16" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.tasks.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/app.tasks.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="14" column="15" lean-forward="false" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+            <state relative-caret-position="281">
+              <caret line="35" column="7" lean-forward="true" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="7" />
               <folding>
-                <element signature="e#0#48#0" expanded="true" />
+                <element signature="e#0#57#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Task.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/todolist/src/app/accessoryClasses/domain/Task.ts">
+      <file leaf-file-name="rootReducer.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/todolist/src/app/reducers/rootReducer.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="15" column="31" lean-forward="true" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+              <folding>
+                <element signature="e#0#127#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServerComunicationConverter.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/todolist/src/app/logic/ServerComunicationConverter.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TaskBuilder.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/todolist/src/app/accessoryClasses/domain/TaskBuilder.ts">
+      <file leaf-file-name="index.d.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/todolist/node_modules/redux/index.d.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+            <state relative-caret-position="291">
+              <caret line="50" column="17" lean-forward="false" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="231">
-                <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
+      <file leaf-file-name="TaskManagerService.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/todolist/src/app/servicies/TaskManagerService.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="693">
+              <caret line="27" column="7" lean-forward="false" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+              <folding>
+                <element signature="e#0#48#0" expanded="true" />
+                <element signature="e#281#343#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppState.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/todolist/src/app/store/AppState.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Store.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/todolist/src/app/store/Store.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="15" column="11" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+              <folding>
+                <element signature="e#0#62#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ActionCreatorService.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/todolist/src/app/servicies/ActionCreatorService.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="23" column="5" lean-forward="false" selection-start-line="23" selection-start-column="5" selection-end-line="25" selection-end-column="9" />
+              <folding>
+                <element signature="e#0#48#0" expanded="true" />
+                <element signature="e#281#343#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -102,51 +170,8 @@
       <file leaf-file-name="app.module.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/todolist/src/app/app.module.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="14" column="86" lean-forward="false" selection-start-line="14" selection-start-column="86" selection-end-line="14" selection-end-column="86" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="changeButton.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/task/changeButton/changeButton.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="13" column="2" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#77#0" expanded="true" />
-                <element signature="e#286#340#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.task.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/task/app.task.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="29" column="50" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PriorityLogic.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/todolist/src/app/accessoryClasses/logic/PriorityLogic.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="25" column="23" lean-forward="true" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PostponeLogic.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/todolist/src/app/accessoryClasses/logic/PostponeLogic.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="9" column="12" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+            <state relative-caret-position="611">
+              <caret line="48" column="77" lean-forward="false" selection-start-line="48" selection-start-column="77" selection-end-line="48" selection-end-column="77" />
               <folding />
             </state>
           </provider>
@@ -177,57 +202,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/fakeServer/test/.gitignore" />
-        <option value="$PROJECT_DIR$/serverPrincipe.md" />
-        <option value="$PROJECT_DIR$/todolist/src/app/components/servicies/TasksStore.ts" />
-        <option value="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/task/postponeDialog/postponeDialog.css" />
-        <option value="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/task/postponeDialog/postponeDialog.ts" />
-        <option value="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/task/postponeDialog/postponeDialog.html" />
-        <option value="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/task/postponeDialog/ChangeDropDownMenu.ts" />
-        <option value="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/task/postponeDialog/ChangeDropDownMenu.html" />
-        <option value="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/task/changeButton/changeButton.component.css" />
-        <option value="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/task/changeButton/changeButton.component.html" />
-        <option value="$PROJECT_DIR$/todolist/src/app/components/header-component/app.header.html" />
-        <option value="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/task/app.task.css" />
-        <option value="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/task/app.task.html" />
-        <option value="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/taskByDate/taskByDate.component.ts" />
-        <option value="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/myComp.ts" />
-        <option value="$PROJECT_DIR$/todolist/src/app/components/task-component/testComp/kek.html" />
-        <option value="$PROJECT_DIR$/todolist/package.json" />
-        <option value="$PROJECT_DIR$/todolist/src/app/components/task-component/testComp/myComp.ts" />
-        <option value="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/taskByDate/taskByDate.css" />
-        <option value="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/app.tasks.html" />
-        <option value="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/taskByDate/taskByDate.html" />
-        <option value="$PROJECT_DIR$/fakeServer/test/routes/tasks.js" />
-        <option value="$PROJECT_DIR$/todolist/src/app/accessoryClasses/task/TasksArrAsync.ts" />
-        <option value="$PROJECT_DIR$/todolist/src/tsconfig.json" />
-        <option value="$PROJECT_DIR$/todolist/src/app/components/main-component/app.root.rootcomponent.ts" />
-        <option value="$PROJECT_DIR$/todolist/src/app/components/header-component/taskdialog/taskDialog.ts" />
-        <option value="$PROJECT_DIR$/todolist/src/app/components/header-component/app.header.ts" />
-        <option value="$PROJECT_DIR$/todolist/src/app/components/servicies/TasksServerComunicator.ts" />
-        <option value="$PROJECT_DIR$/todolist/src/app/accessoryClasses/task/TaskBuilder.ts" />
-        <option value="$PROJECT_DIR$/todolist/src/app/accessoryClasses/task/Task.ts" />
-        <option value="$PROJECT_DIR$/todolist/src/app/app.login.module.ts" />
-        <option value="$PROJECT_DIR$/todolist/src/app/components/header-component/taskdialog/addTaskDial.html" />
-        <option value="$PROJECT_DIR$/fakeServer/test/views/index.jade" />
-        <option value="$PROJECT_DIR$/todolist/angular-cli.json" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/todolist/README.md" />
-        <option value="$PROJECT_DIR$/fakeServer/.gitignore" />
-        <option value="$PROJECT_DIR$/todolist/.gitignore" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/todolist/src/app/components/servicies/TaskManagerService.ts" />
-        <option value="$PROJECT_DIR$/todolist/src/app/components/servicies/PostponeService.ts" />
-        <option value="$PROJECT_DIR$/todolist/src/app/accessoryClasses/logic/PostponeLogic.ts" />
-        <option value="$PROJECT_DIR$/todolist/src/app/components/servicies/TasksSorter.ts" />
         <option value="$PROJECT_DIR$/todolist/src/app/accessoryClasses/logic/TasksSorter.ts" />
-        <option value="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/taskByDate/taskByDate.ts" />
-        <option value="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/app.tasks.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/reducers/sortingReducer.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/store/State.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/actions/todoActions.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/actions/AddTodo.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/accessoryClasses/TodoCreator.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/actonsCreator/todoActions.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/epics/epicMiddleware.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/epics/todosEpic.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/logic/ServerComunicationConverter.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/tests.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/servicies/TasksServerComunicator.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/epics/addTodosEpic.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/epics/updateTask.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/epics/updateTaskEpic.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/actions/Action.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/actions/AddTodoAction.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/actions/FetchAddTodoAction.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/actions/UpdateTaskAction.ts" />
+        <option value="$PROJECT_DIR$/fakeServer/routes/tasks.js" />
+        <option value="$PROJECT_DIR$/todolist/src/unitTest/epics/addTodoEpic_test.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/unitTest/epics/updateTaskEpic_tesr.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/actions/FetchUpdateTaskAction.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/logic/TasksSorter.ts" />
+        <option value="$PROJECT_DIR$/serverPrincipe.md" />
+        <option value="$PROJECT_DIR$/todolist/src/app/epics/server/addTodosEpic.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/actions/DeleteTodoAction.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/actions/FetchDeleteTodoAction.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/unitTest/epics/deleteTodoEpic_test.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/epics/server/deleteTodoEpic.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/epics/server/getTodosEpic.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/actions/GetTodosAction.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/reducers/todosReducer.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/epics/server/updateTaskEpic.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/actions/FetchSyncTodosAction.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/actions/SyncTodosAction.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/unitTest/epics/syncTaskEpic_test.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/components/main-component/app.root.rootcomponent.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/epics/rootEpic.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/epics/server/syncTodosEpic.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/domain/Task.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/domain/SmartArray.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/actonsCreator/TodoActions.ts" />
         <option value="$PROJECT_DIR$/todolist/src/app/app.module.ts" />
-        <option value="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/task/changeButton/changeButton.component.ts" />
-        <option value="$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/task/app.task.ts" />
-        <option value="$PROJECT_DIR$/todolist/src/app/accessoryClasses/domain/Task.ts" />
-        <option value="$PROJECT_DIR$/todolist/src/app/accessoryClasses/logic/PriorityLogic.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/servicies/ActionCreatorService.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/servicies/TaskManagerService.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/reducers/testReducer.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/store/Store.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/reducers/rootReducer.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/reducers/fetchTodosReducer.ts" />
+        <option value="$PROJECT_DIR$/todolist/src/app/store/AppState.ts" />
       </list>
     </option>
   </component>
@@ -253,6 +278,44 @@
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Bitwise operation issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Control flow issuesJavaScript</id>
+          </State>
+          <State>
+            <id>DOM issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Data flow issuesJavaScript</id>
+          </State>
+          <State>
+            <id>EJS</id>
+          </State>
+          <State>
+            <id>GeneralJavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>Potentially confusing code constructsJavaScript</id>
+          </State>
+          <State>
+            <id>RELAX NG</id>
+          </State>
+        </expanded-state>
+      </profile-state>
+    </entry>
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -268,8 +331,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -332,7 +393,219 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="unitTest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="epics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="New folder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="New folder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="todolist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="New folder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="New folder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="todolist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="store" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="New folder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="New folder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="todolist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="servicies" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="New folder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="New folder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="todolist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="reducers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="New folder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="New folder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="todolist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="logic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="New folder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="New folder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="todolist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="epics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="New folder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="New folder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="todolist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="epics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="New folder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="New folder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="todolist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="domain" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -471,20 +744,30 @@
               <option name="myItemId" value="components" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="task-component" />
+              <option name="myItemId" value="New folder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="New folder" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tasks" />
+              <option name="myItemId" value="todolist" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="task" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="changeButton" />
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="actonsCreator" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -510,165 +793,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="servicies" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="New folder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="New folder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="todolist" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main-component" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="New folder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="New folder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="todolist" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="header-component" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="New folder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="New folder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="todolist" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="header-component" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="taskdialog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="New folder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="New folder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="todolist" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="accessoryClasses" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="logic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="New folder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="New folder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="todolist" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="accessoryClasses" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="domain" />
+              <option name="myItemId" value="actions" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -686,8 +811,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="New folder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="New folder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fakeServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="routes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -698,22 +843,23 @@
     <property name="editor.config.accepted" value="true" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="js.eslint.eslintPackage" value="" />
-    <property name="settings.editor.selected.configurable" value="settings.typescriptcompiler" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="ignore_missing_gitignore" value="true" />
     <property name="typescript-compiler-editor-notification" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\progects\New folder" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\progects\New folder\todolist\src\app\accessoryClasses\logic" />
-      <recent name="E:\progects\New folder\fakeServer" />
-      <recent name="E:\progects\New folder\todolist\src\app\components\task-component" />
-      <recent name="E:\progects\New folder\todolist\src\app\components\task-component\tasks" />
-      <recent name="E:\progects\New folder\todolist\src\app\components\task-component\testComp" />
+      <recent name="E:\progects\New folder\todolist\src\app\epics\server" />
+      <recent name="E:\progects\New folder\todolist\src\app" />
+      <recent name="E:\progects\New folder\todolist" />
+      <recent name="E:\progects\New folder\todolist\src\tests" />
+      <recent name="E:\progects\New folder\todolist\src\app\actonsCreator" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\progects\New folder\todolist\src\unitTest\epics" />
+      <recent name="E:\progects\New folder" />
     </key>
   </component>
   <component name="RunManager">
@@ -811,11 +957,18 @@
       <workItem from="1488641701254" duration="3040000" />
       <workItem from="1488690166874" duration="12953000" />
       <workItem from="1488712115834" duration="7527000" />
+      <workItem from="1488814325105" duration="3465000" />
+      <workItem from="1488870627563" duration="18797000" />
+      <workItem from="1488951600688" duration="3320000" />
+      <workItem from="1488956569886" duration="10828000" />
+      <workItem from="1488980395695" duration="26000" />
+      <workItem from="1488985381701" duration="879000" />
+      <workItem from="1488986275819" duration="4063000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106146000" />
+    <option name="totallyTimeSpent" value="147524000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -827,11 +980,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890365" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24048626" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23678647" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890365" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890365" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -870,124 +1023,201 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/todolist/karma.conf.js">
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/accessoryClasses/TodoCreator.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-705">
+        <state relative-caret-position="99">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/todolist/src/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/logic/TasksSorter.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="26" lean-forward="false" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/reducers/sortingReducer.ts" />
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/actions/GetTodosAction.ts" />
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/actions/UpdateTaskAction.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="6" column="11" lean-forward="false" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverPrincipe.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="99">
+            <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="26" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/epics/server/deleteTodoEpic.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="19" column="11" lean-forward="false" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/actions/Action.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/actions/FetchAddTodoAction.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/actions/FetchDeleteTodoAction.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="3" column="37" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/epics/server/updateTaskEpic.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="16" column="7" lean-forward="false" selection-start-line="11" selection-start-column="11" selection-end-line="16" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/epics/epicMiddleware.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/epics/rootEpic.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="16" lean-forward="false" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/actions/SyncTodosAction.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="2" column="30" lean-forward="true" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/app.tasks.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fakeServer/test/public/main.bundle.js">
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/actions/FetchSyncTodosAction.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6">
-          <caret line="889" column="33" lean-forward="false" selection-start-line="889" selection-start-column="33" selection-end-line="889" selection-end-column="33" />
+        <state relative-caret-position="66">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="56" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fakeServer/routes/users.js">
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/epics/server/syncTodosEpic.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="24" />
+        <state relative-caret-position="495">
+          <caret line="19" column="91" lean-forward="false" selection-start-line="19" selection-start-column="91" selection-end-line="19" selection-end-column="91" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/task/changeButton/changeButton.component.css">
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/components/main-component/app.root.rootcomponent.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="16" column="5" lean-forward="false" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+        <state relative-caret-position="66">
+          <caret line="2" column="61" lean-forward="false" selection-start-line="2" selection-start-column="61" selection-end-line="2" selection-end-column="61" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/src/app/components/header-component/app.header.html">
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/task/app.task.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="10" column="44" lean-forward="false" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+        <state relative-caret-position="512">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/task/app.task.css">
+    <entry file="file://$PROJECT_DIR$/todolist/src/unitTest/epics/syncTaskEpic_test.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="8" column="24" lean-forward="false" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+        <state relative-caret-position="297">
+          <caret line="13" column="35" lean-forward="false" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/taskByDate/taskByDate2.ts" />
-    <entry file="file://$PROJECT_DIR$/todolist/src/app/components/task-component/testComp/kek" />
-    <entry file="file://$PROJECT_DIR$/todolist/src/app/components/task-component/testComp/kek.html" />
-    <entry file="file://$PROJECT_DIR$/todolist/src/app/components/task-component/testComp/myComp.ts" />
-    <entry file="file://$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/taskByDate/taskByDate.css">
+    <entry file="file://$PROJECT_DIR$/todolist/src/unitTest/epics/deleteTodoEpic_test.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="99">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fakeServer/routes/tasks.js">
+    <entry file="file://$PROJECT_DIR$/todolist/src/unitTest/epics/addTodoEpic_test.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1551">
-          <caret line="47" column="13" lean-forward="false" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="627">
+          <caret line="23" column="28" lean-forward="false" selection-start-line="22" selection-start-column="27" selection-end-line="23" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/src/app/accessoryClasses/task/TasksArrAsync.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/task/changeButton/changeButton.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="18" column="45" lean-forward="false" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/taskByDate/taskByDate.html">
+    <entry file="file://$PROJECT_DIR$/todolist/src/unitTest/epics/updateTaskEpic_tesr.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="28" lean-forward="false" selection-start-line="0" selection-start-column="28" selection-end-line="0" selection-end-column="28" />
-          <folding />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/src/test.ts">
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/app.tasks.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="33">
+          <caret line="33" column="23" lean-forward="false" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/taskByDate/taskByDate.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="29" column="14" lean-forward="true" selection-start-line="29" selection-start-column="2" selection-end-line="29" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/todolist/node_modules/@angular/core/src/metadata/lifecycle_hooks.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="63" column="13" lean-forward="false" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/epics/server/addTodosEpic.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="19" column="20" lean-forward="false" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/actions/DeleteTodoAction.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/todolist/src/tsconfig.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="1" column="22" lean-forward="false" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/src/app/components/login-component/app.loginComponent.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/src/app/app.login.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/src/app/components/header-component/taskdialog/addTaskDial.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -999,270 +1229,170 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/protractor.conf.js">
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/actions/AddTodoAction.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fakeServer/test/public/index.html">
+    <entry file="file://$PROJECT_DIR$/fakeServer/routes/tasks.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-203">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="2079">
+          <caret line="63" column="5" lean-forward="false" selection-start-line="54" selection-start-column="4" selection-end-line="63" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fakeServer/views/index.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="5" column="24" lean-forward="false" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/serverPrincipe.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="777">
-            <caret line="34" column="18" lean-forward="false" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/angular-cli.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="9" column="31" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="541">
-          <caret line="53" column="25" lean-forward="false" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fakeServer/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/README.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="748">
-            <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fakeServer/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="2" column="9" lean-forward="true" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/app.tasks.html">
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/actions/FetchUpdateTaskAction.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <caret line="5" column="53" lean-forward="false" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/src/app/components/main-component/app.root.rootcomponent.ts">
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/domain/Task.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        <state relative-caret-position="132">
+          <caret line="4" column="2" lean-forward="false" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/src/app/components/servicies/PostponeService.ts">
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/domain/TaskBuilder.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="30" />
-          <folding />
+        <state relative-caret-position="165">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/taskByDate/taskByDate.ts">
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/domain/SmartArray.ts" />
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/logic/PriorityLogic.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="44" column="32" lean-forward="false" selection-start-line="44" selection-start-column="32" selection-end-line="44" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/src/app/components/header-component/app.header.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="20" column="3" lean-forward="true" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/src/app/components/header-component/taskdialog/taskDialog.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1221">
-          <caret line="61" column="3" lean-forward="false" selection-start-line="61" selection-start-column="3" selection-end-line="61" selection-end-column="3" />
-          <folding>
-            <element signature="e#467#809#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/src/app/components/servicies/TaskManagerService.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-115">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/src/app/components/servicies/TasksServerComunicator.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1980">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/task/app.task.html">
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/logic/PostponeLogic.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="29" column="51" lean-forward="false" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="51" />
+        <state relative-caret-position="297">
+          <caret line="9" column="12" lean-forward="false" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/task/app.task.ts">
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/actonsCreator/TodoActions.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="29" column="50" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/task/changeButton/changeButton.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="13" column="2" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+        <state relative-caret-position="66">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
-            <element signature="e#0#77#0" expanded="true" />
-            <element signature="e#286#340#0" expanded="true" />
+            <element signature="e#0#62#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/src/app/accessoryClasses/logic/PostponeLogic.ts">
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/servicies/TasksServerComunicator.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="9" column="12" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/src/app/accessoryClasses/logic/TasksSorter.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="11" column="16" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/src/app/accessoryClasses/logic/PriorityLogic.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="25" column="23" lean-forward="true" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+        <state relative-caret-position="1056">
+          <caret line="38" column="7" lean-forward="false" selection-start-line="35" selection-start-column="6" selection-end-line="38" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/todolist/src/app/app.module.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="14" column="86" lean-forward="false" selection-start-line="14" selection-start-column="86" selection-end-line="14" selection-end-column="86" />
+        <state relative-caret-position="611">
+          <caret line="48" column="77" lean-forward="false" selection-start-line="48" selection-start-column="77" selection-end-line="48" selection-end-column="77" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/src/app/components/task-component/tasks/app.tasks.ts">
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/servicies/TaskManagerService.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="14" column="15" lean-forward="false" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+        <state relative-caret-position="693">
+          <caret line="27" column="7" lean-forward="false" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
           <folding>
             <element signature="e#0#48#0" expanded="true" />
+            <element signature="e#281#343#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/src/app/accessoryClasses/domain/Task.ts">
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/servicies/ActionCreatorService.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        <state relative-caret-position="462">
+          <caret line="23" column="5" lean-forward="false" selection-start-line="23" selection-start-column="5" selection-end-line="25" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+            <element signature="e#281#343#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/reducers/testReducer.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="3" column="49" lean-forward="false" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/todolist/src/app/accessoryClasses/domain/TaskBuilder.ts">
+    <entry file="file://$PROJECT_DIR$/todolist/node_modules/redux/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        <state relative-caret-position="291">
+          <caret line="50" column="17" lean-forward="false" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="231">
-            <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/reducers/fetchTodosReducer.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="35" column="7" lean-forward="true" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/logic/ServerComunicationConverter.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/store/Store.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="15" column="11" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/reducers/rootReducer.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="15" column="31" lean-forward="true" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#127#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/todolist/src/app/store/AppState.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -1,11 +1,12 @@
 import {Injectable} from '@angular/core';
-import {Task} from "../../domain/Task";
+import {Task} from "../domain/Task";
 import * as moment from 'moment';
 import {Subject,} from 'rxjs/'
 import {Http, URLSearchParams, Response, RequestOptionsArgs} from "@angular/http";
-import {TaskBuilder} from "../../domain/TaskBuilder";
+import {TaskBuilder} from "../domain/TaskBuilder";
 import {Observable} from "rxjs";
 import Moment = moment.Moment;
+import {ServerComunicationConverter} from "../logic/ServerComunicationConverter";
 
 /**
  * class for managing tasks with server,
@@ -32,9 +33,9 @@ export class TasksServerCommunicator {
     };
 
     return this.http.get(getURL, options)
-      .map(val => TasksServerCommunicator.extractData(val))
+      .map(val => ServerComunicationConverter.extractData(null))
       .mergeMap(tasks => Observable.from(tasks)
-        .map(task => TasksServerCommunicator.convertJSONTask(task))
+        .map(task => ServerComunicationConverter.convertJSONTask(task))
       )
   }
 
@@ -55,7 +56,7 @@ export class TasksServerCommunicator {
     return this.http.get(postponeURL, {
       search: searchPatams
     })
-      .map(resp => TasksServerCommunicator.extractData(resp))
+      .map(resp => ServerComunicationConverter.extractData(null))
       .filter(val => val['isPostponed'])
   }
 
@@ -63,62 +64,36 @@ export class TasksServerCommunicator {
     let addURL = '/tasks/add';
 
     return this.http.post(addURL,
-      TasksServerCommunicator.formatTaskToServer(task))
-      .map(val => TasksServerCommunicator.extractData(val))
+      ServerComunicationConverter.formatTaskToServer(task))
+      .map(val => ServerComunicationConverter.extractData(null))//TODO null to val
       .map(val => val['id'])
   }
 
   updateTask(task: Task): Observable<Task> {
     let updtURL = `/tasks/update/${task.id}`;
     return this.http.post(updtURL,
-      TasksServerCommunicator.formatTaskToServer(task))
-      .map(val => TasksServerCommunicator.extractData(val))
+      ServerComunicationConverter.formatTaskToServer(task))
+      .map(val => ServerComunicationConverter.extractData(null))
   }
 
   delTask(task: Task): Observable<boolean> {
     let delURL = `/tasks/delete/${task.id}`;
     return this.http.get(delURL)
-      .map(val => TasksServerCommunicator.extractData(val)['isDeleted'])
+      .map(val => ServerComunicationConverter.extractData(null)['isDeleted'])
   }
 
   completeTask(task: Task): Observable<boolean> {
     let complURL = `/tasks/complete/${task.id}`;
     return this.http.get(complURL)
-      .map(val => TasksServerCommunicator.extractData(val)['isCompleted'])
+      .map(val => ServerComunicationConverter.extractData(null)['isCompleted'])
   }
 
   undoCompleteTask(task: Task): Observable<boolean> {
     let complURL = `/tasks/undoComplete/${task.id}`;
     return this.http.get(complURL)
-      .map(val => TasksServerCommunicator.extractData(val)['isCompleted'])
+      .map(val => ServerComunicationConverter.extractData(null)['isCompleted'])
   }
 
 
-  /*Converts http JSON domain to a Task class*/
-  private static convertJSONTask(task): Task {
-    let taskBuilder = new TaskBuilder();
-    return taskBuilder
-      .setId(task['id'])
-      .setDate(moment(task['date']))
-      .setTitle(task['title'])
-      .setPriority(task['priority'])
-      .setIdDone(!!task['isDone'])
-      .build()
-  }
 
-  /*Extracting data from http response to JSON format*/
-  private static extractData(res: Response) {
-    let body = res.json();
-    return body || {};
-  }
-
-  //formates domain to standart acceptable with server
-  private static formatTaskToServer(task: Task): Object {
-    return {
-      date: task.date.format('YYYY-MM-DD'),//formating according to ISO 8601
-      title: task.title,
-      priority: task.priority,
-      isDone: task.isDone
-    }
-  }
 }

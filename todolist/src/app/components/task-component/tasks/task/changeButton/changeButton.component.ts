@@ -1,11 +1,11 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import {TaskManagerService} from "../../../../servicies/TaskManagerService";
-import {Task} from "../../../../../accessoryClasses/domain/Task";
+import {TaskManagerService} from "../../../../../servicies/TaskManagerService";
+import {Task} from "../../../../../domain/Task";
 import * as moment from 'moment';
 import Moment = moment.Moment;
 import {IMyOptions, IMyDateModel} from "mydatepicker";
-import {PostponeLogic} from "../../../../../accessoryClasses/logic/PostponeLogic";
-import {PriorityLogic} from "../../../../../accessoryClasses/logic/PriorityLogic";
+import {PostponeLogic} from "../../../../../logic/PostponeLogic";
+import {PriorityLogic} from "../../../../../logic/PriorityLogic";
 
 @Component({
   selector: 'changeDropDownMenu',
