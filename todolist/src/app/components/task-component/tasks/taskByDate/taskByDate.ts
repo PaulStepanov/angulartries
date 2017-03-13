@@ -1,8 +1,8 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {TasksSorter} from "../../../../accessoryClasses/logic/TasksSorter";
-import {TaskManagerService} from "../../../servicies/TaskManagerService";
+import {TasksSorter} from "../../../../logic/TasksSorter";
+import {TaskManagerService} from "../../../../servicies/TaskManagerService";
 import {Observable} from "rxjs";
-import {Task} from "../../../../accessoryClasses/domain/Task";
+import {Task} from "../../../../domain/Task";
 import * as moment from 'moment';
 import Moment = moment.Moment;
 

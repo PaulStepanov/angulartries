@@ -1,8 +1,8 @@
 import  {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import {Task} from "../../../../accessoryClasses/domain/Task";
-import {TaskManagerService} from "../../../servicies/TaskManagerService";
+import {Task} from "../../../../domain/Task";
+import {TaskManagerService} from "../../../../servicies/TaskManagerService";
 import {MdDialog} from "@angular/material";
-import {PriorityLogic} from "../../../../accessoryClasses/logic/PriorityLogic";
+import {PriorityLogic} from "../../../../logic/PriorityLogic";
 
 @Component({
   moduleId: module.id,
@@ -19,6 +19,7 @@ export class TaskComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.task);
   }
 
   static focusOnEditTaskArea(element) {

@@ -8,7 +8,7 @@
 
 <div>
   <md-input-container class="taskContainer">
-    <input id="focus" class="taskText" md-input color="primar" placeholder="Task name" #name>
+    <input mdInput id="focus" class="taskText"  color="primar" placeholder="Task name" #name>
   </md-input-container>
 </div>
 
@@ -19,7 +19,7 @@
 </form>
 </div>
 
-<div class="priorityContainer" >
+<div class="priorityContainer left" >
 <md-select placeholder="Select priority" [(ngModel)]="selectedPriority" >
   <md-option *ngFor="let priority of priorities" [value]="priority.value" >
     <i class="fa fa-flag" [style.color]="priority.color" aria-hidden="true" ></i>
@@ -28,8 +28,10 @@
 </md-select>
 </div>
 <br>
+<div class="left">
+  <button md-dialog-close (click)="addTask(name.value)" type="button" class="btn btn-primary">Add Task
+</button></div>
 
-<button md-dialog-close (click)="addTask(name.value)" type="button" class="btn btn-primary">Add Task
-</button>
+
 
 <!--TODO add focus on input,not exit button-->
