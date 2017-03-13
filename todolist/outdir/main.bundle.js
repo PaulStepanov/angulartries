@@ -64,7 +64,7 @@ var TaskManagerService = (function () {
         return this.tasksStore.getDefaultTasks(100);
     };
     TaskManagerService.prototype.addTask = function (task) {
-        this.tasksStore.addTask(task);
+        TodoCreator.addTask(task);
     };
     TaskManagerService.prototype.delTask = function (task) {
         this.tasksStore.delTask(task);
@@ -159,7 +159,7 @@ var AddTaskDialog = (function () {
             .date(this.date.date.day)
             .month(this.date.date.month)
             .year(this.date.date.year);
-        this.taskManagerService.addTask(new __WEBPACK_IMPORTED_MODULE_2__accessoryClasses_task_Task__["a" /* Task */](name, date, this.selectedPriority));
+        TodoCreator.addTask(new __WEBPACK_IMPORTED_MODULE_2__accessoryClasses_task_Task__["a" /* Task */](name, date, this.selectedPriority));
         console.log(this.date);
     };
     AddTaskDialog = __decorate([

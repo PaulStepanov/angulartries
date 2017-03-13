@@ -10,14 +10,18 @@ import {HeaderComponent} from "./components/header-component/app.header";
 import {AppTasksComponent} from "./components/task-component/tasks/app.tasks";
 import {TaskComponent} from "./components/task-component/tasks/task/app.task";
 import {AddTaskDialog} from "./components/header-component/taskdialog/taskDialog";
-import {TaskManagerService} from "./components/servicies/TaskManagerService";
+import {TaskManagerService} from "./servicies/TaskManagerService";
 import {MyDatePickerModule} from "mydatepicker";
-import {TasksServerCommunicator} from "./components/servicies/TasksServerComunicator";
+import {TasksServerCommunicator} from "./servicies/TasksServerComunicator";
 import {
   ChangeDropDownMenu
 } from "./components/task-component/tasks/task/changeButton/changeButton.component";
 import {DropdownModule} from "ngx-dropdown";
 import {TaskByDate} from "./components/task-component/tasks/taskByDate/taskByDate";
+import {store} from "./store/Store";
+import { NgReduxModule, NgRedux } from '@angular-redux/store';
+import {AppState} from "./store/AppState";
+import {ActionCreatorService} from "./servicies/ActionCreatorService";
 
 @NgModule({
   declarations: [
@@ -37,11 +41,17 @@ import {TaskByDate} from "./components/task-component/tasks/taskByDate/taskByDat
     MaterialModule.forRoot(),
     MdInputModule,
     MyDatePickerModule,
-    DropdownModule
+    DropdownModule,
+    NgReduxModule
   ],
   bootstrap: [AppComponent],
   entryComponents: [AddTaskDialog],
-  providers: [TaskManagerService,TasksServerCommunicator]
+  providers: [TaskManagerService,TasksServerCommunicator,ActionCreatorService]
 })
+
+
 export class AppModule {
+  constructor(ngRedux: NgRedux<AppState>) {
+    ngRedux.provideStore(store);
+  }
 }

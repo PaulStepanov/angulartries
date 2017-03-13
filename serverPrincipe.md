@@ -37,9 +37,7 @@ _response:_{
  _response:_   
 {  
  isAdded:boolean, 
- id:string, 
- error:number,    
- errorText:string    
+ id:string,     
 }  
  
 #Data exchange standarts:  
@@ -51,3 +49,9 @@ _response:_{
   priority:number, //1-4  
   isDone:boolean    
 }  
+
+{  
+isOk:boolean,
+error:number,      
+errorText:string  
+}

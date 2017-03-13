@@ -24,7 +24,7 @@ export class TaskBuilder {
     return this;
   }
 
-  setIdDone(isDone) {
+  setIsDone(isDone) {
     this.isDone = isDone;
     return this;
   }
