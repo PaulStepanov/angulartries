@@ -1,6 +1,6 @@
 package by.zarabon;
 
-import by.zarabon.configs.WebMvcConfig;
+import by.zarabon.configs.MainConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -17,6 +17,6 @@ public class MainApp {
 		AnnotationConfigApplicationContext context =
 				new AnnotationConfigApplicationContext();
 		context.getEnvironment().setActiveProfiles("dev", "test");
-		context.register(WebMvcConfig.class);
+		context.register(MainConfig.class);
 	}
 }
