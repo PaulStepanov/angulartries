@@ -32,11 +32,6 @@
         </dependency>
 
 		<!--Joda time with dependencies to use with HibernateORM -->
-		<dependency>
-			<groupId>joda-time</groupId>
-			<artifactId>joda-time</artifactId>
-		</dependency>
-
         <!-- https://mvnrepository.com/artifact/org.jadira.usertype/usertype.core -->
         <!--<dependency>-->
             <!--<groupId>org.jadira.usertype</groupId>-->
@@ -93,11 +88,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 			<version>1.5.3.BUILD-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>org.thymeleaf</groupId>
-			<artifactId>thymeleaf-spring4</artifactId>
-			<version>2.1.4.RELEASE</version>
 		</dependency>
 
 

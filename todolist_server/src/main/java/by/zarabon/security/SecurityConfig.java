@@ -50,6 +50,8 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()//TODO enable CSS security in PRODUCTION
                 .authorizeRequests()
+                .antMatchers("/")
+                .permitAll()
                 .expressionHandler(webExpressionHandler())
                 .antMatchers("/get/**").hasRole("USER")
                 .and()

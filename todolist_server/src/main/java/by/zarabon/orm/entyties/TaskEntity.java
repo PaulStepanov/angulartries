@@ -1,31 +1,36 @@
 package by.zarabon.orm.entyties;
 
+import by.zarabon.orm.converters.LocalDateTimeConverter;
 import by.zarabon.orm.converters.StringBuilderConverter;
-import org.hibernate.annotations.Type;
-import org.joda.time.LocalDate;
+
+
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "tasks")
+@Table(name = "tasks",schema = "tasks")
 public class TaskEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(name = "text")
     @Convert(converter = StringBuilderConverter.class)
     private StringBuilder text;
 
-    @Column
-    // Will be mapped as DATE (on MySQL), i.e. only date without timestamp
-    private LocalDate birthdayDate;
+    @Column(name = "date")
+    @Convert(converter = LocalDateTimeConverter.class)
+    private LocalDateTime date;
 
-    @Column
+    @Column(name = "isDone")
     private boolean isDone;
 
-    public TaskEntity(StringBuilder text) {
+
+    public TaskEntity(StringBuilder text, LocalDateTime date, boolean isDone) {
         this.text = text;
+        this.date = date;
+        this.isDone = isDone;
     }
 
     public Long getId() {
@@ -43,15 +48,6 @@ public class TaskEntity {
 
     public TaskEntity setText(StringBuilder text) {
         this.text = text;
-        return this;
-    }
-
-    public LocalDate getBirthdayDate() {
-        return birthdayDate;
-    }
-
-    public TaskEntity setBirthdayDate(LocalDate birthdayDate) {
-        this.birthdayDate = birthdayDate;
         return this;
     }
 

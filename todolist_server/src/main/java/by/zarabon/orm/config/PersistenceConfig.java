@@ -2,6 +2,9 @@ package by.zarabon.orm.config;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -23,21 +26,15 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories("by.zarabon.orm")
+@EnableJpaRepositories("by.zarabon.orm.repositories")
+@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
 @PropertySource(value = {"classpath:application.properties"})
+
 public class PersistenceConfig {
 
 	@Autowired
 	private Environment environment;
 
-	@Bean
-	public LocalSessionFactoryBean sessionFactory() {
-		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-		sessionFactory.setDataSource(dataSource());
-		sessionFactory.setPackagesToScan(new String[]{"by.zarabon.orm"});
-		sessionFactory.setHibernateProperties(hibernateProperties());
-		return sessionFactory;
-	}
 
 	@Bean
 	public DataSource dataSource() {
@@ -49,6 +46,7 @@ public class PersistenceConfig {
 		return dataSource;
 	}
 
+	@Bean
 	public Properties hibernateProperties() {
 		Properties properties = new Properties();
 		properties.put("hibernate.dialect", environment.getRequiredProperty("hibernate.dialect"));
@@ -65,12 +63,15 @@ public class PersistenceConfig {
 		return txManager;
 	}
 
+
+
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
 		LocalContainerEntityManagerFactoryBean emfb = new LocalContainerEntityManagerFactoryBean();
 		emfb.setDataSource(dataSource);
-		emfb.setPackagesToScan("your.package.with.model");
+		emfb.setPackagesToScan("by.zarabon.orm");
 		emfb.setJpaVendorAdapter(jpaVendorAdapter());
+		emfb.setJpaProperties(hibernateProperties());
 		return emfb;
 	}
 
