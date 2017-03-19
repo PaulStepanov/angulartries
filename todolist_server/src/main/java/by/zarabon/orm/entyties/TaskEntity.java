@@ -7,7 +7,7 @@ import org.joda.time.LocalDate;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "")
+@Table(name = "tasks")
 public class TaskEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,7 +19,6 @@ public class TaskEntity {
 
     @Column
     // Will be mapped as DATE (on MySQL), i.e. only date without timestamp
-    @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
     private LocalDate birthdayDate;
 
     @Column
