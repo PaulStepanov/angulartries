@@ -13,3 +13,21 @@ CREATE TABLE IF NOT EXISTS user_roles (
   KEY fk_username_idx (username),
   CONSTRAINT fk_username FOREIGN KEY (username) REFERENCES users (username));
 
+CREATE TABLE IF NOT EXISTS `tasks` (
+  `idtasks` INT NOT NULL AUTO_INCREMENT,
+  `text` TEXT NOT NULL,
+  `date` DATETIME(1) NOT NULL,
+  `isDone` TINYINT NULL DEFAULT 0,
+  PRIMARY KEY (`idtasks`));
+
+CREATE TABLE IF NOT EXISTS `task_relation` (
+  `idtask_relation` INT NOT NULL AUTO_INCREMENT,
+  `users_username` VARCHAR(45) NOT NULL,
+  `tasks_idtasks` INT NOT NULL,
+  PRIMARY KEY (`idtask_relation`),
+  CONSTRAINT `fk_task_relation_users1`
+    FOREIGN KEY (`users_username`)
+    REFERENCES `users` (`username`),
+  CONSTRAINT `fk_task_relation_tasks1`
+    FOREIGN KEY (`tasks_idtasks`)
+    REFERENCES `tasks` (`idtasks`));
