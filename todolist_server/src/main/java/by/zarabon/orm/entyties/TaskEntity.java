@@ -9,10 +9,11 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "tasks",schema = "tasks")
+@Table(name = "tasks")
 public class TaskEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "idtasks")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "text")
@@ -26,6 +27,7 @@ public class TaskEntity {
     @Column(name = "isDone")
     private boolean isDone;
 
+    public TaskEntity(){};
 
     public TaskEntity(StringBuilder text, LocalDateTime date, boolean isDone) {
         this.text = text;
