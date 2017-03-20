@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Table(name = "tasks",schema = "tasks")
 public class TaskEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name = "text")

@@ -15,12 +15,17 @@ import org.springframework.security.web.access.expression.DefaultWebSecurityExpr
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 
+import javax.sql.DataSource;
+
 @Configuration
 @EnableGlobalMethodSecurity(securedEnabled = true)
 @EnableWebSecurity
 class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     SimpleUrlAuthenticationSuccessHandler authenticationSuccessHandler;
+
+    @Autowired
+    DataSource dataSource;
 
     //Role configuration TODO separate this
     @Bean
@@ -41,8 +46,11 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
-                .inMemoryAuthentication()
-                .withUser("user1").password("p").roles("USER");
+                .jdbcAuthentication()
+                .dataSource(dataSource)
+                .usersByUsernameQuery("select username,password, enabled from users where username=?")
+                .authoritiesByUsernameQuery(
+                        "select username, role from user_roles where username=?");
     }
     //TODO separate this
     @Override
