@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Table(name = "tasks")
 public class TaskEntity {
     @Id
-    @Column(name = "idtasks")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -28,7 +28,7 @@ public class TaskEntity {
     private boolean isDone;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idtask_relation")
+    @JoinColumn(name = "task_relation_id_task")
     private TaskEntity taskRelationId;
 
     public TaskEntity(){};

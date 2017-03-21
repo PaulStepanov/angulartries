@@ -32,11 +32,14 @@ public class TestController {
     }
     @RequestMapping("/get2")
     public TaskUserRealtionsEntity getEntity2(){
-        TaskUserRealtionsEntity entity=taskUserRealtionsRepository.findOne((long) 27);
-        System.out.println(entity.getTasks_idtasks().size());
+        TaskUserRealtionsEntity entity=taskUserRealtionsRepository.findOne((long) 1);
+        System.out.println(entity.getTasks_idtasks().get(0).getText());
+        System.out.println(entity);
+//        System.out.println(entity.getTasks_idtasks().size());
 //        entity.getTasks_idtasks().forEach(taskEntity -> {
 //            System.out.println(taskEntity);
 //        });
+
         return entity;
     }
 }

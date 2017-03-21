@@ -2,8 +2,6 @@ package by.zarabon.orm.entyties;
 
 
 
-import org.hibernate.annotations.IndexColumn;
-
 import javax.persistence.*;
 import java.util.List;
 
