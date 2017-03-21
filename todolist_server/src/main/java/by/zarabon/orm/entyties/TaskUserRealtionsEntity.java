@@ -16,10 +16,10 @@ public class TaskUserRealtionsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "taskRelationId")
     private List<TaskEntity>  tasks_idtasks;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "taskRelationId")
     private List<UserEntity> users_username;
 
 

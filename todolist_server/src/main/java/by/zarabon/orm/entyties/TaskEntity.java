@@ -27,6 +27,10 @@ public class TaskEntity {
     @Column(name = "isDone")
     private boolean isDone;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idtask_relation")
+    private TaskEntity taskRelationId;
+
     public TaskEntity(){};
 
     public TaskEntity(StringBuilder text, LocalDateTime date, boolean isDone) {

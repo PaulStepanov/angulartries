@@ -16,6 +16,10 @@ public class UserEntity {
     @Column(name = "enabled")
     private boolean isEnabled;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idtask_relation")
+    private TaskEntity taskRelationId;
+
     public UserEntity(String user, String password, boolean isEnabled) {
         this.user = user;
         this.password = password;
