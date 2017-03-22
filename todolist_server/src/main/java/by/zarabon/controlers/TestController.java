@@ -27,7 +27,7 @@ public class TestController {
         String now = "2016-11-09 10:30";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         LocalDateTime formatDateTime = LocalDateTime.parse(now, formatter);
-        tasksRepository.save(new TaskEntity(new StringBuilder("kurwa"),formatDateTime,false));
+        tasksRepository.save(new TaskEntity(new StringBuilder("kurwa"),formatDateTime,3,false));
         return tasksRepository.findOne((long) 1);
     }
     @RequestMapping("/get2")

@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `text` TEXT NOT NULL,
   `priority` INT NOT NULL DEFAULT 4,
-  `date` DATETIME(1) NOT NULL,
+  `date` DATE NOT NULL,
   `isDone` TINYINT NULL DEFAULT 0,
   `task_relation_id_task` INT(11),
   PRIMARY KEY (`id`),
