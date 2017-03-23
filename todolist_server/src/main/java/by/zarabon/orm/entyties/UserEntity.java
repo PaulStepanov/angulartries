@@ -1,6 +1,9 @@
 package by.zarabon.orm.entyties;
 
+import by.zarabon.serverFormats.Task;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -15,10 +18,6 @@ public class UserEntity {
 
     @Column(name = "enabled")
     private boolean isEnabled;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "task_relation_id_task")
-    private TaskEntity taskRelationId;
 
     public UserEntity(){
 

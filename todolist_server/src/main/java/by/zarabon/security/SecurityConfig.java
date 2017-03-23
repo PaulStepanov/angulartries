@@ -58,10 +58,8 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()//TODO enable CSS security in PRODUCTION
                 .authorizeRequests()
-                .antMatchers("/")
-                .permitAll()
                 .expressionHandler(webExpressionHandler())
-                .antMatchers("/get/**").hasRole("USER")
+                .antMatchers("/tasks/**").hasRole("USER")
                 .and()
                 .rememberMe().tokenValiditySeconds(604800)//7 days
                 .and()

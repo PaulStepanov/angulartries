@@ -14,12 +14,11 @@ public class TaskUserRealtionsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "taskRelationId")
-    private List<TaskEntity>  tasks_idtasks;
+    @Column(name = "user")
+    private String userName;
 
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "taskRelationId")
-    private List<UserEntity> users_username;
-
+    private List<TaskEntity> tasks;
 
     public Long getId() {
         return id;
@@ -30,21 +29,21 @@ public class TaskUserRealtionsEntity {
         return this;
     }
 
-    public List<TaskEntity> getTasks_idtasks() {
-        return tasks_idtasks;
+    public List<TaskEntity> getTasks() {
+        return tasks;
     }
 
-    public TaskUserRealtionsEntity setTasks_idtasks(List<TaskEntity> tasks_idtasks) {
-        this.tasks_idtasks = tasks_idtasks;
+    public TaskUserRealtionsEntity setTasks(List<TaskEntity> tasks) {
+        this.tasks = tasks;
         return this;
     }
 
-    public List<UserEntity> getUsers_username() {
-        return users_username;
+    public String getUserName() {
+        return userName;
     }
 
-    public TaskUserRealtionsEntity setUsers_username(List<UserEntity> users_username) {
-        this.users_username = users_username;
+    public TaskUserRealtionsEntity setUserName(String userName) {
+        this.userName = userName;
         return this;
     }
 }
