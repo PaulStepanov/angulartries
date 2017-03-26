@@ -2,11 +2,13 @@ package by.zarabon.orm.servicies;
 
 import by.zarabon.orm.entyties.TaskEntity;
 import by.zarabon.orm.entyties.TaskUserRealtionsEntity;
+import by.zarabon.orm.entyties.manager.TaskEntityMerger;
 import by.zarabon.orm.repositories.TaskUserRealtionsRepository;
 import by.zarabon.orm.repositories.TasksRepository;
 import by.zarabon.orm.repositories.UserRepository;
 import by.zarabon.serverFormats.Task;
 import by.zarabon.serverFormats.TaskEntityConverter;
+import org.springframework.beans.Mergeable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
@@ -27,10 +29,13 @@ public class TaskServiceImpl implements TaskService {
     private UserRepository userRepository;
 
     @Autowired
+    private TasksRepository tasksRepository;
+
+    @Autowired
     private TaskEntityConverter taskEntityConverter;
 
     @Autowired
-    private TasksRepository tasksRepository;
+    private TaskEntityMerger taskEntityMerger;
 
     @Override
     public List<Task> getTasksByUserName(String userName) {
@@ -48,7 +53,7 @@ public class TaskServiceImpl implements TaskService {
     public Task addTask(String userName, TaskEntity taskEntity) {
         //Getting relations from table
         ArrayList<TaskUserRealtionsEntity> relationList = (ArrayList<TaskUserRealtionsEntity>) taskUserRealtionsRepository.findByUserName(userName);
-        //If there is no relation
+        //If there is no relation creating new Relation Entity
         if (relationList.size() == 0) {
             TaskUserRealtionsEntity resTaskUserRealtionsEntity = new TaskUserRealtionsEntity();
             resTaskUserRealtionsEntity.setUserName(userName);
@@ -59,6 +64,7 @@ public class TaskServiceImpl implements TaskService {
             taskEntity.setTaskRelationId(resTaskUserRealtionsEntity);
             return taskEntityConverter.convertToTask(tasksRepository.save(taskEntity));
         } else {
+            //Set up relation in the task to the relation entity
             taskEntity.setTaskRelationId(relationList.get(0));
             return taskEntityConverter.convertToTask(tasksRepository.save(taskEntity));
         }
@@ -74,5 +80,13 @@ public class TaskServiceImpl implements TaskService {
         }
 
         return false;
+    }
+
+    @Override
+    public boolean updateTask(String userName, Task task) {
+        TaskEntity taskEntity = taskEntityConverter.convertToTaskEntity(task);
+        TaskEntity dbTaskEntity = tasksRepository.findOne(taskEntity.getId());
+        tasksRepository.save(taskEntityMerger.merge(dbTaskEntity,taskEntity));
+        return true;
     }
 }

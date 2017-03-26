@@ -61,8 +61,9 @@ public class TodoController {
         }
     }
 
-    @RequestMapping(path = "/update{taskId}",method = RequestMethod.POST)
-    public DefaultServerResponse updateTask(@PathVariable Long taskId, Principal principal) {
-
+    @RequestMapping(path = "/update/{taskId}",method = RequestMethod.POST)
+    public DefaultServerResponse updateTask(@RequestBody Task task,@PathVariable Long taskId, Principal principal) {
+        taskService.updateTask(principal.getName(),task);
+        return new DefaultServerResponse().setisOk(true);
     }
 }
