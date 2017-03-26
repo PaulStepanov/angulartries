@@ -62,6 +62,17 @@ public class TaskServiceImpl implements TaskService {
             taskEntity.setTaskRelationId(relationList.get(0));
             return taskEntityConverter.convertToTask(tasksRepository.save(taskEntity));
         }
+    }
 
+    @Override
+    public boolean deleteTaskByID(String userName,Long id) {
+        //Check if task belongs to current user
+        TaskEntity taskEntity = tasksRepository.findOne(id);
+        if (taskEntity!=null && taskEntity.getTaskRelationId().getUserName().equals(userName)) {
+            tasksRepository.delete(id);
+            return true;
+        }
+
+        return false;
     }
 }
