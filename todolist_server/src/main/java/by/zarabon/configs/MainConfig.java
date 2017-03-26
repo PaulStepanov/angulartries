@@ -30,8 +30,8 @@ public class MainConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
         registry
-                .addResourceHandler("/static/**")//Which URL  matching the pattern will get access to resources
-                .addResourceLocations("classpath:/static/")
+                .addResourceHandler("/*")//Which URL  matching the pattern will get access to resources
+                .addResourceLocations("classpath:/templates/")
                 .setCachePeriod(3600)
                 .resourceChain(true)
                 .addResolver(new PathResourceResolver());
