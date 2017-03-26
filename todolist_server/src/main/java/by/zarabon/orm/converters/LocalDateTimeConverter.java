@@ -4,7 +4,6 @@ package by.zarabon.orm.converters;
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 import java.sql.Timestamp;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
@@ -16,6 +15,7 @@ public class LocalDateTimeConverter implements AttributeConverter<LocalDateTime,
                 .map(Timestamp::valueOf)
                 .orElse(null);
     }
+
     @Override
     public LocalDateTime convertToEntityAttribute(Timestamp timestamp) {
         return Optional.ofNullable(timestamp)

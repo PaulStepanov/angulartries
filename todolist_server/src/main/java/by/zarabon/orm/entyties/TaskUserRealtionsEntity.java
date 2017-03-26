@@ -1,7 +1,6 @@
 package by.zarabon.orm.entyties;
 
 
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -17,7 +16,7 @@ public class TaskUserRealtionsEntity {
     @Column(name = "user")
     private String userName;
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "taskRelationId")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "taskRelationId")
     private List<TaskEntity> tasks;
 
     public Long getId() {

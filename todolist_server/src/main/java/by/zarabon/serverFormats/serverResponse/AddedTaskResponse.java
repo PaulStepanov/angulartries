@@ -7,7 +7,7 @@ public class AddedTaskResponse extends DefaultServerResponse {
         return id;
     }
 
-    public AddedTaskResponse(){
+    public AddedTaskResponse() {
         super();
     }
 

@@ -1,5 +1,6 @@
 package by.zarabon.orm.entyties.manager;
 
+import by.zarabon.exeptions.UnmergableExeption;
 import by.zarabon.orm.entyties.TaskEntity;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -10,17 +11,16 @@ import org.springframework.stereotype.Component;
 @Component
 @Scope("singleton")
 public class TaskEntityMerger {
-    public boolean isMergable(TaskEntity entity1, TaskEntity entity2) {
+    public boolean isMergable(TaskEntity entity1, TaskEntity entity2){
         if (entity1.getId() != null && entity2.getId() != null && entity1.getId() != entity2.getId()) {
             return false;
         }
         return true;
     }
 
-    public TaskEntity merge(TaskEntity entity1, TaskEntity entity2) {
+    public TaskEntity merge(TaskEntity entity1, TaskEntity entity2) throws UnmergableExeption {
         if (!this.isMergable(entity1, entity2)) {
-            //TODO add logging error into logger
-            return null;
+            throw new UnmergableExeption("Entities is unmergable");
         }
 
         TaskEntity resultEntity = new TaskEntity();

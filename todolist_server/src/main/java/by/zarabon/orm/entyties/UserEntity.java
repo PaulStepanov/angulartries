@@ -1,9 +1,9 @@
 package by.zarabon.orm.entyties;
 
-import by.zarabon.serverFormats.Task;
-
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "users")
@@ -19,7 +19,7 @@ public class UserEntity {
     @Column(name = "enabled")
     private boolean isEnabled;
 
-    public UserEntity(){
+    public UserEntity() {
 
     }
 

@@ -2,16 +2,13 @@ package by.zarabon.orm.entyties;
 
 import by.zarabon.orm.converters.LocalDateTimeConverter;
 import by.zarabon.orm.converters.StringBuilderConverter;
-import org.springframework.beans.Mergeable;
-import org.springframework.beans.NullValueInNestedPathException;
-
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "tasks")
-public class TaskEntity{
+public class TaskEntity {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +22,7 @@ public class TaskEntity{
     @Convert(converter = LocalDateTimeConverter.class)
     private LocalDateTime date;
 
-    @Column(name="priority")
+    @Column(name = "priority")
     private Integer priority;
 
     @Column(name = "isDone")
@@ -35,7 +32,10 @@ public class TaskEntity{
     @JoinColumn(name = "task_relation_id_task")
     private TaskUserRealtionsEntity taskRelationId;
 
-    public TaskEntity(){};
+    public TaskEntity() {
+    }
+
+    ;
 
     public TaskEntity(StringBuilder text, LocalDateTime date, Integer priority, boolean isDone) {
         this.text = text;
@@ -99,7 +99,6 @@ public class TaskEntity{
     }
 
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -124,5 +123,4 @@ public class TaskEntity{
         result = 31 * result + (isDone() ? 1 : 0);
         return result;
     }
-
 }

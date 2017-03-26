@@ -7,7 +7,7 @@ public final class TaskBuilder {
     private String date;
     private String title;
     private Integer priority;
-    private boolean isDone=false;
+    private boolean isDone = false;
 
     private TaskBuilder() {
     }
@@ -43,7 +43,7 @@ public final class TaskBuilder {
     }
 
     public Task build() {
-        Task task = new Task(id,date,title,priority,isDone);
+        Task task = new Task(id, date, title, priority, isDone);
         return task;
     }
 }

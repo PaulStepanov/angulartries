@@ -1,6 +1,5 @@
 package by.zarabon.security;
 
-import org.springframework.context.annotation.Scope;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;

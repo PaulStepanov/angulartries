@@ -31,10 +31,10 @@ public class TodoController {
     @Autowired
     TaskService taskService;
 
-    @RequestMapping(path = "/recent/{amountOfTasks}",method = RequestMethod.GET)
-    public ResponseEntity<List<Task>> getRecentTasks(@PathVariable Integer amountOfTasks, Principal principal){
+    @RequestMapping(path = "/recent/{amountOfTasks}", method = RequestMethod.GET)
+    public ResponseEntity<List<Task>> getRecentTasks(@PathVariable Integer amountOfTasks, Principal principal) {
         //If user not logged throw 403 FORBIDDEN
-        if (principal==null){
+        if (principal == null) {
             return new ResponseEntity<List<Task>>(HttpStatus.FORBIDDEN);
         }
 
@@ -43,27 +43,28 @@ public class TodoController {
         );
     }
 
-    @RequestMapping(path = "/add",method = RequestMethod.POST)
-    public AddedTaskResponse addTask(@RequestBody Task task, Principal principal){
-        Task addedTask = taskService.addTask(principal.getName(),taskEntityConverter.convertToTaskEntity(task));
+    @RequestMapping(path = "/add", method = RequestMethod.POST)
+    public AddedTaskResponse addTask(@RequestBody Task task, Principal principal) {
+        Task addedTask = taskService.addTask(principal.getName(), taskEntityConverter.convertToTaskEntity(task));
 
         return new AddedTaskResponse()
                 .setId(Long.valueOf(addedTask.getId()))
                 .setisOk(true);
     }
 
-    @RequestMapping(path = "/delete/{taskId}",method = RequestMethod.GET)
-    public DefaultServerResponse deleteTask(@PathVariable Long taskId, Principal principal){
-        if (taskService.deleteTaskByID(principal.getName(),taskId)) {
+    @RequestMapping(path = "/delete/{taskId}", method = RequestMethod.GET)
+    public DefaultServerResponse deleteTask(@PathVariable Long taskId, Principal principal) {
+        if (taskService.deleteTaskByID(principal.getName(), taskId)) {
             return new DefaultServerResponse().setisOk(true);
         } else {
             return new DefaultServerResponse().setisOk(false);
         }
     }
 
-    @RequestMapping(path = "/update/{taskId}",method = RequestMethod.POST)
-    public DefaultServerResponse updateTask(@RequestBody Task task,@PathVariable Long taskId, Principal principal) {
-        taskService.updateTask(principal.getName(),task);
-        return new DefaultServerResponse().setisOk(true);
+    @RequestMapping(path = "/update/{taskId}", method = RequestMethod.PUT)
+    public DefaultServerResponse updateTask(@RequestBody Task task, @PathVariable Long taskId, Principal principal) {
+        return taskService.updateTask(principal.getName(), task) ?
+                new DefaultServerResponse().setisOk(true) :
+                new DefaultServerResponse().setisOk(false);
     }
 }

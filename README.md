@@ -16,11 +16,17 @@ My attempts to make a todolist app using angular2,material design module
 - [x] sorting by priority and date
 - [x] postpone task
 - [x] editing task
-- [ ] add backend(make a server)
+- [x] add backend(make a server using Java spring)
 - [ ] redesign for more friendly appearance
+
+### used frameworks:
+* [Spring Framework 4.2.2.](https://spring.io/)
+* [Angular 2](https://angular.io/)
 
 ### used libs:
 * [momentjs](http://momentjs.com/)
 * [material.angular](https://material.angular.io/)
 * [datepicker](https://github.com/kekeh/mydatepicker)
 * [RxJs](http://reactivex.io/rxjs/)
+* [Angular Redux](https://github.com/angular-redux/store)
+

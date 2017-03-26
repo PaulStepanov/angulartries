@@ -7,7 +7,8 @@ public class Task {
     private Integer priority = 4;
     private boolean isDone = false;
 
-    public Task(){}
+    public Task() {
+    }
 
     public Task(String id, String date, String title, Integer priority, boolean isDone) {
         this.id = id;
