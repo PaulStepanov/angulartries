@@ -1,11 +1,13 @@
 package by.zarabon.serverFormats;
 
 public class Task {
-    private String id;
+    private String id = "-1";//Auto seting id when adding to db
     private String date;
     private String title;
-    private Integer priority;
-    private boolean isDone;
+    private Integer priority = 4;
+    private boolean isDone = false;
+
+    public Task(){}
 
     public Task(String id, String date, String title, Integer priority, boolean isDone) {
         this.id = id;

@@ -14,7 +14,7 @@ public class TaskEntity {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id = Long.valueOf(-1);
 
     @Column(name = "text")
     @Convert(converter = StringBuilderConverter.class)
@@ -32,7 +32,7 @@ public class TaskEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "task_relation_id_task")
-    private TaskEntity taskRelationId;
+    private TaskUserRealtionsEntity taskRelationId;
 
     public TaskEntity(){};
 
@@ -85,6 +85,15 @@ public class TaskEntity {
 
     public TaskEntity setDone(boolean done) {
         isDone = done;
+        return this;
+    }
+
+    public TaskUserRealtionsEntity getTaskRelationId() {
+        return taskRelationId;
+    }
+
+    public TaskEntity setTaskRelationId(TaskUserRealtionsEntity taskRelationId) {
+        this.taskRelationId = taskRelationId;
         return this;
     }
 

@@ -1,7 +1,7 @@
 package by.zarabon.serverFormats;
 
 import by.zarabon.orm.entyties.TaskEntity;
-import org.springframework.context.annotation.Bean;
+import by.zarabon.serverFormats.builders.TaskBuilder;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 

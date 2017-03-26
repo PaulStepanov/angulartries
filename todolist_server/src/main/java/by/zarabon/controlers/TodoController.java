@@ -5,6 +5,7 @@ import by.zarabon.orm.repositories.TasksRepository;
 import by.zarabon.orm.servicies.TaskService;
 import by.zarabon.serverFormats.Task;
 import by.zarabon.serverFormats.TaskEntityConverter;
+import by.zarabon.serverFormats.serverResponse.AddedTaskResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -42,9 +43,12 @@ public class TodoController {
     }
 
     @RequestMapping(path = "/add",method = RequestMethod.POST)
-    public Object addTask(@RequestBody Task task){
-//        taskUserRealtionsRepository.
-        return null;
+    public AddedTaskResponse addTask(@RequestBody Task task, Principal principal){
+        Task addedTask = taskService.addTask(principal.getName(),taskEntityConverter.convertToTaskEntity(task));
+
+        return new AddedTaskResponse()
+                .setId(Long.valueOf(addedTask.getId()))
+                .setisOk(true);
     }
 
 }

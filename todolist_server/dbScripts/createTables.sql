@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   FOREIGN KEY (`task_relation_id_task`)
   REFERENCES `task_relation` (`idtask_relation`));
 
-CREATE TABLE IF NOT EXISTS `user` (
+CREATE TABLE IF NOT EXISTS `users` (
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   `enabled` TINYINT NOT NULL DEFAULT 1,
@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS `task_relation` (
   PRIMARY KEY (`idtask_relation`),
   CONSTRAINT `fk_task_relation_users1`
   FOREIGN KEY (`user`)
-  REFERENCES `user` (`username`),
+  REFERENCES `users` (`username`),
   CONSTRAINT `fk_task_relation_tasks1`
   FOREIGN KEY (`tasks`)
   REFERENCES `tasks` (`id`));
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS user_roles (
   PRIMARY KEY (user_role_id),
   UNIQUE KEY uni_username_role (role,username),
   KEY fk_username_idx (username),
-  CONSTRAINT fk_username FOREIGN KEY (username) REFERENCES user (username));
+  CONSTRAINT fk_username FOREIGN KEY (username) REFERENCES users (username));
 
 
 

@@ -12,7 +12,7 @@ public class TaskUserRealtionsEntity {
     @Id
     @Column(name = "idtask_relation")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    Long id = Long.valueOf(-1);
 
     @Column(name = "user")
     private String userName;
