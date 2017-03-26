@@ -39,10 +39,10 @@ public class TestController {
     @RequestMapping("/get2")
     public TaskUserRealtionsEntity getEntity2(){
         TaskUserRealtionsEntity entity=taskUserRealtionsRepository.findOne((long) 1);
-//        System.out.println(entity.getTasks().get(0).getText());
+//        System.out.println(entity.getRecentTasks().get(0).getText());
 //        System.out.println(entity);
-//        System.out.println(entity.getTasks().size());
-//        entity.getTasks().forEach(taskEntity -> {
+//        System.out.println(entity.getRecentTasks().size());
+//        entity.getRecentTasks().forEach(taskEntity -> {
 //            System.out.println(taskEntity);
 //        });
 
@@ -50,10 +50,10 @@ public class TestController {
     }
     @RequestMapping("/get3")
     public Task getEntity3(){
-//        TaskUserRealtionsEntity entity=taskUserRealtionsRepository.findByUsers(new UserEntity("user",null,true)).get(1);
-//        Task task=taskEntityConverter.convertToTask(entity.getTasks().get(0));
-//        System.out.println(entity.getTasks().size());
-//        entity.getTasks().forEach(taskEntity -> {
+//        TaskUserRealtionsEntity entity=taskUserRealtionsRepository.findByUserName(new UserEntity("user",null,true)).get(1);
+//        Task task=taskEntityConverter.convertToTask(entity.getRecentTasks().get(0));
+//        System.out.println(entity.getRecentTasks().size());
+//        entity.getRecentTasks().forEach(taskEntity -> {
 //            System.out.println(taskEntity);
 //        });
 

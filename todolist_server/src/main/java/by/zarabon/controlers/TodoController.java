@@ -1,17 +1,14 @@
 package by.zarabon.controlers;
 
-import by.zarabon.orm.entyties.TaskUserRealtionsEntity;
 import by.zarabon.orm.repositories.TaskUserRealtionsRepository;
 import by.zarabon.orm.repositories.TasksRepository;
+import by.zarabon.orm.servicies.TaskService;
 import by.zarabon.serverFormats.Task;
 import by.zarabon.serverFormats.TaskEntityConverter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.List;
@@ -29,13 +26,25 @@ public class TodoController {
     @Autowired
     TaskEntityConverter taskEntityConverter;
 
+    @Autowired
+    TaskService taskService;
+
     @RequestMapping(path = "/recent/{amountOfTasks}",method = RequestMethod.GET)
-    public List<Task> getTasks(@PathVariable Integer amountOfTasks,Principal principal){
-        System.out.println(principal.getName());
-//        TaskUserRealtionsEntity entity=taskUserRealtionsRepository.findOne();
-        return null;
+    public ResponseEntity<List<Task>> getRecentTasks(@PathVariable Integer amountOfTasks, Principal principal){
+        //If user not logged throw 403 FORBIDDEN
+        if (principal==null){
+            return new ResponseEntity<List<Task>>(HttpStatus.FORBIDDEN);
+        }
+
+        return ResponseEntity.ok(
+                taskService.getTasksByUserName(principal.getName())
+        );
     }
 
-
+    @RequestMapping(path = "/add",method = RequestMethod.POST)
+    public Object addTask(@RequestBody Task task){
+//        taskUserRealtionsRepository.
+        return null;
+    }
 
 }

@@ -24,7 +24,7 @@ public class TaskEntityConverter {
                 .build();
     }
 
-    public TaskEntity convertToTaskEntity(Task task) {
+    public TaskEntity convertToTaskEntity(Task task) {//TODO make taskEntity builder
         TaskEntity returnEntity= new TaskEntity();
         returnEntity.setId(Long.parseLong(task.getId()));
         returnEntity.setDone(task.isDone());

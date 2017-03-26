@@ -10,5 +10,5 @@ import java.util.List;
 @Repository
 public interface TaskUserRealtionsRepository extends JpaRepository<TaskUserRealtionsEntity,Long>{
 
-//    List<TaskUserRealtionsEntity> findByUsers(UserEntity user);
+    List<TaskUserRealtionsEntity> findByUserName(String userName);
 }
