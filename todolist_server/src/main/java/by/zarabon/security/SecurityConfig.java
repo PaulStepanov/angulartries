@@ -20,7 +20,7 @@ import javax.sql.DataSource;
 @EnableWebSecurity
 class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
-    SimpleUrlAuthenticationSuccessHandler authenticationSuccessHandler;
+    MySavedRequestAwareAuthenticationSuccessHandler mySavedRequestAwareAuthenticationSuccessHandler;
 
     @Autowired
     DataSource dataSource;
@@ -54,7 +54,7 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .rememberMe().tokenValiditySeconds(604800)//7 days
                 .and()
                 .formLogin()
-                .successHandler(authenticationSuccessHandler)
+                .successHandler(mySavedRequestAwareAuthenticationSuccessHandler)
                 .failureHandler(new SimpleUrlAuthenticationFailureHandler())
                 .and()
                 .anonymous().disable();
