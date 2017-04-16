@@ -1,0 +1,19 @@
+.closeBut{
+  float: right;
+}
+.mainText{
+  float: left;
+  width: 100%;
+}
+
+.userNameContainer{
+  float: left;
+  width: 100%;
+}
+.passwordContainer{
+  float: left;
+  width: 100%;
+}
+#submitBut{
+  float: left;
+}

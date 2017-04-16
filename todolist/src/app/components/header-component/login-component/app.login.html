@@ -1,7 +1,7 @@
 <div class="content">
   <!--If user NOT logged-->
   <span *ngIf="!isLogged">
-    <button class="btn btn-default">
+    <button class="btn btn-default" (click)="openLoginDialogue()">
       Login
     </button>
   </span>
