@@ -1,34 +1,37 @@
 package by.zarabon.configs;
 
-import org.hibernate.SessionFactory;
+import by.zarabon.filters.LoggingRequestFilters;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration;
-import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.resource.PathResourceResolver;
 
-import javax.persistence.EntityManagerFactory;
-
 @Configuration
 @EnableWebMvc
-@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
-
 public class MainConfig extends WebMvcConfigurerAdapter {
 
-    //TODO Add JPA fabric with Hibernate
+    //Filter configurationn
+    @Autowired
+    @Bean
+    public FilterRegistrationBean filterRegistration(LoggingRequestFilters loggingRequestFilters) {
+        FilterRegistrationBean registration = new FilterRegistrationBean();
+        registration.setFilter(loggingRequestFilters);
+        registration.addUrlPatterns("/*");
+        registration.setName("debugRequestServletFilter");
+        registration.setOrder(1);
+        return registration;
+    }
+
+
     @Override
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
         registry
-                .addResourceHandler("/static/**")//Which URL  matching the pattern will get access to resources
-                .addResourceLocations("classpath:/static/")
+                .addResourceHandler("/*")//Which URL  matching the pattern will get access to resources
+                .addResourceLocations("classpath:/templates/")
                 .setCachePeriod(3600)
                 .resourceChain(true)
                 .addResolver(new PathResourceResolver());

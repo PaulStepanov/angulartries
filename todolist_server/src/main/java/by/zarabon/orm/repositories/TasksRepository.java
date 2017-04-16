@@ -1,12 +1,12 @@
 package by.zarabon.orm.repositories;
 
+
 import by.zarabon.orm.entyties.TaskEntity;
-import org.springframework.data.repository.PagingAndSortingRepository;
-import org.springframework.data.repository.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.io.Serializable;
-
-public interface TasksRepository extends PagingAndSortingRepository<TaskEntity, Long> {
+@Repository
+public interface TasksRepository extends JpaRepository<TaskEntity, Long> {
 
 
 }

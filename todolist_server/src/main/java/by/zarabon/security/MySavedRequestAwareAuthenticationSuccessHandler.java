@@ -14,9 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Response status code 200...actually, I don't a clue how it's work,
+ * Response status code 200...actually, I don't have a clue how it's work,
  * just copied from tutorial http://www.baeldung.com/securing-a-restful-web-service-with-spring-security
- * */
+ */
 @Component("authenticationSuccessHandler")
 public class MySavedRequestAwareAuthenticationSuccessHandler
         extends SimpleUrlAuthenticationSuccessHandler {

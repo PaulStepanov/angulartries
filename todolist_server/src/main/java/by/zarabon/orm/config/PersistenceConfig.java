@@ -1,96 +1,86 @@
 package by.zarabon.orm.config;
 
-import org.apache.tomcat.dbcp.dbcp.BasicDataSource;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.PropertiesFactoryBean;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.ResourceLoader;
-import org.springframework.core.io.support.PropertiesLoaderUtils;
-import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.orm.hibernate4.HibernateTransactionManager;
-import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.JpaVendorAdapter;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import javax.annotation.Resource;
+import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
-import java.io.IOException;
 import java.util.Properties;
 
 @Configuration
+@EnableTransactionManagement
+@EnableJpaRepositories("by.zarabon.orm.repositories")
+@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
+@PropertySource(value = {"classpath:application.properties"})
+
 public class PersistenceConfig {
 
     @Autowired
-    private ResourceLoader resourceLoader;
+    private Environment environment;
 
-    private Properties properties;
-
-    //getting resources from dataBase.properties file
-    @Bean
-    public PropertiesFactoryBean dbPropertiesFactoryBean() {
-        org.springframework.core.io.Resource resource=resourceLoader.getResource("classpath:dataBase.properties");
-        PropertiesFactoryBean propertiesFactoryBean = new PropertiesFactoryBean();
-        propertiesFactoryBean.setLocation(resourceLoader.getResource("classpath:dataBase.properties"));
-        try {
-            this.properties= PropertiesLoaderUtils.loadProperties(resource);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return propertiesFactoryBean;
-    }
 
     @Bean
-    public LocalSessionFactoryBean sessionFactory() {
-        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-        sessionFactory.setDataSource(restDataSource());
-        sessionFactory.setMappingResources("product.hbm.xml");
-        sessionFactory.setPackagesToScan(
-                new String[] {"by.zarabon.orm"});
-        sessionFactory.setHibernateProperties(hibernateProperties());
-
-        return sessionFactory;
-    }
-
-    @Bean
-    public DataSource restDataSource() {
-        BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/todolist");
-        dataSource.setUsername("root");
-        dataSource.setPassword("83106495fF");
-
+    public DataSource dataSource() {
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setDriverClassName(environment.getRequiredProperty("jdbc.driverClassName"));
+        dataSource.setUrl(environment.getRequiredProperty("jdbc.url"));
+        dataSource.setUsername(environment.getRequiredProperty("jdbc.username"));
+        dataSource.setPassword(environment.getRequiredProperty("jdbc.password"));
         return dataSource;
     }
 
     @Bean
-    @Autowired
-    public HibernateTransactionManager transactionManager(
-            SessionFactory sessionFactory) {
-
-        HibernateTransactionManager txManager
-                = new HibernateTransactionManager();
-        txManager.setSessionFactory(sessionFactory);
-
-        return txManager;
+    public Properties hibernateProperties() {
+        Properties properties = new Properties();
+        properties.put("hibernate.dialect", environment.getRequiredProperty("hibernate.dialect"));
+        properties.put("hibernate.show_sql", environment.getRequiredProperty("hibernate.show_sql"));
+        properties.put("hibernate.format_sql", environment.getRequiredProperty("hibernate.format_sql"));
+        return properties;
     }
 
     @Bean
-    public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
-        return new PersistenceExceptionTranslationPostProcessor();
+    @Autowired
+    public HibernateTransactionManager transactionManager(SessionFactory s) {
+        HibernateTransactionManager txManager = new HibernateTransactionManager();
+        txManager.setSessionFactory(s);
+        return txManager;
     }
 
-    Properties hibernateProperties() {
-        return new Properties() {
-            {
-                setProperty("hibernate.hbm2ddl.auto",
-                       "create");
-                setProperty("hibernate.dialect",
-                       "org.hibernate.dialect.MySQL5Dialect");
-                setProperty("hibernate.globally_quoted_identifiers",
-                        "true");
-            }
-        };
+
+    @Bean
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
+        LocalContainerEntityManagerFactoryBean emfb = new LocalContainerEntityManagerFactoryBean();
+        emfb.setDataSource(dataSource);
+        emfb.setPackagesToScan("by.zarabon.orm");
+        emfb.setJpaVendorAdapter(jpaVendorAdapter());
+        emfb.setJpaProperties(hibernateProperties());
+        return emfb;
+    }
+
+    @Bean
+    public JpaVendorAdapter jpaVendorAdapter() {
+        return new HibernateJpaVendorAdapter();
+    }
+
+    @Bean
+    public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
+        JpaTransactionManager transactionManager = new JpaTransactionManager();
+        transactionManager.setEntityManagerFactory(emf);
+        return transactionManager;
     }
 }

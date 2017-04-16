@@ -22,6 +22,8 @@ import {store} from "./store/Store";
 import { NgReduxModule, NgRedux } from '@angular-redux/store';
 import {AppState} from "./store/AppState";
 import {ActionCreatorService} from "./servicies/ActionCreatorService";
+import {LoginComponent} from "./components/header-component/login-component/app.login";
+import {LoginService} from "./servicies/LoginService";
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import {ActionCreatorService} from "./servicies/ActionCreatorService";
     TaskComponent,
     AddTaskDialog,
     ChangeDropDownMenu,
-    TaskByDate
+    TaskByDate,
+    LoginComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -46,7 +49,7 @@ import {ActionCreatorService} from "./servicies/ActionCreatorService";
   ],
   bootstrap: [AppComponent],
   entryComponents: [AddTaskDialog],
-  providers: [TaskManagerService,TasksServerCommunicator,ActionCreatorService]
+  providers: [TaskManagerService,TasksServerCommunicator,ActionCreatorService,LoginService]
 })
 
 

@@ -33,6 +33,15 @@ let tasks = [
 ];
 //Haaaaaaaaaaaaaaaaaaaaaaaaaaaaardcode------------
 
+router.post('/login',function (req, res, next) {
+    if (req.body.username=='user' && req.body.password == 'user') {
+        res.sendStatus(200)
+    } else  {
+        res.sendStatus(401)
+    }
+});
+
+
 router.get('/recent/:amount', function (req, res, next) {
     console.log(req.params);
     res.json(
@@ -66,23 +75,6 @@ router.post('/update/:id', function (req, res, next) {
     console.log(tasks);
 });
 
-router.get('/postpone/:id', function (req, res, next) {
-    let params = req.params;
-    let taskID = params.id;
-    let postponeDays = req.query.day;
-
-    for (task of tasks) {
-        if (task.id == taskID) {
-            let index = tasks.indexOf(task);
-            if (index > -1) {
-                let time = moment(task.date);
-                time = time.add(postponeDays, 'days');
-                tasks[index].date = time.format('YYYY-MM-DD')
-            }
-        }
-    }
-    res.json({isPostponed: 'true'})
-});
 
 router.get('/delete/:id', function (req, res, next) {
     let taskID = req.params['id'];
@@ -110,34 +102,6 @@ router.get('/complete/:id', function (req, res, next) {
     }
 });
 
-router.get('/undoComplete/:id', function (req, res, next) {
-    let taskID = req.params['id'];
-    for (task of tasks) {
-        if (task.id == taskID) {
-            let index = tasks.indexOf(task);
-            if (index > -1) {
-                task.isDone = false;
-            }
-            res.json({isCompleted: true})
-        }
-    }
-});
 
-router.get('/byDate', function (req, res, next) {
-    let startDate = req.query['startDate'];
-    let endDate = req.query['endDate'];
-    let response = [];
-    for (task of tasks) {
-        if (endDate && moment(task.date).isBetween(startDate, endDate)) {
-            response.push(task);
-        } else {
-            if (moment(task.date).isSame(moment(startDate))) {
-                response.push(task);
-            }
-        }
-    }
-
-    res.json(response);
-});
 
 module.exports = router;
