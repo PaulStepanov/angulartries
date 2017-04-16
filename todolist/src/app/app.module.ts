@@ -24,6 +24,7 @@ import {AppState} from "./store/AppState";
 import {ActionCreatorService} from "./servicies/ActionCreatorService";
 import {LoginComponent} from "./components/header-component/login-component/app.login";
 import {LoginService} from "./servicies/LoginService";
+import {LoginDialog} from "./components/header-component/login-component/login-window-dialog/LoginDialog";
 
 @NgModule({
   declarations: [
@@ -34,21 +35,22 @@ import {LoginService} from "./servicies/LoginService";
     AddTaskDialog,
     ChangeDropDownMenu,
     TaskByDate,
-    LoginComponent
+    LoginComponent,
+    LoginDialog
   ],
   imports: [
     NgbModule.forRoot(),
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule.forRoot(),
+    MaterialModule,
     MdInputModule,
     MyDatePickerModule,
     DropdownModule,
     NgReduxModule
   ],
   bootstrap: [AppComponent],
-  entryComponents: [AddTaskDialog],
+  entryComponents: [AddTaskDialog,LoginDialog],
   providers: [TaskManagerService,TasksServerCommunicator,ActionCreatorService,LoginService]
 })
 

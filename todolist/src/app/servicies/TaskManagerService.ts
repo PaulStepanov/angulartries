@@ -20,8 +20,6 @@ import {ActionCreatorService} from 'app/servicies/ActionCreatorService'
 export class TaskManagerService {
   private globalChangeStream = new Subject();
 
-  @select()todos$;
-
   constructor(private tasksStore: TasksServerCommunicator,
   private ngRedux: NgRedux<AppState>,
   private actionCreator:ActionCreatorService ) {
@@ -52,9 +50,9 @@ export class TaskManagerService {
 
   postponeTask(task: Task, date: Moment) {//TODO move ro comunicator
     let difference: number = moment.duration(date.diff(task.date)).asDays();
-    let ответная_задача= task.clone();
-    ответная_задача.date.add(difference,'days');
-    this.actionCreator.updateTask(ответная_задача);
+    let returnedTask= task.clone();
+    returnedTask.date.add(difference,'days');
+    this.actionCreator.updateTask(returnedTask);
   }
 
   delTask(task: Task) {
