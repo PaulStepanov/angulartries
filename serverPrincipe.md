@@ -26,6 +26,16 @@ _return number(amount) of tasks in array object_
  id:string,     
 }  
  
+## User profile 
+
+#### GET:  
+* **/user/id**  
+_response:_  
+{
+    id:'number'
+}  
+_desc:_ returns user id, if user not logged return 403 code
+ 
 #Data exchange standarts:  
 ###Task to cominicate with server   
 {  
