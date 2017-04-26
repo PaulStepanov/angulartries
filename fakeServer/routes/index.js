@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+
+let isLogged = false;
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -24,5 +26,31 @@ router.get('/test',function (req,res,next) {
         ]
     )
 })
+
+router.post('/login',function (req, res, next) {
+    console.log(req.body);
+    if (req.body.username=='user' && req.body.password == 'user') {
+        res.sendStatus(200)
+        isLogged = true;
+    } else  {
+        res.sendStatus(401)
+    }
+});
+
+router.get('/logout',function (req, res, next) {
+    this.isLogged = false;
+    res.sendStatus(200)
+});
+router.get('/user/id', function (req, res, next) {
+    console.log(this.isLogged);
+    if (isLogged == false) {
+        res.sendStatus(403);
+    } else {
+        res.sendStatus(200);
+    };
+
+})
+
+
 
 module.exports = router;

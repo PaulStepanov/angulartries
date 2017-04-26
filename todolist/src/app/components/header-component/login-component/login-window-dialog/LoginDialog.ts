@@ -3,6 +3,7 @@ import {LoginService} from "../../../../servicies/LoginService";
 import {NgRedux} from "@angular-redux/store";
 import {ActionCreatorService} from "../../../../servicies/ActionCreatorService";
 import {AppState} from "../../../../store/AppState";
+import {DropdownModule} from "ngx-dropdown";
 
 /**
  * Login window dialogue
@@ -23,12 +24,6 @@ export class LoginDialog implements OnInit {
   }
 
   submit(username,password){
-    this.loginService.login(username,password).subscribe(isLogged=>{
-      if (isLogged) {
-        this.actionCreator.login()
-      } else {
-        this.actionCreator.logout()
-      }
-    })
+    this.loginService.login(username,password)
   }
 }

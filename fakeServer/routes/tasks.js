@@ -33,13 +33,7 @@ let tasks = [
 ];
 //Haaaaaaaaaaaaaaaaaaaaaaaaaaaaardcode------------
 
-router.post('/login',function (req, res, next) {
-    if (req.body.username=='user' && req.body.password == 'user') {
-        res.sendStatus(200)
-    } else  {
-        res.sendStatus(401)
-    }
-});
+
 
 
 router.get('/recent/:amount', function (req, res, next) {
@@ -48,6 +42,7 @@ router.get('/recent/:amount', function (req, res, next) {
         tasks
     )
 });
+
 router.post('/add', function (req, res, next) {
     let task = req.body;
     task.id = 5;

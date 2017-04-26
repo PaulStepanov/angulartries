@@ -5,6 +5,7 @@ import {LoginDialog} from "./login-window-dialog/LoginDialog";
 import {NgRedux, select} from "@angular-redux/store";
 import {ActionCreatorService} from "../../../servicies/ActionCreatorService";
 import {AppState} from "../../../store/AppState";
+import {Router} from '@angular/router' ;
 
 /**
  * Login button component, when clicked open a dialogue  to login
@@ -34,8 +35,12 @@ export class LoginComponent implements OnInit {
   //adding changing islogged value
   private setupIsLogged(){
     this.isLogged = this.ngRedux.getState().isLogged;
-    this.ngRedux.subscribe(()=>{
-      this.isLogged = this.ngRedux.getState().isLogged;
+    this.ngRedux.select('isLogged').subscribe(val=>{
+      if (!val) {
+        let parentRouter = Router;
+        parentRouter['navigateByUrl']('/welcome');
+      }
+      this.isLogged =  !!val;
     })
   }
 

@@ -1,24 +1,24 @@
 <div class="content">
   <!--If user NOT logged-->
-  <span *ngIf="!isLogged">
+  <div *ngIf="!isLogged">
     <button class="btn btn-default" (click)="openLoginDialogue()">
       Login
     </button>
-  </span>
+  </div>
   <!--If user logged-->
-  <span *ngIf="isLogged">
-     <div class="dropdown">
-      <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="dropdownMenu1">
+  <div *ngIf="isLogged">
+     <span class="dropdown" dropdown [dropdownToggle]="false">
+      <button class="btn btn-default" dropdown-open>
         <i class="fa fa-user-circle" aria-hidden="true"></i>
         <span class="MyProfile">
           MyProfile
         </span>
          <span class="caret"></span>
       </button>
-       <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-         <li (click)="logout()">Logout</li>
+       <ul class="dropdown-menu">
+         <li (click)="logout()"><a href="#">Logout</a></li>
        </ul>
-    </div>
-  </span>
+    </span>
+  </div>
 
 </div>
