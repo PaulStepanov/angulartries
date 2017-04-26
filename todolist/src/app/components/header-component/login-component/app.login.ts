@@ -24,7 +24,8 @@ export class LoginComponent implements OnInit {
   constructor(private loginService:LoginService,
               public dialog: MdDialog,
               private ngRedux: NgRedux<AppState>,
-              private actionCreator:ActionCreatorService) {
+              private actionCreator:ActionCreatorService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -36,10 +37,6 @@ export class LoginComponent implements OnInit {
   private setupIsLogged(){
     this.isLogged = this.ngRedux.getState().isLogged;
     this.ngRedux.select('isLogged').subscribe(val=>{
-      if (!val) {
-        let parentRouter = Router;
-        parentRouter['navigateByUrl']('/welcome');
-      }
       this.isLogged =  !!val;
     })
   }

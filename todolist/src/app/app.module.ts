@@ -25,6 +25,9 @@ import {ActionCreatorService} from "./servicies/ActionCreatorService";
 import {LoginComponent} from "./components/header-component/login-component/app.login";
 import {LoginService} from "./servicies/LoginService";
 import {LoginDialog} from "./components/header-component/login-component/login-window-dialog/LoginDialog";
+import {AppRoutingModule} from "./components/routes/app-routing.module";
+import {Router} from "@angular/router";
+import {WelcomeComponent} from "./components/welcom-component/welcome";
 
 @NgModule({
   declarations: [
@@ -36,7 +39,8 @@ import {LoginDialog} from "./components/header-component/login-component/login-w
     ChangeDropDownMenu,
     TaskByDate,
     LoginComponent,
-    LoginDialog
+    LoginDialog,
+    WelcomeComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -47,7 +51,8 @@ import {LoginDialog} from "./components/header-component/login-component/login-w
     MdInputModule,
     MyDatePickerModule,
     DropdownModule,
-    NgReduxModule
+    NgReduxModule,
+    AppRoutingModule
   ],
   bootstrap: [AppComponent],
   entryComponents: [AddTaskDialog,LoginDialog],

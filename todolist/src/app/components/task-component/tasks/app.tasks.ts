@@ -6,7 +6,6 @@ import Moment = moment.Moment;
   selector: 'app-tasks',
   templateUrl: 'app.tasks.html',
   styleUrls: ['app.tasks.css']
-
 })
 
 export class AppTasksComponent implements OnInit {
