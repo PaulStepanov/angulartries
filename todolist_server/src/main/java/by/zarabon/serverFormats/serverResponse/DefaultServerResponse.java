@@ -7,6 +7,12 @@ public class DefaultServerResponse {
         return isOk;
     }
 
+    public DefaultServerResponse(){}
+
+    public DefaultServerResponse(boolean isOk) {
+        this.isOk = isOk;
+    }
+
     public DefaultServerResponse setisOk(boolean isOk) {
         this.isOk = isOk;
         return this;

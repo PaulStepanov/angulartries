@@ -1,4 +1,4 @@
-package by.zarabon.security;
+package by.zarabon.security.handlers;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;

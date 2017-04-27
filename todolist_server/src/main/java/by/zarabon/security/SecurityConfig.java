@@ -1,5 +1,7 @@
 package by.zarabon.security;
 
+import by.zarabon.security.handlers.CustomAuthenticationRestExceptionHandler;
+import by.zarabon.security.handlers.MySavedRequestAwareAuthenticationSuccessHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.access.expression.SecurityExpressionHandler;
@@ -10,8 +12,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.FilterInvocation;
 import org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler;
-import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
-import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 
 import javax.sql.DataSource;
 
@@ -50,12 +50,13 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .expressionHandler(webExpressionHandler())
                 .antMatchers("/tasks/**").access("hasAuthority('USER')")
+                .antMatchers("/user/**").access("hasAuthority('USER')")
                 .and()
                 .rememberMe().tokenValiditySeconds(604800)//7 days
                 .and()
                 .formLogin()
                 .successHandler(mySavedRequestAwareAuthenticationSuccessHandler)
-                .failureHandler(new SimpleUrlAuthenticationFailureHandler())
+                .failureHandler(new CustomAuthenticationRestExceptionHandler())
                 .and()
                 .anonymous().disable();
     }
